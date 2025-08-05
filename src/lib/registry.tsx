@@ -15,7 +15,7 @@ export default function StyledComponentsRegistry({
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
-    // @ts-expect-error
+
     styledComponentsStyleSheet.instance.clearTag()
     return <>{styles}</>
   })
