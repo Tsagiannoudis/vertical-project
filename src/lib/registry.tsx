@@ -15,7 +15,9 @@ export default function StyledComponentsRegistry({
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
-
+    // This is a workaround for a React 18 bug that causes styles to be inserted twice on the server.
+    // The clearTag method is not part of the official API and may change in a future version.
+    // @ts-expect-error
     styledComponentsStyleSheet.instance.clearTag()
     return <>{styles}</>
   })
