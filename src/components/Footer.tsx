@@ -58,7 +58,7 @@ export default function FooterPage() {
               <div className="flex w-full max-w-sm">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="email.."
                   className="w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#daac7f]"
                   required
                 />

@@ -54,7 +54,7 @@ export default function FormContact() {
                     </div>
 
                     <div className="text-center">
-                        <button type="submit" className="px-6 py-3 bg-[#D4CBC2] text-black font-semibold rounded-md hover:bg-[#b9b1a9] focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-ss-2xl rounded-br-2xl w-1/4">
+                        <button type="submit" className="w-full px-6 py-3 font-semibold text-black bg-[#D4CBC2] rounded-md hover:bg-[#b9b1a9] focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-ss-2xl rounded-br-2xl md:w-1/4">
                             Αποστολή
                         </button>
                     </div>
