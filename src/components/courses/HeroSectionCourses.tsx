@@ -2,7 +2,7 @@
 
 const HeroSectionCourses = () => {
     return (
-    <section className="relative w-full h-[300px]  bg-[#3c3c3c]">
+    <section className="relative w-full h-[300px]  bg-[#D4CBC2]">
         {/* <Image
           src="/h2-rev-img.jpg"
           alt="Hero Image"

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
     return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-200">
         <Image
           src="/h1-rev-img.jpg"
           alt="Hero Image"
