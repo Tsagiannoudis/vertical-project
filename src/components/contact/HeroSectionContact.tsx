@@ -2,7 +2,7 @@
 
 const HeroSectionContact = () => {
     return (
-    <section className="relative w-full h-[350px]">
+    <section className="relative w-full h-[300px] bg-[#3c3c3c]">
         {/* <Image
           src="/h2-rev-img.jpg"
           alt="Hero Image"
@@ -10,7 +10,7 @@ const HeroSectionContact = () => {
           className="object-cover"
           priority
         /> */}
-            <div className="container max-w-3xl mb-4 absolute text-center text-white align-bottom bottom-0" >
+            <div className="container max-w-3xl mb-4 absolute text-center text-white align-bottom bottom-0">
                 <h1 className="text-6xl font-bold ">Επικοινωνία</h1>
             </div>
       </section>

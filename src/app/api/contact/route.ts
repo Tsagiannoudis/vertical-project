@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     const emailPayload: CreateEmailOptions = {
       from: `Vertical Project <${emailFrom}>`, // Καλύτερη πρακτική για το 'from'
       to: [emailTo],
-      reply_to: email,
+      replyTo: email,
       subject: `Νέα φόρμα επικοινωνίας - ${name} ${surname}`,
       html: `
         <h1>Νέο Μήνυμα Επικοινωνίας</h1>
