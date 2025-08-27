@@ -5,7 +5,7 @@ const WhatWeOfferToYou = () => {
         <h2 className="text-3xl font-bold text-center">
           Τι σας προσφέρουμε
         </h2>
-        <p className="text-lg text-center mt-4">
+        <p className="text-lg mt-4 text-justify">
             Στόχος μας είναι να δημιουργούμε δασκάλους με γνώσεις, αυτοπεποίθηση και έμπνευση.
 Προσφέρουμε εξειδικευμένες εκπαιδεύσεις στους τομείς της Aerial Yoga, της Yoga, Handstands και Thai Yoga Massage, βασισμένες σε χρόνια εμπειρίας και διεθνή πρότυπα.
         </p>

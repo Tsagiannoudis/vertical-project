@@ -5,10 +5,10 @@ const WhyToBecomeATeacher = () => {
         <h2 className="text-3xl font-bold text-center">
           Γιατί να γίνεις Vertical Teacher
         </h2>
-        <p className="text-lg text-center mt-4 mb-4">
+        <p className="text-lg  text-justify mt-4 mb-4">
           Είναι τέχνη, πρακτική και για πολλούς καριέρα. Η εκπαίδευση για να γίνεις δάσκαλος σε βοηθάει να:
         </p>
-        <ul className="text-left inline-block">
+        <ul className=" text-justify inline-block ">
           <li>✔ Εμβαθύνεις την πρακτική σου, κατανοώντας την ευθυγράμμιση, την ασφάλεια και τη δημιουργία αλληλουχιών.</li>
           <li>✔ Αποκτήσεις αυτοπεποίθηση στην καθοδήγηση τάξεων και στην ασφαλή καθοδήγηση των μαθητών σου.</li>
           <li>✔ Ανοίξεις νέες επαγγελματικές ευκαιρίες σε στούντιο, retreats και αλλού.</li>
