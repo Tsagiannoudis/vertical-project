@@ -15,7 +15,7 @@ const instructors =[
 
 export default function Instructors() {
     return (
-        <section className="w-full mx-auto py-16 sm:py-24 bg-[#F3F3F3]">
+        <section className="w-full mx-auto py-16 sm:py-24 bg-[#fff]">
             <div className="container mx-auto text-black text-center px-4">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8">
                     Οι Εκπαιδευτές μας
