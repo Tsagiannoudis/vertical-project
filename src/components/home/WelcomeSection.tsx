@@ -9,7 +9,7 @@ const WelcomeSection = () => {
           Where education meets inspiration.
         </p>
         <p className="text-lg  text-justify mt-4">
-          Whether you're an educator looking to grow, a student seeking practical knowledge, or simply someone passionate about learning — you've just found your space.
+          Whether you&apos;re an educator looking to grow, a student seeking practical knowledge, or simply someone passionate about learning — you&apos;ve just found your space.
         </p>
         <p className="text-lg text-justify mt-4">
           At Vertical Project, we bring together expert trainers, engaging workshops, and a vibrant community of learners and teachers.
