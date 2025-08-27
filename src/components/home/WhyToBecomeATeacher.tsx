@@ -3,16 +3,16 @@ const WhyToBecomeATeacher = () => {
     <section className="w-full mx-auto p-8">
       <div className="container mx-auto text-center  text-black">
         <h2 className="text-3xl font-bold text-center">
-          Why to become an Vertical Teacher
+          Γιατί να γίνεις Vertical Teacher
         </h2>
-        <p className="text-lg text-justify mt-4 mb-4">
-          it’s an art, a practice, and for many, a career. Training to become a teacher helps you:
+        <p className="text-lg text-center mt-4 mb-4">
+          Είναι τέχνη, πρακτική και για πολλούς καριέρα. Η εκπαίδευση για να γίνεις δάσκαλος σε βοηθάει να:
         </p>
-        <ul className="text-justify">
-          <li>✔ Deepen your practice by understanding alignment, safety and sequencing.</li>
-          <li>✔ Gain confidence in leading classes and guiding students safely.</li>
-          <li>✔ Open new career opportunities in studios, retreats and more.</li>
-          <li>✔ Join a growing global community of aerial yoga instructors.</li>
+        <ul className="text-left inline-block">
+          <li>✔ Εμβαθύνεις την πρακτική σου, κατανοώντας την ευθυγράμμιση, την ασφάλεια και τη δημιουργία αλληλουχιών.</li>
+          <li>✔ Αποκτήσεις αυτοπεποίθηση στην καθοδήγηση τάξεων και στην ασφαλή καθοδήγηση των μαθητών σου.</li>
+          <li>✔ Ανοίξεις νέες επαγγελματικές ευκαιρίες σε στούντιο, retreats και αλλού.</li>
+          <li>✔ Γίνεις μέλος μιας αναπτυσσόμενης παγκόσμιας κοινότητας δασκάλων aerial yoga.</li>
         </ul>
       </div>
     </section>

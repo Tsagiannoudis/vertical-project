@@ -1,25 +1,27 @@
 const WelcomeSection = () => {
   return (
     <section className="w-full mx-auto p-8 bg-[#F3F3F3]">
-      <div className="container mx-auto  text-black">
+      <div className="container mx-auto text-center text-black">
         <h1 className="text-4xl font-bold text-center">
-          Welcome to Vertical Project
+          Καλώς ήρθατε στο Vertical Project
         </h1>
-        <p className="text-lg mt-4">
-          Where education meets inspiration.
-        </p>
-        <p className="text-lg  text-justify mt-4">
-          Whether you&apos;re an educator looking to grow, a student seeking practical knowledge, or simply someone passionate about learning — you&apos;ve just found your space.
-        </p>
-        <p className="text-lg text-justify mt-4">
-          At Vertical Project, we bring together expert trainers, engaging workshops, and a vibrant community of learners and teachers.
-        </p>
-        <p className="text-lg text-justify mt-4">
-          Our goal is to create experiences that go beyond theory — focused on real-world skills, collaboration, and continuous development
-        </p>
-        <p className="text-lg mt-4">
-          Explore. Learn. Grow.
-        </p>
+        <div className="max-w-4xl mx-auto mt-4 space-y-4">
+          <p className="text-lg">
+            Εδώ που η εκπαίδευση συναντά την έμπνευση.
+          </p>
+          <p className="text-lg">
+            Είτε είστε εκπαιδευτικός που θέλει να εξελιχθεί, μαθητής που αναζητά πρακτικές γνώσεις, ή απλά κάποιος με πάθος για μάθηση — μόλις βρήκατε τον χώρο σας.
+          </p>
+          <p className="text-lg">
+            Στο Vertical Project, φέρνουμε κοντά έμπειρους εκπαιδευτές, διαδραστικά workshops και μια ζωντανή κοινότητα μαθητών και δασκάλων.
+          </p>
+          <p className="text-lg">
+            Στόχος μας είναι να δημιουργούμε εμπειρίες που ξεπερνούν τη θεωρία — εστιάζοντας σε δεξιότητες του πραγματικού κόσμου, τη συνεργασία και τη συνεχή εξέλιξη.
+          </p>
+          <p className="text-lg font-semibold">
+            Εξερευνήστε. Μάθετε. Αναπτυχθείτε.
+          </p>
+        </div>
       </div>
     </section>
   );
