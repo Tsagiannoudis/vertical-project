@@ -32,24 +32,24 @@ const CheckCircleIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const WhyToBecomeATeacher = () => {
   return (
-    <section className="w-full mx-auto p-4 sm:p-8 bg-[#D4CBC2]">
-      <div className="container mx-auto text-black">
-        <h2 className="text-3xl mt-6 mb-10 font-bold text-center">
+    <section className="w-full mx-auto py-16 sm:py-24 bg-[#D4CBC2]">
+      <div className="container mx-auto px-4 text-gray-800">
+        <h2 className="text-3xl md:text-4xl mt-6 mb-10 font-bold text-center">
           Γιατί να γίνεις Vertical Teacher
         </h2>
 
         <div className="max-w-4xl mb-10 mx-auto">
-          <p className="text-lg text-center mb-12">
+          <p className="text-lg text-center mb-16">
             Είναι τέχνη, πρακτική και για πολλούς καριέρα. Η εκπαίδευση για να
             γίνεις δάσκαλος σε βοηθάει να:
           </p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
             {benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <CheckCircleIcon className="w-6 h-6 text-[#3c3c3c]" />
+              <li key={index} className="flex items-center">
+                <div className="flex-shrink-0 h-12 w-12 rounded-full bg-white/50 flex items-center justify-center ring-2 ring-white/20">
+                  <CheckCircleIcon className="w-7 h-7 text-gray-700" />
                 </div>
-                <p className="ml-3 text-lg">{benefit.text}</p>
+                <p className="ml-5 text-lg font-medium">{benefit.text}</p>
               </li>
             ))}
           </ul>

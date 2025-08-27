@@ -1,21 +1,59 @@
+const lessons = [
+  {
+    title: "Aerial Yoga",
+    description:
+      "Μάθετε να διδάσκετε Aerial Yoga με ασφάλεια και αυτοπεποίθηση, ενσωματώνοντας την αιώρα στη διδασκαλία σας.",
+  },
+  {
+    title: "Yoga",
+    description:
+      "Εμβαθύνετε στην πρακτική της Yoga και αποκτήστε τις δεξιότητες για να γίνετε ένας εμπνευσμένος δάσκαλος.",
+  },
+  {
+    title: "Handstands",
+    description:
+      "Αναπτύξτε τη δύναμη και την ισορροπία σας, μαθαίνοντας τις τεχνικές για να διδάξετε Handstands με ασφάλεια.",
+  },
+  {
+    title: "Thai Yoga Massage",
+    description:
+      "Μάθετε τις αρχές και τις τεχνικές του Thai Yoga Massage για να προσφέρετε αναζωογονητικές θεραπείες.",
+  },
+  {
+    title: "Functional Anatomy",
+    description:
+      "Κατανοήστε την ανθρώπινη ανατομία και τη λειτουργία του σώματος για να βελτιώσετε τη διδασκαλία σας.",
+  },
+];
+
 const WhatWeOfferToYou = () => {
   return (
-    <section className="w-full mx-auto p-4 sm:p-8 bg-[#F3F3F3]">
+    <section className="w-full mx-auto p-4 sm:p-8 bg-[#fff]">
       <div className="container mx-auto text-black">
         <h2 className="text-3xl mt-6 mb-16 font-bold text-center">
           Τι σας προσφέρουμε
         </h2>
 
-        <div className="max-w-4xl mb-10 mx-auto space-y-4">
-          <p className="text-lg">
+        <div className="max-w-6xl mb-10 mx-auto">
+          <p className="text-lg text-center mb-16 max-w-3xl mx-auto">
             Στόχος μας είναι να δημιουργούμε δασκάλους με γνώσεις, αυτοπεποίθηση
-            και έμπνευση.
+            και έμπνευση. Ανακαλύψτε τις εξειδικευμένες εκπαιδεύσεις μας,
+            σχεδιασμένες για να σας προσφέρουν βαθιά γνώση και πρακτικές
+            δεξιότητες.
           </p>
-          <p className="text-lg">
-            Προσφέρουμε εξειδικευμένες εκπαιδεύσεις στους τομείς της Aerial Yoga,
-            της Yoga, Handstands και Thai Yoga Massage, βασισμένες σε χρόνια
-            εμπειρίας και διεθνή πρότυπα.
-          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {lessons.map((lesson, index) => (
+              <li
+                key={index}
+                className="bg-[#D4CBC2] p-8 rounded-2xl shadow-sm text-center transition-transform duration-300 hover:scale-105 hover:shadow-md"
+              >
+                <h3 className="text-2xl mb-4 font-semibold text-gray-800">
+                  {lesson.title}
+                </h3>
+                <p className="text-gray-600">{lesson.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
