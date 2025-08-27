@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export default function FooterPage() {
   return (
-    <footer className="bg-white text-black shadow-md w-3/4 align-center mx-auto rounded-2xl mt-6 p-4">
+    <footer className="bg-white text-black shadow-md w-11/12 align-center mx-auto rounded-2xl mt-6 p-4">
       <div className="container mx-auto py-12 px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-semibold text-black mb-4">Γρήγοροι σύνδεσμοι</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm inline-block text-left">
               <li>
                 <Link href="/courses" className="hover:underline">
                   Εκπαιδευτικά
@@ -40,11 +40,7 @@ export default function FooterPage() {
             <form
               action=""
               method="get"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
+              className="flex flex-col items-center"
             >
               <Image
                 src="/logo-black-vertical.svg"
@@ -73,10 +69,10 @@ export default function FooterPage() {
           </div>
 
           {/* Column 3: Social */}
-          <div>
+          <div className="text-center md:text-right">
             <h4 className="font-semibold text-black mb-4">Ακολουθήστε μας</h4>
-            <div className="flex space-x-4 text-sm">
-              <ul>
+            <div className="flex justify-center space-x-4 text-sm md:justify-end">
+              <ul className="text-left">
                 <li>
                   <a
                     href="#"
