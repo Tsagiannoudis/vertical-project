@@ -1,7 +1,7 @@
 const WhatWeOfferToYou = () => {
   return (
     <section className="w-full mx-auto p-4 sm:p-8 bg-[#F3F3F3]">
-      <div className="container mx-auto text-black text-center">
+      <div className="container mx-auto text-black">
         <h2 className="text-3xl font-bold text-center">Τι σας προσφέρουμε</h2>
         <div className="max-w-4xl mx-auto mt-4 space-y-4">
           <p className="text-lg">
