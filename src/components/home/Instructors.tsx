@@ -42,7 +42,7 @@ export default function Instructors() {
                             ) : (
                                 <div className="relative w-52 h-52 mb-6">
                                     {/* Design 2: Concentric Circles */}
-                                       <div className="absolute inset-0 bg-gradient-to-tr from-[#A1FF81] to-[#A1FF81] rounded-2xl transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:rotate-[-6deg]"></div>
+                                       <div className="absolute inset-0 bg-gradient-to-tr from-[#F2E94E] to-[#F2E94E] rounded-2xl transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:rotate-[-6deg]"></div>
                                     <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-300 ease-in-out group-hover:scale-95">
                                         <Image
                                             src={instructor.photo}

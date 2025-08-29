@@ -46,7 +46,7 @@ const WhyToBecomeATeacher = () => {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-center">
-                <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#a1ff81] flex items-center justify-center ring-2 ring-white/20">
+                <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#F2E94E] flex items-center justify-center ring-2 ring-white/20">
                   <CheckCircleIcon className="w-7 h-7 text-gray-700" />
                 </div>
                 <p className="ml-5 text-lg font-medium">{benefit.text}</p>

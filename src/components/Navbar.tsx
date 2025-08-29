@@ -35,7 +35,7 @@ const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`${pathname === link.href ? "text-[#daac7f]" : "hover:text-[#d4cbc2]"} transition-colors`}
+                className={`${pathname === link.href ? "text-[#F2E94E]" : "hover:text-[#F2E94E]"} transition-colors [text-shadow:0_0_1px_black]`}
               >
                 {link.label}
               </Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`${pathname === link.href ? "text-[#daac7f]" : "hover:text-[#d4cbc2]"} transition-colors text-lg`}
+                  className={`${pathname === link.href ? "text-[#daac7f]" : "hover:text-[#d4cbc2]"} transition-colors text-lg [text-shadow:0_0_1px_black]`}
                   onClick={() => setIsMenuOpen(false)} // Κλείνει το μενού με το κλικ
                 >
                   {link.label}
