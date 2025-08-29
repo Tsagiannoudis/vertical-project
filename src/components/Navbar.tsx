@@ -35,7 +35,11 @@ const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`${pathname === link.href ? "text-[#F2E94E]" : "hover:text-[#F2E94E]"} transition-colors [text-shadow:0_0_1px_black]`}
+                className={`px-3 py-1 rounded-md transition-colors duration-200 ${
+                  pathname === link.href
+                    ? 'bg-[#F2E94E] text-black'
+                    : 'hover:bg-[#F2E94E] hover:text-black'
+                }`}
               >
                 {link.label}
               </Link>
@@ -56,8 +60,12 @@ const Navbar = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`${pathname === link.href ? "text-[#daac7f]" : "hover:text-[#d4cbc2]"} transition-colors text-lg [text-shadow:0_0_1px_black]`}
-                  onClick={() => setIsMenuOpen(false)} // Κλείνει το μενού με το κλικ
+                  className={`px-4 py-2 rounded-md transition-colors duration-200 text-lg w-full text-center ${
+                    pathname === link.href
+                      ? 'bg-[#daac7f] text-black'
+                      : 'hover:bg-[#d4cbc2] hover:text-black'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </Link>

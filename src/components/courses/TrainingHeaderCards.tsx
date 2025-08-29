@@ -1,6 +1,6 @@
 export default function TrainingsHeaderCards() {
   return (
-    <section className="w-full mx-auto p-4 sm:p-8 bg-[#F3F3F3]">
+    <section className="w-full mx-auto p-4 sm:p-8 bg-white">
       <h2 className="text-2xl md:text-3xl font-semibold text-black mb-4 text-center mt-20">
         Εκπαιδευτικά προγράμματα για δασκάλους
       </h2>

@@ -37,7 +37,7 @@ export default function TrainingsCards() {
         <div>
             {trainings.map((training, index) => {
                 const isImageLeft = index % 2 === 0;
-                const sectionBg = isImageLeft ? "bg-[#d4cbc2]" : "bg-[#F3F3F3]";
+                const sectionBg = isImageLeft ? "bg-[#F3F3F3]" : "bg-[#F3F3F3]";
 
                 const imageBlock = (
                     <div className="relative md:w-1/2 w-full h-80 md:h-auto">
@@ -54,7 +54,7 @@ export default function TrainingsCards() {
                 const textBlock = (
                     <div className="md:w-1/2 w-full flex items-center justify-center">
                         <div className="p-8 md:p-16 lg:p-24 max-w-2xl mx-auto text-center md:text-left">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black">{training.title}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black text-decoration-line:underline">{training.title}</h3>
                             <p className="text-lg text-gray-700">{training.description}</p>
                         </div>
                     </div>

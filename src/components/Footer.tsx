@@ -53,12 +53,12 @@ export default function FooterPage() {
                 <input
                   type="email"
                   placeholder="email.."
-                  className="w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#daac7f]"
+                  className="w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#F2E94E]"
                   required
                 />
                 <button
                   type="submit"
-                  className="bg-[#D4CBC2] text-black p-2 rounded-r-md hover: bg-opacity-90 transition-colors"
+                  className="bg-[#F2E94E] text-black p-2 rounded-r-md hover: bg-opacity-90 transition-colors"
                 >
                   Αποστολή
                 </button>
