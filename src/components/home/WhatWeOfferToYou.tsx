@@ -45,7 +45,7 @@ const WhatWeOfferToYou = () => {
             {lessons.map((lesson, index) => (
               <li
                 key={index}
-                className="bg-[#D4CBC2] p-8 rounded-2xl shadow-sm text-center transition-transform duration-300 hover:scale-105 hover:shadow-md"
+                className="bg-[#a1ff81] p-8 rounded-2xl shadow-sm text-center transition-transform duration-300 hover:scale-105 hover:shadow-md"
               >
                 <h3 className="text-2xl mb-4 font-semibold text-gray-800">
                   {lesson.title}
