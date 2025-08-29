@@ -25,8 +25,6 @@ export default function FooterPage() {
                   Blog
                 </Link>
               </li>
-              {/* You can create an /about page later */}
-              {/* <li><Link href="/about" className="hover:underline">About Us</Link></li> */}
               <li>
                 <Link href="/contact" className="hover:underline">
                   Επικοινωνία
