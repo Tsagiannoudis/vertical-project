@@ -62,7 +62,7 @@ const Navbar = () => {
                   href={link.href}
                   className={`px-4 py-2 rounded-md transition-colors duration-200 text-lg w-full text-center ${
                     pathname === link.href
-                      ? 'bg-[#daac7f] text-black'
+                      ? 'bg-[#F2E94E] text-black'
                       : 'hover:bg-[#d4cbc2] hover:text-black'
                   }`}
                   onClick={() => setIsMenuOpen(false)}

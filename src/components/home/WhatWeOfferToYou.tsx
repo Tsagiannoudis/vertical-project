@@ -30,7 +30,7 @@ const WhatWeOfferToYou = () => {
   return (
     <section className="w-full mx-auto p-4 sm:p-8 bg-[#fff]">
       <div className="container mx-auto text-black">
-        <h2 className="text-3xl mt-6 mb-16 font-bold text-center">
+        <h2 className="text-3xl mt-16 mb-6 font-bold text-center">
           Τι σας προσφέρουμε
         </h2>
 

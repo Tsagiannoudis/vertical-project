@@ -160,7 +160,7 @@ export default function FormContact() {
                     </div>
 
                     <div className="text-center">
-                        <button type="submit" disabled={status.submitting} className="w-full px-6 py-3 font-semibold text-black bg-[#F2E94E] rounded-md hover:bg-[#b9b1a9] focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-ss-2xl rounded-br-2xl md:w-1/4 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                        <button type="submit" disabled={status.submitting} className="w-full px-6 py-3 font-semibold text-black bg-[#F2E94E] rounded-md hover:bg-[#f0e631] focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-ss-2xl rounded-br-2xl md:w-1/4 disabled:bg-gray-400 disabled:cursor-not-allowed">
                             {status.submitting ? 'Αποστολή...' : 'Αποστολή'}
                         </button>
                     </div>
