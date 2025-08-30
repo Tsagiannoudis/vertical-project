@@ -1,12 +1,12 @@
 const WelcomeSection = () => {
   return (
-    <section className="w-full mx-auto p-4 sm:p-8 bg-[#F3F3F3]">
+    <section className="w-full mx-auto py-16 sm:py-24 bg-[#F3F3F3]">
       <div className="container mx-auto text-black">
         <h1 className="text-4xl mt-6 mb-16 font-bold text-center">
           Καλώς ήρθατε στο Vertical Project
         </h1>
 
-        <div className="max-w-4xl mb-10 mx-auto space-y-4">
+        <div className="max-w-6xl mx-auto space-y-4">
           <p className="text-lg">Εδώ που η εκπαίδευση συναντά την έμπνευση.</p>
           <p className="text-lg">
             Είτε είστε εκπαιδευτικός που θέλει να εξελιχθεί, μαθητής που αναζητά

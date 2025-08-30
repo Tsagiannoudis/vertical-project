@@ -20,14 +20,13 @@ const instructors = [
 export default function Instructors() {
   return (
     <section className="w-full mx-auto py-16 sm:py-24 bg-[#fff]">
-      <div className="container mx-auto text-black px-4">
-        <div className="flex flex-col justify-center md:flex-row gap-8 items-center md:items-start mb-20 text-center md:text-left">
-          <h2 className="text-4xl md:text-4xl font-bold md:w-1/3">
-            Γνωρίστε τους <br />
-            Εκπαιδευτές μας
-            <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto md:mx-0" />
+      <div className="container mx-auto text-black px-4 max-w-6xl ">
+        <div className="md:flex-row gap-8 items-center md:items-start mb-20 text-center md:text-left ">
+          <h2 className="text-3xl mt-16  font-bold text-center">
+            Γνωρίστε τους Εκπαιδευτές μας
+            <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
           </h2>
-          <p className="text-lg md:w-1/3">
+          <p className="text-lg">
             Στο Vertical Project, οι εκπαιδευτές μας είναι η καρδιά της
             αποστολής μας. Με πάθος για τη διδασκαλία και βαθιά γνώση,
             δεσμεύονται να σας καθοδηγήσουν στο ταξίδι σας.
