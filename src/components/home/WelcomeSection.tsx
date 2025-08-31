@@ -44,7 +44,7 @@ const WelcomeSection = () => {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           
           {/* Right Column: Text Content */}
-          <div className="text-center md:text-left">
+          <div className="md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Μάθηση που Εμπνέει
             </h2>

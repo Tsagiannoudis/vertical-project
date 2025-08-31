@@ -27,7 +27,7 @@ export default function Instructors() {
             Γνωρίστε τους Εκπαιδευτές μας
             <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
           </h2>
-          <p className="text-lg">
+          <p className="text-lg md:text-left">
             Στο Vertical Project, οι εκπαιδευτές μας είναι η καρδιά της
             αποστολής μας. Με πάθος για τη διδασκαλία και βαθιά γνώση,
             δεσμεύονται να σας καθοδηγήσουν στο ταξίδι σας.
