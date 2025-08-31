@@ -35,7 +35,7 @@ const WhatWeOfferToYou = () => {
             Τι σας προσφέρουμε
           </h2>
           <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6"/>
-          <p className="text-lg">
+          <p className="text-lg text-left">
               Στόχος μας είναι να δημιουργούμε δασκάλους με γνώσεις, αυτοπεποίθηση
               και έμπνευση. Ανακαλύψτε τις εξειδικευμένες εκπαιδεύσεις μας,
               σχεδιασμένες για να σας προσφέρουν βαθιά γνώση και πρακτικές

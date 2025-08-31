@@ -21,7 +21,8 @@ export default function Instructors() {
   return (
     <section className="w-full mx-auto py-16 sm:py-24 bg-[#fff]">
       <div className="container mx-auto text-black px-4 max-w-6xl ">
-        <div className="md:flex-row gap-8 items-center md:items-start mb-20 text-center md:text-left ">
+        
+        <div className="md:flex-row gap-8 items-center md:items-start mb-20 text-center md:text-left">
           <h2 className="text-3xl mt-16  font-bold text-center">
             Γνωρίστε τους Εκπαιδευτές μας
             <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
