@@ -2,49 +2,52 @@ import Image from "next/image";
 
 const trainings = [
     {
-        slug: "aerial-yoga Teacher Training",
+        slug: "aerial-yoga-teacher-training",
         imgSrc: "/trainings-icons/aerial-yoga-tt.webp",
         title: "Aerial Yoga Teacher Training",
-        description: "Ανακαλύψτε την ελευθερία της κίνησης με τα μαθήματα Aerial Yoga."
+        description: "Ανακαλύψτε την ελευθερία της κίνησης με τα μαθήματα Aerial Yoga.",
+        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα."
     },
     {
-        slug: "handstands Teacher Training",
+        slug: "handstands-teacher-training",
         imgSrc: "/trainings-icons/handstands-tt.webp",
         title: "Handstands Teacher Training",
-        description: "Κατακτήστε την τέχνη των κατακορύφων με την καθοδήγηση των ειδικών μας."
+        description: "Κατακτήστε την τέχνη των κατακορύφων με την καθοδήγηση των ειδικών μας.",
+        alt: "Άνδρας κάνει κατακόρυφο σε εξωτερικό χώρο με φόντο τη φύση."
     },
     {
         slug: "thai-yoga-massage",
         imgSrc: "/trainings-icons/thai-massage.png",
         title: "Thai Yoga Massage  Teacher Training",
-        description: "Μάθετε την τέχνη του Thai Yoga Massage για να ενισχύσετε τις θεραπευτικές σας ικανότητες."
+        description: "Μάθετε την τέχνη του Thai Yoga Massage για να ενισχύσετε τις θεραπευτικές σας ικανότητες.",
+        alt: "Άτομο δέχεται Thai Yoga Massage σε ένα ήρεμο περιβάλλον."
     },
     {
         slug: "functional-anatomy",
         imgSrc: "/trainings-icons/functional-anatomy.jpg",
         title: "Functional Anatomy Teacher Training",
-        description: "Κατανοήστε τη μηχανική του σώματος για να βελτιώσετε την πρακτική σας στη yoga."
+        description: "Κατανοήστε τη μηχανική του σώματος για να βελτιώσετε την πρακτική σας στη yoga.",
+        alt: "Σχηματική απεικόνιση του ανθρώπινου μυοσκελετικού συστήματος."
     },
     {
         slug: "yoga-teacher-training",
         imgSrc: "/trainings-icons/yoga.png",
         title: "Yoga 200hrs & 300hrs Teacher Training",
-        description: "Εμβαθύνετε στην πρακτική σας με την ολοκληρωμένη εκπαίδευση δασκάλων Yoga."
+        description: "Εμβαθύνετε στην πρακτική σας με την ολοκληρωμένη εκπαίδευση δασκάλων Yoga.",
+        alt: "Ομάδα ανθρώπων σε στάση γιόγκα κατά τη διάρκεια ενός μαθήματος."
     },
 ];
 export default function TrainingsCards() {
     return (
-        <div>
+        <div className=" mx-auto px-4 space-y-16 bg-white">
             {trainings.map((training, index) => {
                 const isImageLeft = index % 2 === 0;
-                const sectionBg = isImageLeft ? "bg-[#F3F3F3]" : "bg-[#F3F3F3]";
 
                 const imageBlock = (
-                    <div className="relative md:w-1/2 w-full h-80 md:h-auto">
-                        {/* On mobile, height is fixed. On desktop, it will stretch. */}
+                    <div className="relative md:w-1/2 w-full min-h-[320px] md:min-h-0">
                         <Image
                             src={training.imgSrc}
-                            alt={training.title}
+                            alt={training.alt}
                             fill
                             className="object-cover"
                         />
@@ -52,17 +55,18 @@ export default function TrainingsCards() {
                 );
 
                 const textBlock = (
-                    <div className="md:w-1/2 w-full flex items-center justify-center">
+                    <div className="md:w-1/2 w-full flex items-center justify-center py-12 bg-[#F3F3F3]">
                         <div className="p-8 md:p-16 lg:p-24 max-w-2xl mx-auto text-center md:text-left">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-black text-decoration-line:underline">{training.title}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold mb-4">{training.title}</h3>
+                            <hr className="border-[#f2e94e] border-2 mt-4 w-36 mb-6 mx-auto md:mx-0"/>
                             <p className="text-lg text-gray-700">{training.description}</p>
                         </div>
                     </div>
                 );
 
                 return (
-                    <section key={training.slug} className={`w-full ${sectionBg}`}>
-                        <div className="flex flex-col md:flex-row md:items-stretch min-h-[700px]">
+                    <section key={training.slug} className="w-full bg-white overflow-hidden rounded-2xl shadow-lg">
+                        <div className="flex flex-col md:flex-row md:items-stretch">
                             {isImageLeft ? imageBlock : textBlock}
                             {isImageLeft ? textBlock : imageBlock}
                         </div>
