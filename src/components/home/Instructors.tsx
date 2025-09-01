@@ -22,9 +22,9 @@ export default function Instructors() {
     <section className="w-full mx-auto py-16 sm:py-24 bg-[#fff]">
       <div className="container mx-auto text-black px-4 max-w-6xl ">
         
-        <div className="md:flex-row gap-8 items-center md:items-start mb-20 text-center md:text-left">
-          <h2 className="text-3xl mt-16  font-bold text-center">
-            Γνωρίστε τους Εκπαιδευτές μας
+        <div className="md:flex-row gap-8 items-center md:items-start mb-20 md:text-left">
+          <h2 className="text-3xl mt-16 font-bold text-center">
+            Γνωρίστε τους <br className="md:hidden" /> Εκπαιδευτές μας
             <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
           </h2>
           <p className="text-lg md:text-left">
@@ -40,7 +40,7 @@ export default function Instructors() {
               key={instructor.id}
               className="group flex flex-col items-center text-center"
             >
-              <div className="relative w-52 h-52 mb-6">
+              <div className="relative w-64 h-64 mb-6">
                 <div className="relative w-full h-full rounded-2xl border-4 border-[#f2e94e] overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:border-8 group-hover:shadow-xl group-hover:shadow-[#f2e94e]/50">
                   <Image
                     src={instructor.photo}
