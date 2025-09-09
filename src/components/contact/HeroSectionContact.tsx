@@ -10,8 +10,8 @@ const HeroSectionContact = () => {
           className="object-cover"
           priority
         /> */}
-            <div className="container max-w-3xl mb-4 absolute text-center text-white align-bottom bottom-0">
-                <h1 className="text-6xl font-bold ">Επικοινωνία</h1>
+            <div className="container mx-auto max-w-7xl px-4 absolute inset-x-0 bottom-0 mb-4 text-left text-white">
+                <h1 className="text-5xl font-bold">Επικοινωνία</h1>
             </div>
       </section>
     );
