@@ -39,40 +39,42 @@ const trainings = [
 ];
 export default function TrainingsCards() {
     return (
-        <div className=" mx-auto px-4 space-y-16 bg-white">
-            {trainings.map((training, index) => {
-                const isImageLeft = index % 2 === 0;
+        <section className="w-full bg-white">
+            <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24 space-y-16">
+                {trainings.map((training, index) => {
+                    const isImageLeft = index % 2 === 0;
 
-                const imageBlock = (
-                    <div className="relative md:w-1/2 w-full min-h-[320px] md:min-h-0">
-                        <Image
-                            src={training.imgSrc}
-                            alt={training.alt}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                );
-
-                const textBlock = (
-                    <div className="md:w-1/2 w-full flex items-center justify-center py-12 bg-[#F3F3F3]">
-                        <div className="p-8 md:p-16 lg:p-24 max-w-2xl mx-auto text-center md:text-left">
-                            <h3 className="text-3xl md:text-4xl font-bold mb-4">{training.title}</h3>
-                            <hr className="border-[#f2e94e] border-2 mt-4 w-36 mb-6 mx-auto md:mx-0"/>
-                            <p className="text-lg text-gray-700">{training.description}</p>
+                    const imageBlock = (
+                        <div className="relative md:w-1/2 w-full min-h-[320px] md:min-h-0 align-center">
+                            <Image
+                                src={training.imgSrc}
+                                alt={training.alt}
+                                fill
+                                className="object-cover"
+                            />
                         </div>
-                    </div>
-                );
+                    );
 
-                return (
-                    <section key={training.slug} className="w-full bg-white overflow-hidden rounded-2xl shadow-lg">
-                        <div className="flex flex-col md:flex-row md:items-stretch">
-                            {isImageLeft ? imageBlock : textBlock}
-                            {isImageLeft ? textBlock : imageBlock}
+                    const textBlock = (
+                        <div className="md:w-1/2 w-full flex items-center justify-center py-12 bg-[#F3F3F3]">
+                            <div className="p-8 md:p-16 lg:p-24 max-w-2xl mx-auto text-center md:text-left">
+                                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">{training.title}</h3>
+                                <hr className="border-[#f2e94e] border-2 mt-4 w-36 mb-6 mx-auto md:mx-0"/>
+                                <p className="text-lg text-gray-700">{training.description}</p>
+                            </div>
                         </div>
-                    </section>
-                );
-            })}
-        </div>
+                    );
+
+                    return (
+                        <section key={training.slug} className="w-full bg-white overflow-hidden rounded-2xl shadow-lg">
+                            <div className="flex flex-col md:flex-row md:items-stretch">
+                                {isImageLeft ? imageBlock : textBlock}
+                                {isImageLeft ? textBlock : imageBlock}
+                            </div>
+                        </section>
+                    );
+                })}
+            </div>
+        </section>
     );
 }
