@@ -39,7 +39,7 @@ const WhyToBecomeATeacher = () => {
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
           {/* Image Column */}
           <div className="md:w-1/2 w-full">
-            <div className="relative h-80 md:h-[600px] overflow-hidden">
+            <div className="relative h-96 sm:h-[200] md:h-[400] lg:h-[600px] overflow-hidden">
               <Image
                 src="/whytobecome.png" // Σημείωση: Προσθέστε μια σχετική εικόνα εδώ
                 alt="Woman doing aerial yoga"

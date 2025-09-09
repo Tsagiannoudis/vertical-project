@@ -67,7 +67,7 @@ const WelcomeSection = () => {
             </div>
           </div>
           {/* Left Column: Image */}
-          <div className="relative h-80 md:h-[600px] overflow-hidden">
+          <div className="relative h-96 sm:h-[200] md:h-[400] lg:h-[600px] overflow-hidden">
             <Image
               src="/welcome.png" // Replace with a relevant image
               alt="Μια ομάδα ανθρώπων σε ένα workshop γιόγκα, γεμάτοι ενέργεια και χαρά."
