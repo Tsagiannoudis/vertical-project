@@ -40,7 +40,7 @@ const trainings = [
 export default function TrainingsCards() {
     return (
         <section className="w-full bg-white">
-            <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24 space-y-16">
+            <div className="container mx-auto max-w-8xl px-4 py-16 sm:py-24 space-y-16">
                 {trainings.map((training, index) => {
                     const isImageLeft = index % 2 === 0;
 
