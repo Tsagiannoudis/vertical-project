@@ -22,8 +22,9 @@ export default function Home() {
           <p className="mt-4 text-lg text-gray-700">
             Είμαστε εδώ για να σας βοηθήσουμε. Επικοινωνήστε μαζί μας για περισσότερες πληροφορίες σχετικά με τα εκπαιδευτικά μας προγράμματα και τα workshops.
           </p>
-          <div className="mt-8">
-            <Link href="/contact" className="bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#f0e631] transition-colors duration-300 transform hover:scale-105">
+          <div className="gap-4 justify-center md:justify-start mt-8">
+            <Link href="/contact" className="bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#F2E94E] hover:text-black transition-colors duration-300 transform hover:scale-105"
+            >
               Επικοινωνία
             </Link>
           </div>
@@ -37,7 +38,7 @@ export default function Home() {
             Ακολουθήστε το blog μας για τα τελευταία νέα, άρθρα και ενημερώσεις από τον κόσμο της aerial yoga και της εκπαίδευσης.
           </p>
           <div className="mt-8">
-            <Link href="/blog" className="bg-transparent border-2 border-black text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-black hover:text-white transition-colors duration-300 transform hover:scale-105">
+            <Link href="/blog" className="bg-transparent border-2 border-black text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#F2E94E] hover:text-black transition-colors duration-300 transform hover:scale-105">
               Επισκεφθείτε το Blog
             </Link>
           </div>
