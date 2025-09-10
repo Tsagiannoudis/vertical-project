@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="absolute top-6 left-0 right-0 z-50 w-11/12 lg:w-3/5 max-w-7xl mx-auto rounded-2xl bg-white text-black shadow-md">
+    <header className="absolute top-6 left-0 right-0 z-50 w-11/12 lg:w-3/5 max-w-8xl mx-auto rounded-2xl bg-white text-black shadow-md">
       <nav className="container mx-auto flex justify-between items-center p-4">
         <Link href="/" onClick={() => setIsMenuOpen(false)}>
              <Image
