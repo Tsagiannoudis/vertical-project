@@ -30,7 +30,7 @@ const Navbar = () => {
               priority />
         </Link>
         {/* Desktop Menu */}
-        <ul className='hidden md:flex gap-6'>
+        <ul className='hidden lg:flex gap-6'>
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -48,13 +48,13 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
           <Hamburger isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       </nav>
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <ul className="flex flex-col items-center gap-4 pb-4">
             {navLinks.map((link) => (
               <li key={link.href}>
