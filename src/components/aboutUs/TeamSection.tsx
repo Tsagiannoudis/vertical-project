@@ -13,7 +13,7 @@ const teamMembers = [
   {
     id: 2,
     name: "Γιάννης Καρβέλης",
-    description: "Εκπαιδευτής Handstands & Thai Massage",
+    description: "Εκπαιδευτής Handstands, Functional Anatomy & Thai Massage",
     photo: "/instructors/johnKarvelis.jpg",
     bio: 'Ο Γιάννης Καρβέλης είναι πιστοποιηµένος δάσκαλος της AcroYoga International Level 1, Level 2, Elemental, Lunar Therapeutics, Solar Acrobatics Immersion Teacher και Lead Teacher των εκπαιδευτικών προγραµµάτων πιστοποίησης δασκάλων του παγκόσμιου οργανισμού. Έχει εκπαιδευτεί επίσης στη Hatha Yoga και Vinyasa Krama, καθώς επίσης και σε Thai Yoga massage από το Sunshine network σε OsteoThai, Static και Dynamic εκπαιδεύσεις. Τα τελευταία 8 χρόνια έχοντας συν-δηµιουργήσει εκπαιδευτικά προγράµµατα σε Yoga, Acroyoga και Aerial Yoga, ταξιδεύει σε Ευρώπη, Ασία, Μέση Ανατολή, Μεξικό και Η.Π.Α.',
   },
