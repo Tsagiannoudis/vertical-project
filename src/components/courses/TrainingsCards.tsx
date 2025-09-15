@@ -39,7 +39,7 @@ const trainings = [
 ];
 export default function TrainingsCards() {
     return (
-        <section className="w-full bg-white">
+        <section className="w-full bg-[#F3F3F3]">
             <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24 space-y-16">
                 {trainings.map((training, index) => {
                     const isImageLeft = index % 2 === 0;
@@ -56,7 +56,7 @@ export default function TrainingsCards() {
                     );
 
                     const textBlock = (
-                        <div className="md:w-1/2 w-full flex items-center justify-center py-12 bg-[#F3F3F3]">
+                        <div className="md:w-1/2 w-full flex items-center justify-center py-12 bg-[#fff]">
                             <div className="p-8 md:p-16 lg:p-24 max-w-2xl mx-auto text-center md:text-left">
                                 <h3 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">{training.title}</h3>
                                 <hr className="border-[#f2e94e] border-2 mt-4 w-36 mb-6 mx-auto md:mx-0"/>

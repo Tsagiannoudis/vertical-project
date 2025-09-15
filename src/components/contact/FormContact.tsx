@@ -66,7 +66,7 @@ export default function FormContact() {
     };
 
     return (
-        <section className="w-full mx-auto p-8 bg-[#F3F3F3]">
+        <section className="w-full mx-auto p-8 bg-[#fff]">
             <div className="container mx-auto max-w-5xl mb-8 pt-10">
                 <h2 className="text-3xl font-semibold text-black">The Vertical Project Training</h2>
                 <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μεσω των Social Media ή διαφορετικα με την παρακάτω φόρμα επικοινωνίας.</p>

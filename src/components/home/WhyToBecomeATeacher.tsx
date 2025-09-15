@@ -60,7 +60,7 @@ const WhyToBecomeATeacher = () => {
             <ul className="space-y-6">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start">
-                  <CheckCircleIcon className="w-7 h-7 text-[#F2E94E] flex-shrink-0 mt-1 mr-4" />
+                  <CheckCircleIcon className="w-7 h-7 text-[#3c3c3c] border-3 border-[#F2E94E] rounded-full flex-shrink-0 mt-1 mr-4" />
                   <p className="text-lg">{benefit.text}</p>
                 </li>
               ))}
