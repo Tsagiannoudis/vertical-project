@@ -2,18 +2,24 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center p-8 text-center">
-      <h1 className="text-6xl font-bold text-black">404</h1>
-      <h2 className="mt-4 text-2xl font-semibold text-black">Page Not Found</h2>
-      <p className="mt-2 text-lg text-gray-700">
-        Sorry, we couldn’t find the page you’re looking for.
-      </p>
-      <Link
-        href="/"
-        className="mt-10 rounded-md bg-black px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-      >
-        Go back home
-      </Link>
+    <main className="flex min-h-[calc(100vh-200px)] items-center justify-center bg-white py-24 px-4 sm:px-6 lg:px-8">
+      <div className="text-center">
+        <h1 className="text-8xl font-bold text-[#F2E94E] drop-shadow-md">404</h1>
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-black sm:text-4xl">
+          Ουπς! Χαθήκατε στη διαδρομή;
+        </h2>
+        <p className="mt-6 text-lg leading-relaxed text-gray-700">
+          Η σελίδα που αναζητάτε δεν βρέθηκε. Ας σας βοηθήσουμε να βρείτε ξανά την πορεία σας.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <Link
+            href="/"
+            className="bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#f0e631] transition-colors duration-300 transform hover:scale-105 shadow-md"
+          >
+            Επιστροφή στην Αρχική
+          </Link>
+        </div>
+      </div>
     </main>
   )
 }

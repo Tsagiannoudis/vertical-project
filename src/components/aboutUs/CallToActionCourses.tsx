@@ -12,8 +12,8 @@ const CallToActionSection = () => {
           Εξερευνήστε τα εκπαιδευτικά μας προγράμματα και βρείτε αυτό που σας ταιριάζει για να κάνετε το επόμενο βήμα στην καριέρα σας.
         </p>
         <Link
-          href="/courses" // Προσαρμόστε το link αν χρειάζεται
-          className="mt-8 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-[#f2e94e] hover:bg-yellow-300 sm:w-auto transition-colors shadow-md hover:shadow-lg"
+          href="/courses"
+          className="mt-8 inline-flex items-center justify-center px-6 py-3  text-black bg-[#F2E94E] rounded-md hover:bg-[#f0e631] focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-ss-2xl rounded-br-2xl"
         >
           Δείτε τα Προγράμματα
         </Link>

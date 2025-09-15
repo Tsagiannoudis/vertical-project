@@ -1,5 +1,5 @@
 import HeroSectionBlog from "@/components/aboutUs/HeroSectionBlog";
-import CallToActionSection from "@/components/aboutUs/CallToActionSection";
+import CallToActionCourses from "@/components/aboutUs/CallToActionCourses";
 // import HistorySection from "@/components/aboutUs/HistorySection";
 import MissionSection from "@/components/aboutUs/MissionSection";
 import TeamSection from "@/components/aboutUs/TeamSection";
@@ -15,7 +15,7 @@ export default function AboutUsPage() {
       {/* 4. Η ιστορία μας */}
       {/* <HistorySection /> */}
       {/* 5. Πρόσκληση σε δράση */}
-      <CallToActionSection />
+      <CallToActionCourses />
     </main>
     );
 }
