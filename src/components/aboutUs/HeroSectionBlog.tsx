@@ -11,7 +11,7 @@ const HeroSectionBlog = () => {
           priority
         /> */}
             <div className="container mx-auto max-w-7xl px-4 absolute inset-x-0 bottom-0 mb-4 text-left text-white" >
-                <h1 className="text-5xl font-bold">Blog</h1>
+                <h1 className="text-5xl font-bold">Σχετικά με εμάς</h1>
             </div>
       </section>
     );

@@ -14,7 +14,7 @@ const Navbar = () => {
     { label: 'Αρχική', href: '/' },
     { label: 'Εκπαιδευτικά', href: '/courses' },
     { label: 'Workshops', href: '/workshops' },
-    { label: 'Blog', href: '/blog' }, 
+    { label: 'Σχετικά με εμάς', href: '/aboutUs' }, 
     { label: 'Επικοινωνία', href: '/contact' },
   ];
 

@@ -21,8 +21,8 @@ export default function FooterPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:underline">
-                  Blog
+                <Link href="/aboutUs" className="hover:underline">
+                  Σχετικά Με Εμάς
                 </Link>
               </li>
               <li>
