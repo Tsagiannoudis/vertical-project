@@ -5,7 +5,7 @@ const trainings = [
         slug: "aerial-yoga-teacher-training",
         imgSrc: "/trainings-icons/aerial-yoga-tt.webp",
         title: "Aerial Yoga Teacher Training",
-        description: "Ανακαλύψτε την ελευθερία της κίνησης με τα μαθήματα Aerial Yoga.",
+        description: "Ανακαλύψτε την ελευθερία της κίνησης με τα εκπαιδευτικά προγράμματα της Aerial Yoga.",
         alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα."
     },
     {
@@ -17,7 +17,7 @@ const trainings = [
     },
     {
         slug: "thai-yoga-massage",
-        imgSrc: "/trainings-icons/thai-massage.png",
+        imgSrc: "/trainings-icons/thai-massage.webp",
         title: "Thai Yoga Massage  Teacher Training",
         description: "Μάθετε την τέχνη του Thai Yoga Massage για να ενισχύσετε τις θεραπευτικές σας ικανότητες.",
         alt: "Άτομο δέχεται Thai Yoga Massage σε ένα ήρεμο περιβάλλον."
@@ -50,7 +50,7 @@ export default function TrainingsCards() {
                                 src={training.imgSrc}
                                 alt={training.alt}
                                 fill
-                                className="object-cover"
+                                className="object-left object-cover"
                             />
                         </div>
                     );

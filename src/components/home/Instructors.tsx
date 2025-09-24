@@ -5,14 +5,14 @@ const instructors = [
     id: 1,
     name: "Ευή Πριόνα",
     description:
-      "Εκπαιδεύτρια Aerial & Vinyasa Yoga, με πάνω από 8 χρόνια εμπειρίας στον χώρο.",
+      "Εκπαιδεύτρια Aerial Yoga & Vinyasa Yoga, γνωστή για την χαρισματική καθοδήγηση & την ήρεμη δύναμη που μεταδίδει.",
     photo: "/instructors/eviPriona.jpg",
   },
   {
     id: 2,
     name: "Γιάννης Καρβέλης",
     description:
-      "Εκπαιδευτής Handstands & Thai Massage, γνωστός για την ενθουσιώδη προσέγγισή του.",
+      "Εκπαιδευτής Handstands, Thai Massage, Aerial Yoga & Vinyasa Yoga γνωστός για την ενθουσιώδη προσέγγισή του.",
     photo: "/instructors/johnKarvelis.jpg",
   },
 ];
@@ -21,16 +21,16 @@ export default function Instructors() {
   return (
     <section className="w-full mx-auto py-16 sm:py-24 bg-[#fff]">
       <div className="container mx-auto text-black px-4 max-w-6xl ">
-        
         <div className="md:flex-row gap-8 items-center md:items-start mb-20 md:text-left">
           <h2 className="text-3xl mt-16 font-bold text-center">
             Γνωρίστε τους <br className="md:hidden" /> Εκπαιδευτές μας
             <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
           </h2>
           <p className="text-lg md:text-left">
-            Στο Vertical Project, οι εκπαιδευτές μας είναι η καρδιά της
-            αποστολής μας. Με πάθος για τη διδασκαλία και βαθιά γνώση,
-            δεσμεύονται να σας καθοδηγήσουν στο ταξίδι σας.
+            Στο Vertical Project, οι εκπαιδευτές μας είναι η ψυχή της αποστολής
+            μας. Με πάθος για τη διδασκαλία, πολυετή εμπειρία και βαθιά γνώση
+            των πρακτικών, είναι εδώ για να σας καθοδηγήσουν με ασφάλεια και
+            έμπνευση στο προσωπικό σας ταξίδι εξέλιξης.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Instructors() {
               <h3 className="text-2xl font-semibold mb-2 text-gray-800">
                 {instructor.name}
               </h3>
-              <p className="text-gray-700 max-w-xs">{instructor.description}</p>
+              <p className="text-gray-700 max-w-xs ">{instructor.description}</p>
             </div>
           ))}
         </div>

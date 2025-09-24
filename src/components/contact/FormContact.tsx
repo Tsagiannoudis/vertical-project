@@ -72,7 +72,7 @@ export default function FormContact() {
                 <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μέσω των Social Media ή να συμπληρώσετε την παρακάτω φόρμα επικοινωνίας και θα επικοινωνήσουμε μαζί σας σύντομα.</p>
                 <div className="text-black space-y-2">
                     <p><strong>Email:</strong> <a href="mailto:info@verticalproject.gr" className="text-black hover:underline">info@verticalproject.gr</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:+306945454545" className="text-black hover:underline">-</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+306973025103" className="text-black hover:underline">6973025103</a></p>
                 </div>
             </div>
 
