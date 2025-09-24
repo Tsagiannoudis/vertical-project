@@ -80,6 +80,10 @@ export default function FormContact() {
                             <td className="w-1/3 text-gray-700 font-medium">Phone:</td>
                             <td className="text-gray-600"> - </td>
                         </tr>
+                                                <tr>
+                            <td className="w-1/3 text-gray-700 font-medium">Viber:</td>
+                            <td className="text-gray-600"> - </td>
+                        </tr>
                     </tbody>
                 </table>   
                 <p className="text-gray-600 mt-4 mb-4">Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας σύντομα.</p>  
