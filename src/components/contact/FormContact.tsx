@@ -68,26 +68,12 @@ export default function FormContact() {
     return (
         <section className="w-full mx-auto p-8 bg-[#fff]">
             <div className="container mx-auto max-w-5xl mb-8 pt-10">
-                <h2 className="text-3xl font-semibold text-black">The Vertical Project Training</h2>
-                <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μεσω των Social Media ή διαφορετικα με την παρακάτω φόρμα επικοινωνίας.</p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td className="w-1/3 text-gray-700 font-medium">Email:</td>
-                            <td className="text-gray-600">info@verticalproject.gr</td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/3 text-gray-700 font-medium">Phone:</td>
-                            <td className="text-gray-600"> - </td>
-                        </tr>
-                    </tbody>
-                </table>   
-                <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μέσω των Social Media ή διαφορετικά με την παρακάτω φόρμα επικοινωνίας.</p>
+                <h2 className="text-3xl font-semibold text-black">Επικοινωνήστε μαζί μας</h2>
+                <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μέσω των Social Media ή να συμπληρώσετε την παρακάτω φόρμα επικοινωνίας και θα επικοινωνήσουμε μαζί σας σύντομα.</p>
                 <div className="space-y-2">
                     <p><strong>Email:</strong> <a href="mailto:info@verticalproject.gr" className="text-gray-600 hover:underline">info@verticalproject.gr</a></p>
                     <p><strong>Phone:</strong> <a href="tel:+306980123456" className="text-gray-600 hover:underline">6980123456</a></p>
                 </div>
-                <p className="text-gray-600 mt-4 mb-4">Συμπληρώστε την παρακάτω φόρμα και θα επικοινωνήσουμε μαζί σας σύντομα.</p>  
             </div>
 
             <div className="container mx-auto max-w-5xl p-8">
