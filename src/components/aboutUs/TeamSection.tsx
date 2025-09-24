@@ -5,7 +5,7 @@ import Image from 'next/image';
 const teamMembers = [
   {
     id: 1,
-    name: "Ευή Πριόνα",
+    name: "Εύη Πριόνα",
     description: "Εκπαιδεύτρια Aerial Yoga & Vinyasa Yoga",
     photo: "/instructors/eviPriona.jpg",
     bio: 'Η Εύη Πριόνα είναι πιστοποιημένη δασκάλα Yoga Alliance USA της Aerial yoga και της Yoga από το 2018. Ασχολείται με τις εναέριες τέχνες από το 2015 και διδάσκει Aerial Yoga, Aerial Silks, Yoga και Prenatal/Postnatal μέχρι και σήμερα. Είναι ιδρύτρια της σχολής Αιώρησις στην Θεσσαλονίκη από το 2021. Μέσα από τα μαθήματα της προτρέπει τους μαθητές της να αποκτίσουν γνώση, καλές σχέσεις με το σώμα τους και να αναπτύξτουν το αίσθημα της ασφάλειας.',

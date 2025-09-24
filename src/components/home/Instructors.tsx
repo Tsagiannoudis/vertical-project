@@ -1,18 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const instructors = [
   {
     id: 1,
+    slug: "evi-priona",
     name: "Ευή Πριόνα",
     description:
-      "Εκπαιδεύτρια Aerial Yoga & Vinyasa Yoga, γνωστή για την χαρισματική καθοδήγηση & την ήρεμη δύναμη που μεταδίδει.",
+      "Εκπαιδεύτρια Aerial & Vinyasa Yoga, με πάνω από 8 χρόνια εμπειρίας στον χώρο.",
     photo: "/instructors/eviPriona.jpg",
   },
   {
     id: 2,
+    slug: "giannis-karvelis",
     name: "Γιάννης Καρβέλης",
     description:
-      "Εκπαιδευτής Handstands, Thai Massage, Aerial Yoga & Vinyasa Yoga γνωστός για την ενθουσιώδη προσέγγισή του.",
+      "Εκπαιδευτής Handstands & Thai Massage, γνωστός για την ενθουσιώδη προσέγγισή του.",
     photo: "/instructors/johnKarvelis.jpg",
   },
 ];
@@ -27,10 +30,9 @@ export default function Instructors() {
             <hr className="border-[#f2e94e] border-2 mt-4 w-76 mx-auto justify-center mb-6" />
           </h2>
           <p className="text-lg md:text-left">
-            Στο Vertical Project, οι εκπαιδευτές μας είναι η ψυχή της αποστολής
-            μας. Με πάθος για τη διδασκαλία, πολυετή εμπειρία και βαθιά γνώση
-            των πρακτικών, είναι εδώ για να σας καθοδηγήσουν με ασφάλεια και
-            έμπνευση στο προσωπικό σας ταξίδι εξέλιξης.
+            Στο Vertical Project, οι εκπαιδευτές μας είναι η καρδιά της αποστολής
+            μας. Με πάθος για τη διδασκαλία και βαθιά γνώση, δεσμεύονται να σας
+            καθοδηγήσουν στο ταξίδι σας.
           </p>
         </div>
 
@@ -41,14 +43,16 @@ export default function Instructors() {
               className="group flex flex-col items-center text-center"
             >
               <div className="relative w-64 h-64 mb-6">
-                <div className="relative w-full h-full rounded-2xl border-4 border-[#f2e94e] overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:border-8 group-hover:shadow-xl group-hover:shadow-[#f2e94e]/50">
-                  <Image
-                    src={instructor.photo}
-                    alt={`Photo of ${instructor.name}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <Link href={`/aboutUs#${instructor.slug}`}>
+                  <div className="relative w-full h-full rounded-2xl border-4 border-[#f2e94e] overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:border-8 group-hover:shadow-xl group-hover:shadow-[#f2e94e]/50">
+                    <Image
+                      src={instructor.photo}
+                      alt={`Photo of ${instructor.name}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </Link>
               </div>
               <h3 className="text-2xl font-semibold mb-2 text-gray-800">
                 {instructor.name}
