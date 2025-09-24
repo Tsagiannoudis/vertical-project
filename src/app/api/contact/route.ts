@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         pass: process.env.EMAIL_PASS, // ο κωδικός σου ή ένας app-specific password
       },
       // Πρόσθετη ρύθμιση για self-signed certificates σε development (αν χρειαστεί)
-      // tls: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
+      tls: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
     });
 
     // Επιλογές του email
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
         <p><strong>Όνομα:</strong> ${name}</p>
         <p><strong>Επίθετο:</strong> ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Τηλέφωνο:</strong> ${phone}</p>
+        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
         <hr />
         <h2>Μήνυμα:</h2>
         <p>${message.replace(/\n/g, '<br>')}</p>
