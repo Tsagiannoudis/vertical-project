@@ -5,6 +5,7 @@ import Image from 'next/image';
 const teamMembers = [
   {
     id: 1,
+    slug: "evi-priona",
     name: "Εύη Πριόνα",
     description: "Εκπαιδεύτρια Aerial Yoga & Vinyasa Yoga",
     photo: "/instructors/eviPriona.jpg",
@@ -12,6 +13,7 @@ const teamMembers = [
   },
   {
     id: 2,
+    slug: "giannis-karvelis",
     name: "Γιάννης Καρβέλης",
     description: "Εκπαιδευτής Handstands, Functional Anatomy, Thai Massage, Aerial Yoga & Vinyasa Yoga",
     photo: "/instructors/johnKarvelis.jpg",
@@ -37,7 +39,7 @@ const TeamSection = () => {
           {teamMembers.map((member, index) => {
             const isEven = index % 2 === 0;
             return (
-              <div key={member.id} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-16`}>
+              <div key={member.id} id={member.slug} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-16`}>
                 {/* Image */}
                 <div className="md:w-1/3 flex-shrink-0">
                   <div className="relative w-64 h-64 lg:w-80 lg:h-80 mx-auto group">
