@@ -1,63 +1,53 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
-import type { CreateEmailOptions } from 'resend';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
-  // 1. Διαβάζουμε και ελέγχουμε τις μεταβλητές περιβάλλοντος μέσα στη συνάρτηση
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const emailTo = process.env.EMAIL_TO;
-  const emailFrom = process.env.EMAIL_FROM; // Χρησιμοποιούμε μεταβλητή περιβάλλοντος και για το 'from'
-
-  if (!resendApiKey || !emailTo || !emailFrom) {
-    console.error('Missing one or more required environment variables: RESEND_API_KEY, EMAIL_TO, EMAIL_FROM');
-    // Επιστρέφουμε ένα γενικό μήνυμα σφάλματος στον client
-    return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
-  }
-
   try {
-    const body = await request.json();
-    const { name, surname, email, phone, message } = body;
+    const { name, surname, email, phone, message } = await request.json();
 
-    // 2. Βασικός έλεγχος (validation) των δεδομένων στην πλευρά του server
-    if (!name || !surname || !email || !message) {
-      return NextResponse.json({ message: 'Λείπουν υποχρεωτικά πεδία.' }, { status: 400 });
-    }
+    const port = process.env.EMAIL_PORT ? parseInt(process.env.EMAIL_PORT, 10) : 465;
 
-    // 3. Αρχικοποιούμε τον Resend client αφού βεβαιωθούμε ότι το κλειδί υπάρχει
-    const resend = new Resend(resendApiKey);
+    // Διαμόρφωση του transporter με τα στοιχεία του παρόχου email σου
+    // ΣΗΜΑΝΤΙΚΟ: Χρησιμοποίησε environment variables για ασφάλεια!
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST, // π.χ., 'smtp.gmail.com'
+      port: port,
+      // `secure: true` χρησιμοποιείται συνήθως με τη θύρα 465.
+      // Για τη θύρα 587, το `secure` είναι `false` καθώς η σύνδεση αναβαθμίζεται σε ασφαλή μέσω STARTTLS.
+      secure: port === 465, 
+      auth: {
+        user: process.env.EMAIL_USER, // το email σου
+        pass: process.env.EMAIL_PASS, // ο κωδικός σου ή ένας app-specific password
+      },
+      // Πρόσθετη ρύθμιση για self-signed certificates σε development (αν χρειαστεί)
+      // tls: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
+    });
 
-    const emailPayload: CreateEmailOptions = {
-      from: `Vertical Project <${emailFrom}>`, // Καλύτερη πρακτική για το 'from'
-      to: [emailTo],
+    // Επιλογές του email
+    const mailOptions = {
+      from: `"${name} ${surname}" <${process.env.EMAIL_USER}>`, // αποστολέας
+      to: 'info@verticalproject.gr', // παραλήπτης
       replyTo: email,
-      subject: `Νέα φόρμα επικοινωνίας - ${name} ${surname}`,
+      subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
       html: `
         <h1>Νέο Μήνυμα Επικοινωνίας</h1>
-        <p><strong>Όνομα:</strong> ${name} ${surname}</p>
+        <p><strong>Όνομα:</strong> ${name}</p>
+        <p><strong>Επίθετο:</strong> ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
-        <hr>
-        <p><strong>Μήνυμα:</strong></p>
+        <p><strong>Τηλέφωνο:</strong> ${phone}</p>
+        <hr />
+        <h2>Μήνυμα:</h2>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     };
 
-    const { data, error } = await resend.emails.send(emailPayload);
-
-    if (error) {
-      // logging για καλύτερη διάγνωση του σφάλματος
-      console.error('Resend API Error:', JSON.stringify(error, null, 2));
-      // Επιστρέφουμε ένα γενικό μήνυμα σφάλματος για ασφάλεια
-      return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
-    }
+    // Αποστολή του email
+    await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
+
   } catch (error) {
-    console.error('Internal Server Error:', error);
-    // Χειριζόμαστε σφάλματα κατά την ανάλυση του JSON ή άλλα απρόβλεπτα σφάλματα
-    if (error instanceof SyntaxError) {
-        return NextResponse.json({ message: 'Μη έγκυρη μορφή δεδομένων.' }, { status: 400 });
-    }
-    return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
   }
 }

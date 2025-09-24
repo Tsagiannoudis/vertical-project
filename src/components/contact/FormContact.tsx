@@ -89,6 +89,7 @@ export default function FormContact() {
                                 name="name" 
                                 value={formData.name}
                                 onChange={handleChange}
+                                autoComplete="name"
                                 required 
                                 className="w-full p-2 bg-transparent border-b border-black focus:outline-none focus:border-b-2 focus:border-black text-black"
                             />
@@ -102,6 +103,7 @@ export default function FormContact() {
                                 name="surname" 
                                 value={formData.surname}
                                 onChange={handleChange}
+                                autoComplete="surname"
                                 required 
                                 className="w-full p-2 bg-transparent border-b border-black focus:outline-none focus:border-b-2 focus:border-black text-black"
                             />
@@ -118,6 +120,7 @@ export default function FormContact() {
                                 name="email" 
                                 value={formData.email}
                                 onChange={handleChange}
+                                autoComplete="email"
                                 required 
                                 className="w-full p-2 bg-transparent border-b border-black focus:outline-none focus:border-b-2 focus:border-black text-black"
                             />
@@ -131,6 +134,7 @@ export default function FormContact() {
                                 name="phone" 
                                 value={formData.phone}
                                 onChange={handleChange}
+                                autoComplete="tel"
                                 required 
                                 className="w-full p-2 bg-transparent border-b border-black focus:outline-none focus:border-b-2 focus:border-black text-black"
                             />
