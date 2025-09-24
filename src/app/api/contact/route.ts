@@ -1,38 +1,33 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export async function POST(request: Request) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const emailTo = process.env.EMAIL_TO;
+  const emailFrom = process.env.EMAIL_FROM;
+
+  if (!resendApiKey || !emailTo || !emailFrom) {
+    console.error("Missing one or more required environment variables: RESEND_API_KEY, EMAIL_TO, EMAIL_FROM");
+    return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
+  }
+
   try {
     const { name, surname, email, phone, message } = await request.json();
 
-    const port = process.env.EMAIL_PORT ? parseInt(process.env.EMAIL_PORT, 10) : 465;
+    if (!name || !surname || !email || !message) {
+      return NextResponse.json({ message: 'Λείπουν υποχρεωτικά πεδία.' }, { status: 400 });
+    }
 
-    // Διαμόρφωση του transporter με τα στοιχεία του παρόχου email σου
-    // ΣΗΜΑΝΤΙΚΟ: Χρησιμοποίησε environment variables για ασφάλεια!
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST, // π.χ., 'smtp.gmail.com'
-      port: port,
-      // `secure: true` χρησιμοποιείται συνήθως με τη θύρα 465.
-      // Για τη θύρα 587, το `secure` είναι `false` καθώς η σύνδεση αναβαθμίζεται σε ασφαλή μέσω STARTTLS.
-      secure: port === 465, 
-      auth: {
-        user: process.env.EMAIL_USER, // το email σου
-        pass: process.env.EMAIL_PASS, // ο κωδικός σου ή ένας app-specific password
-      },
-      // Πρόσθετη ρύθμιση για self-signed certificates σε development (αν χρειαστεί)
-      tls: { rejectUnauthorized: process.env.NODE_ENV === 'production' }
-    });
+    const resend = new Resend(resendApiKey);
 
-    // Επιλογές του email
-    const mailOptions = {
-      from: `"${name} ${surname}" <${process.env.EMAIL_USER}>`, // αποστολέας
-      to: 'info@verticalproject.gr', // παραλήπτης
+    const emailPayload = {
+      from: `Vertical Project <${emailFrom}>`,
+      to: [emailTo],
       replyTo: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
       html: `
         <h1>Νέο Μήνυμα Επικοινωνίας</h1>
-        <p><strong>Όνομα:</strong> ${name}</p>
-        <p><strong>Επίθετο:</strong> ${surname}</p>
+        <p><strong>Όνομα:</strong> ${name} ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
         <hr />
@@ -40,14 +35,21 @@ export async function POST(request: Request) {
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
     };
+    
+    const { data, error } = await resend.emails.send(emailPayload);
 
-    // Αποστολή του email
-    await transporter.sendMail(mailOptions);
+    if (error) {
+      console.error('Resend API Error:', JSON.stringify(error, null, 2));
+      return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
+    }
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
 
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
+    console.error("Internal Server Error:", error);
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ message: 'Μη έγκυρη μορφή δεδομένων.' }, { status: 400 });
+    }
+    return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
   }
 }
