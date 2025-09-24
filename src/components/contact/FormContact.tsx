@@ -80,7 +80,7 @@ export default function FormContact() {
                             <td className="w-1/3 text-gray-700 font-medium">Phone:</td>
                             <td className="text-gray-600"> - </td>
                         </tr>
-                                                <tr>
+                        <tr>
                             <td className="w-1/3 text-gray-700 font-medium">Viber:</td>
                             <td className="text-gray-600"> - </td>
                         </tr>
