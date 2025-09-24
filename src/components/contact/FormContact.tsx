@@ -69,10 +69,10 @@ export default function FormContact() {
         <section className="w-full mx-auto p-8 bg-[#fff]">
             <div className="container mx-auto max-w-5xl mb-8 pt-10">
                 <h2 className="text-3xl font-semibold text-black">Επικοινωνήστε μαζί μας</h2>
-                <p className="text-black mt-2 mb-4">Μπορείτε να μας βρείτε μέσω των Social Media ή να συμπληρώσετε την παρακάτω φόρμα επικοινωνίας και θα επικοινωνήσουμε μαζί σας σύντομα.</p>
-                <div className="space-y-2">
-                    <p><strong>Email:</strong> <a href="mailto:info@verticalproject.gr" className="text-black-600 hover:underline">info@verticalproject.gr</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:+306945454545" className="text-black-600 hover:underline">-</a></p>
+                <p className="text-gray-600 mt-2 mb-4">Μπορείτε να μας βρείτε μέσω των Social Media ή να συμπληρώσετε την παρακάτω φόρμα επικοινωνίας και θα επικοινωνήσουμε μαζί σας σύντομα.</p>
+                <div className="text-black space-y-2">
+                    <p><strong>Email:</strong> <a href="mailto:info@verticalproject.gr" className="text-black hover:underline">info@verticalproject.gr</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+306945454545" className="text-black hover:underline">-</a></p>
                 </div>
             </div>
 
