@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { ContactFormEmail } from '../ContactFormEmail';
+// import { ContactFormEmail } from '../ContactFormEmail';
 
 export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       to: [emailTo],
       reply_to: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
-      react: ContactFormEmail({ name, surname, email, phone, message }),
+      // react: ContactFormEmail({ name, surname, email, phone, message }),
     };
     
     const { data, error } = await resend.emails.send(emailPayload);
