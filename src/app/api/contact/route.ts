@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-// import { ContactFormEmail } from '../ContactFormEmail';
 
 export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -26,6 +25,15 @@ export async function POST(request: Request) {
       to: [emailTo],
       reply_to: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
+      html: `
+        <h1>Νέο μήνυμα από τη φόρμα επικοινωνίας</h1>
+        <p><strong>Όνομα:</strong> ${name} ${surname}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
+        <p><strong>Μήνυμα:</strong></p>
+        <p>${message}</p>
+      `,
+      text: `Νέο μήνυμα από: ${name} ${surname} (${email}).\nΤηλέφωνο: ${phone || 'Δεν δόθηκε'}\n\nΜήνυμα:\n${message}`,
       // react: ContactFormEmail({ name, surname, email, phone, message }),
     };
     
