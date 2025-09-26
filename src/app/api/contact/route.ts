@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { ContactFormEmail } from '../ContactFormEmail';
 
 export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -23,24 +24,20 @@ export async function POST(request: Request) {
     const emailPayload = {
       from: `Vertical Project <${emailFrom}>`,
       to: [emailTo],
-      replyTo: email,
+      reply_to: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
-      html: `
-        <h1>Νέο Μήνυμα Επικοινωνίας</h1>
-        <p><strong>Όνομα:</strong> ${name} ${surname}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
-        <hr />
-        <h2>Μήνυμα:</h2>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
+      react: ContactFormEmail({ name, surname, email, phone, message }),
     };
     
     const { data, error } = await resend.emails.send(emailPayload);
 
     if (error) {
-      console.error('Resend API Error:', JSON.stringify(error, null, 2));
-      return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
+      // Log the detailed error from Resend
+      console.error('Resend API Error:', error);
+      return NextResponse.json(
+        { message: `Αποτυχία αποστολής: ${error.message}` },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });

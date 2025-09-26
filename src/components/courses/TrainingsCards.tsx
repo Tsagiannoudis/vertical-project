@@ -24,14 +24,14 @@ const trainings = [
     },
     {
         slug: "functional-anatomy",
-        imgSrc: "/trainings-icons/functional-anatomy.jpg",
+        imgSrc: "/trainings-icons/functional-anatomy.webp",
         title: "Functional Anatomy Teacher Training",
         description: "Κατανοήστε τη μηχανική του σώματος για να βελτιώσετε την πρακτική σας στη yoga.",
         alt: "Σχηματική απεικόνιση του ανθρώπινου μυοσκελετικού συστήματος."
     },
     {
         slug: "yoga-teacher-training",
-        imgSrc: "/trainings-icons/yoga.png",
+        imgSrc: "/trainings-icons/yoga-v.webp",
         title: "Yoga 200hrs & 300hrs Teacher Training",
         description: "Εμβαθύνετε στην πρακτική σας με την ολοκληρωμένη εκπαίδευση δασκάλων Yoga.",
         alt: "Ομάδα ανθρώπων σε στάση γιόγκα κατά τη διάρκεια ενός μαθήματος."
