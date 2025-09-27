@@ -1,5 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+const facebookIcon = <FontAwesomeIcon icon={faFacebook} />;
+const instagramIcon = <FontAwesomeIcon icon={faInstagram} />;
+
 
 export default function FooterPage() {
   return (
@@ -8,7 +15,9 @@ export default function FooterPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="font-semibold text-black mb-4">Γρήγοροι σύνδεσμοι</h4>
+            <h4 className="font-semibold text-black mb-4">
+              Γρήγοροι σύνδεσμοι
+            </h4>
             <ul className="space-y-2 text-sm inline-block text-left">
               <li>
                 <Link href="/courses" className="hover:underline">
@@ -35,11 +44,7 @@ export default function FooterPage() {
 
           {/* Column 2: subscribe newsletter*/}
           <div className="md:col-span-2 text-center">
-            <form
-              action=""
-              method="get"
-              className="flex flex-col items-center"
-            >
+            <form action="" method="get" className="flex flex-col items-center">
               <Image
                 src="/logo-black-vertical.svg"
                 alt="logo"
@@ -70,25 +75,27 @@ export default function FooterPage() {
           <div className="text-center md:text-right">
             <h4 className="font-semibold text-black mb-4">Ακολουθήστε μας</h4>
             <div className="flex justify-center space-x-4 text-sm md:justify-end">
-              <ul className="text-left">
+              <ul className="text-left inline-flex">
                 <li>
                   <a
-                    href="#"
+                    href="https://www.facebook.com/share/19vGdeV63y/?mibextid=wwXIfr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
+                    className="text-black hover:underline ml-2"
                   >
-                    Facebook
+                    <span className="w-8 h-8 inline-block">{facebookIcon}</span>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/verticalproject_trainings?igsh=MTR5anV0em5mbjh0cA%3D%3D&utm_source=qrfacebook.com/share/19vGdeV63y/?mibextid=wwXIfr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
+                    className="text-black hover:underline ml-2"
                   >
-                    Instagram
+                    <span className="w-8 h-8 inline-block">
+                      {instagramIcon}
+                    </span>
                   </a>
                 </li>
               </ul>
