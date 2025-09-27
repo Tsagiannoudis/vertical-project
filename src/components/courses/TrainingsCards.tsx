@@ -50,7 +50,7 @@ export default function TrainingsCards() {
                                 src={training.imgSrc}
                                 alt={training.alt}
                                 fill
-                                className="object-left object-cover"
+                                className="object-center object-cover"
                             />
                         </div>
                     );
