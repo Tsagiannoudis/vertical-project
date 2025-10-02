@@ -1,60 +1,54 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-export async function POST(request: Request) {
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const emailTo = process.env.EMAIL_TO;
-  const emailFrom = process.env.EMAIL_FROM;
+// Δημιουργούμε ένα instance του Resend client
+// Ο constructor θα διαβάσει αυτόματα το RESEND_API_KEY από τις μεταβλητές περιβάλλοντος
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-  if (!resendApiKey || !emailTo || !emailFrom) {
-    console.error("Missing one or more required environment variables: RESEND_API_KEY, EMAIL_TO, EMAIL_FROM");
+// Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
+const emailTo = process.env.EMAIL_TO;
+
+export async function POST(request: Request) {
+  // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
+  if (!process.env.RESEND_API_KEY || !emailTo) {
+    console.error("Resend API Key or Email To is not configured.");
     return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
   }
 
   try {
-    const { name, surname, email, phone, message } = await request.json();
+    // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
+    const { name, surname, email, message } = await request.json();
 
-    if (!name || !surname || !email || !message) {
-      return NextResponse.json({ message: 'Λείπουν υποχρεωτικά πεδία.' }, { status: 400 });
-    }
-
-    const resend = new Resend(resendApiKey);
-
-    const emailPayload = {
-      from: `Vertical Project <${emailFrom}>`,
+    // Στέλνουμε το email χρησιμοποιώντας το Resend
+    const { data, error } = await resend.emails.send({
+      // ΣΗΜΑΝΤΙΚΟ: Χρησιμοποιούμε το onboarding@resend.dev για να αποφύγουμε προβλήματα με το spam
+      // στο δωρεάν πλάνο.
+      from: `Vertical Project <onboarding@resend.dev>`,
       to: [emailTo],
+      subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
+      // Το reply_to επιτρέπει να πατήσεις "Απάντηση" και να απαντήσεις απευθείας στον χρήστη
       reply_to: email,
-      subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`, // Θέμα
+      // Το περιεχόμενο του email
       html: `
-        <h1>Νέο μήνυμα από τη φόρμα επικοινωνίας</h1>
-        <p><strong>Όνομα:</strong> ${name} ${surname}</p>
+        <h2>Νέο μήνυμα από τη φόρμα επικοινωνίας</h2>
+        <p><strong>Όνομα:</strong> ${name}</p>
+        <p><strong>Επώνυμο:</strong> ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
+        <hr>
         <p><strong>Μήνυμα:</strong></p>
-        <p>${message}</p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
       `,
-      text: `Νέο μήνυμα από: ${name} ${surname} (${email}).\nΤηλέφωνο: ${phone || 'Δεν δόθηκε'}\n\nΜήνυμα:\n${message}`,
-      // react: ContactFormEmail({ name, surname, email, phone, message }),
-    };
-    
-    const { data, error } = await resend.emails.send(emailPayload);
+    });
 
     if (error) {
-      // Log the detailed error from Resend
-      console.error('Resend API Error:', error);
-      return NextResponse.json(
-        { message: `Αποτυχία αποστολής: ${error.message}` },
-        { status: 500 }
-      );
+      console.error("Resend error:", error);
+      return NextResponse.json({ message: 'Σφάλμα κατά την αποστολή του email.' }, { status: 500 });
     }
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
 
-  } catch (error) {
-    console.error("Internal Server Error:", error);
-    if (error instanceof SyntaxError) {
-      return NextResponse.json({ message: 'Μη έγκυρη μορφή δεδομένων.' }, { status: 400 });
-    }
-    return NextResponse.json({ message: 'Αποτυχία αποστολής του μηνύματος.' }, { status: 500 });
+  } catch (e) {
+    console.error("API route error:", e);
+    return NextResponse.json({ message: 'Υπήρξε ένα μη αναμενόμενο σφάλμα.' }, { status: 500 });
   }
 }
