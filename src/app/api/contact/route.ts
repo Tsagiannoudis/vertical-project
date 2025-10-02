@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
   try {
     // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
-    const { name, surname, email, message } = await request.json();
+    const { name, surname, email, phone, message } = await request.json();
 
     // Στέλνουμε το email χρησιμοποιώντας το Resend
     const { data, error } = await resend.emails.send({
@@ -25,30 +25,31 @@ export async function POST(request: Request) {
       // στο δωρεάν πλάνο.
       from: `Vertical Project <onboarding@resend.dev>`,
       to: [emailTo],
-      subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
       // Το reply_to επιτρέπει να πατήσεις "Απάντηση" και να απαντήσεις απευθείας στον χρήστη
       reply_to: email,
+      subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
       // Το περιεχόμενο του email
       html: `
-        <h2>Νέο μήνυμα από τη φόρμα επικοινωνίας</h2>
+        <h1>Νέο Μήνυμα Επικοινωνίας</h1>
         <p><strong>Όνομα:</strong> ${name}</p>
         <p><strong>Επώνυμο:</strong> ${surname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <hr>
-        <p><strong>Μήνυμα:</strong></p>
+        <p><strong>Τηλέφωνο:</strong> ${phone || 'Δεν δόθηκε'}</p>
+        <hr />
+        <h2>Μήνυμα:</h2>
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,
     });
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json({ message: 'Σφάλμα κατά την αποστολή του email.' }, { status: 500 });
+      return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
     }
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
 
   } catch (e) {
     console.error("API route error:", e);
-    return NextResponse.json({ message: 'Υπήρξε ένα μη αναμενόμενο σφάλμα.' }, { status: 500 });
+    return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
   }
 }
