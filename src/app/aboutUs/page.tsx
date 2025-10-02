@@ -3,6 +3,13 @@ import CallToActionCourses from "@/components/aboutUs/CallToActionCourses";
 // import HistorySection from "@/components/aboutUs/HistorySection";
 import MissionSection from "@/components/aboutUs/MissionSection";
 import TeamSection from "@/components/aboutUs/TeamSection";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: 'Σχετικά με εμάς | Vertical Project',
+  description: 'Γνωρίστε την ομάδα και την αποστολή του Vertical Project. Προσφέρουμε εκπαιδευτικά προγράμματα υψηλού επιπέδου σε Aerial Yoga, Handstands και πολλά άλλα.',
+}
 
 export default function AboutUsPage() {
   return (
