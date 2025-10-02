@@ -22,11 +22,10 @@ export async function POST(request: Request) {
     // Στέλνουμε το email χρησιμοποιώντας το Resend
     const { data, error } = await resend.emails.send({
       // ΣΗΜΑΝΤΙΚΟ: Χρησιμοποιούμε το onboarding@resend.dev για να αποφύγουμε προβλήματα με το spam
-      // στο δωρεάν πλάνο.
       from: `Vertical Project <onboarding@resend.dev>`,
       to: [emailTo],
       // Το reply_to επιτρέπει να πατήσεις "Απάντηση" και να απαντήσεις απευθείας στον χρήστη
-      reply_to: email,
+      replyTo: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
       // Το περιεχόμενο του email
       html: `
