@@ -21,7 +21,8 @@ export async function POST(request: Request) {
 
     // Στέλνουμε το email χρησιμοποιώντας το Resend
     const { data, error } = await resend.emails.send({
-      from: `Vertical Project <info@verticalproject.gr>`, 
+      // Αλλάζουμε τον αποστολέα για να χρησιμοποιεί το δικό μας, επιβεβαιωμένο domain
+      from: `Vertical Project <info@verticalproject.gr>`,
       to: [emailTo],
       // Το reply_to επιτρέπει να πατήσεις "Απάντηση" και να απαντήσεις απευθείας στον χρήστη
       replyTo: email,
