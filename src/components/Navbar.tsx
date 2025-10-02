@@ -41,7 +41,11 @@ const Navbar = () => {
                     : 'hover:bg-[#F2E94E] hover:text-black'
                 }`}
               >
-                {link.label}
+                {link.href === '/aboutUs' ? (
+                  <>Σχετικά <span className="hidden xl:inline">με εμάς</span></>
+                ) : (
+                  link.label
+                )}
               </Link>
             </li>
           ))}
