@@ -14,7 +14,7 @@ function getWorkshopData(slug: string): Workshop | undefined {
 }
 
 // Αυτή η συνάρτηση ενημερώνει το Next.js για όλες τις δυνατές σελίδες workshop που πρέπει να δημιουργήσει.
-export async function generateStaticParams() {
+export function generateStaticParams() {
     return workshops.map((workshop) => ({
         slug: workshop.slug,
     }));
@@ -51,19 +51,19 @@ export default function WorkshopPage({ params }: WorkshopPageProps) {
             
             <section className="container mx-auto max-w-4xl px-4 py-16">
                 {/* Hero Section title Section + photo*/}
-                <div className="relative w-full h-[800px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+                <div className="relative w-full h-[450px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
                     <Image
                         src={workshop.image}
                         alt={`Εικόνα για το workshop ${workshop.title}`}
                         fill
                         priority
-                        className="object-cover opacity-80"
+                        className="object-cover opacity-40"
                     />
-                    {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
                         <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">{workshop.title}</h1>
                         <p className="mt-4 text-xl font-semibold">{workshop.date}</p>
                         <p className="mt-2 text-lg">με τον {workshop.instructor}</p>
-                    </div> */}
+                    </div>
                 </div>
 
                 <div className="grid md:grid-cols-1 gap-16 py-16 ">
