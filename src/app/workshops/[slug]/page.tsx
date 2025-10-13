@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import HeroSectionWorkshops from '@/components/workshops/HeroSectionWorkshops';
 
 interface WorkshopPageProps {
     params: { slug: string; };
@@ -21,7 +20,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: WorkshopPageProps): Promise<Metadata> {
+export function generateMetadata({ params }: WorkshopPageProps): Metadata {
     const { slug } = params;
     const workshop = getWorkshopData(slug);
 
@@ -48,9 +47,6 @@ export default function WorkshopPage({ params }: WorkshopPageProps) {
     }
 
     return (
-        <>
-        <HeroSectionWorkshops/>
-
         <main className="bg-[#F3F3F3]">
             
             <section className="container mx-auto max-w-4xl px-4 py-16">
@@ -140,6 +136,5 @@ export default function WorkshopPage({ params }: WorkshopPageProps) {
                 </div>
             </section>
         </main>
-        </>
     )
 }
