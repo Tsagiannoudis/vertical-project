@@ -37,8 +37,8 @@ export function generateMetadata({ params }: WorkshopPageProps): Metadata {
 }
 
 
-export default function WorkshopPage({ params }: WorkshopPageProps) {
-    const { slug } = params;
+export default async function WorkshopPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
 
     const workshop = getWorkshopData(slug);
 
