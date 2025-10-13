@@ -4,48 +4,41 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-interface WorkshopPageProps {
-    params: { slug: string; };
-}
-
-// Helper function για να αποφεύγουμε την επανάληψη κώδικα
 function getWorkshopData(slug: string): Workshop | undefined {
-    return workshops.find((w) => w.slug === slug);
+  return workshops.find((w) => w.slug === slug);
 }
 
-// Αυτή η συνάρτηση ενημερώνει το Next.js για όλες τις δυνατές σελίδες workshop που πρέπει να δημιουργήσει.
 export async function generateStaticParams() {
-    return workshops.map((workshop) => ({
-        slug: workshop.slug,
-    }));
+  return workshops.map((workshop) => ({
+    slug: workshop.slug,
+  }));
 }
 
-export function generateMetadata({ params }: WorkshopPageProps): Metadata {
-    const { slug } = params;
-    const workshop = getWorkshopData(slug);
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const workshop = getWorkshopData(params.slug);
 
-    if (!workshop) {
-        return {
-            title: 'Workshop Not Found',
-        };
-    }
+  if (!workshop) {
+    return { title: 'Workshop Not Found' };
+  }
 
-    return {
-        title: `${workshop.title} | Vertical Project`,
-        description: workshop.shortDescription,
-    };
+  return {
+    title: `${workshop.title} | Vertical Project`,
+    description: workshop.shortDescription,
+  };
 }
 
+// ✅ Δες εδώ:
+export default async function WorkshopPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const workshop = getWorkshopData(slug);
 
-export default async function WorkshopPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-
-    const workshop = getWorkshopData(slug);
-
-    if (!workshop) { // Αυτός ο έλεγχος είναι πλέον διπλά σίγουρος
-        return notFound();
-    }
-
+  if (!workshop) {
+    return notFound();
+  }
     return (
         <main className="bg-[#F3F3F3]">
             
