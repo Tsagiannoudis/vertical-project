@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import HeroSectionWorkshops from '@/components/workshops/HeroSectionWorkshops';
 
 function getWorkshopData(slug: string): Workshop | undefined {
   return workshops.find((w) => w.slug === slug);
@@ -14,8 +15,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const workshop = getWorkshopData(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const workshop = getWorkshopData(slug);
 
   if (!workshop) {
     return { title: 'Workshop Not Found' };
@@ -27,7 +33,6 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-// ✅ Δες εδώ:
 export default async function WorkshopPage({
   params,
 }: {
@@ -36,10 +41,11 @@ export default async function WorkshopPage({
   const { slug } = await params;
   const workshop = getWorkshopData(slug);
 
-  if (!workshop) {
-    return notFound();
-  }
+  if (!workshop) return notFound();
+
     return (
+        <>
+            <HeroSectionWorkshops />
         <main className="bg-[#F3F3F3]">
             
             <section className="container mx-auto max-w-4xl px-4 py-16">
@@ -129,5 +135,6 @@ export default async function WorkshopPage({
                 </div>
             </section>
         </main>
+        </>
     )
 }
