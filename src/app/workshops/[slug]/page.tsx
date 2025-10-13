@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import HeroSectionWorkshops from '@/components/workshops/HeroSectionWorkshops';
+import ShareButtons from '@/components/workshops/ShareButtons';
 
 function getWorkshopData(slug: string): Workshop | undefined {
   return workshops.find((w) => w.slug === slug);
@@ -42,6 +43,21 @@ export default async function WorkshopPage({
   const workshop = getWorkshopData(slug);
 
   if (!workshop) return notFound();
+
+
+const handleShare = (platform: 'facebook' | 'copy') => {
+const shareUrl = window.location.href;
+
+    if (platform === 'facebook') {
+        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        window.open(facebookShareUrl, '_blank', 'noopener,noreferrer');
+        } else if (platform === 'copy') {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert('Ο σύνδεσμος αντιγράφηκε στο πρόχειρο!');
+        });
+        }
+    };
+
 
     return (
         <>
@@ -124,6 +140,8 @@ export default async function WorkshopPage({
                                     {workshop.location}
                                 </p>
                             </a>
+                            {/* Share Buttons */}
+                            <ShareButtons/>
                         </div>
                     </div>
                 </div>
