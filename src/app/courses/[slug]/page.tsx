@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+
 import HeroSectionCourses from "@/components/courses/HeroSectionCourses";
 import CourseTab from "@/components/courses/CourseTab";
 import ShareButtons from "@/components/extraComponents/ShareButtons";
@@ -15,19 +16,18 @@ function getCourseData(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return courses.map((course) => ({
     slug: course.slug,
   }));
 }
 
-export async function generateMetadata({
+export function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata> {
-  const { slug } = params;
-  const course = getCourseData(slug);
+}): Metadata {
+  const course = getCourseData(params.slug);
 
   if (!course) {
     return { title: "Course Not Found" };
@@ -39,18 +39,16 @@ export async function generateMetadata({
   };
 }
 
-
-export default async function CoursePage({
+export default function CoursePage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const { slug } = params;
-  const course = getCourseData(slug);
+  const course = getCourseData(params.slug);
 
   if (!course) return notFound();
 
-  const currentIndex = courses.findIndex((c) => c.slug === slug);
+  const currentIndex = courses.findIndex((c) => c.slug === params.slug);
   const nextCourse =
     currentIndex !== -1 ? courses[(currentIndex + 1) % courses.length] : null;
 
@@ -59,24 +57,26 @@ export default async function CoursePage({
       <HeroSectionCourses />
       <main className="bg-[#F3F3F3]">
         <section className="container mx-auto max-w-4xl px-4 py-16">
-          {/* Hero Section title Section + photo*/}
+          {/* Hero Section title Section + photo */}
           <div className="relative w-full h-[800px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
             <Image
               src={course.image}
-              alt={`Εικόνα για το εκπαιδευτικό ${course.title}`}
+              alt={course.title}
               fill
               priority
               className="object-cover opacity-80"
             />
           </div>
 
-          <div className="grid md:grid-cols-1 gap-16 py-16 ">
+          <div className="grid md:grid-cols-1 gap-16 py-16">
             {/* Details List */}
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                 {course.title}
               </h1>
+
               <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+
               <div className="space-y-4">
                 {course.moreDetails.map((item, index) => (
                   <p
@@ -93,7 +93,9 @@ export default async function CoursePage({
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 Τι θα μάθεις
               </h2>
+
               <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+
               <ul className="space-y-3 list-disc list-inside text-gray-700">
                 {course.details.map((detail, index) => (
                   <li key={index}>{detail}</li>
@@ -104,7 +106,7 @@ export default async function CoursePage({
 
           {/* Accordion */}
           <div>
-            <CourseTab/>
+            <CourseTab />
           </div>
 
           {/* Share Buttons */}
@@ -120,6 +122,7 @@ export default async function CoursePage({
             >
               &larr; Όλα τα Εκπαιδευτικά
             </Link>
+
             {nextCourse && (
               <Link
                 href={`/courses/${nextCourse.slug}`}
