@@ -19,9 +19,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const workshop = getWorkshopData(slug);
 
   if (!workshop) {
@@ -37,9 +37,9 @@ export async function generateMetadata({
 export default async function WorkshopPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const workshop = getWorkshopData(slug);
 
   if (!workshop) return notFound();
