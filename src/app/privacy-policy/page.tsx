@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const PrivacyPolicyPage = () => {
   return (
     <>
-    <main className="bg-gray-50 mt-50">
+    <main className="bg-gray-50">
       <div className="container mx-auto max-w-4xl px-4 py-16 sm:py-24">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -22,7 +22,7 @@ const PrivacyPolicyPage = () => {
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 mb-3">1. Εισαγωγή</h2>
             <p>
-              Η παρούσα Πολιτική Απορρήτου περιγράφει πώς το Vertical Project ("εμείς", "εμάς", ή "μας") συλλέγει, χρησιμοποιεί και προστατεύει τις πληροφορίες που μας παρέχετε όταν χρησιμοποιείτε τον ιστότοπό μας. Η προστασία των προσωπικών σας δεδομένων είναι σημαντική για εμάς.
+              Η παρούσα Πολιτική Απορρήτου περιγράφει πώς το Vertical Project (“εμείς”, “εμάς”, ή “μας”) συλλέγει, χρησιμοποιεί και προστατεύει τις πληροφορίες που μας παρέχετε όταν χρησιμοποιείτε τον ιστότοπό μας. Η προστασία των προσωπικών σας δεδομένων είναι σημαντική για εμάς.
             </p>
           </section>
 
