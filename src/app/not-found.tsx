@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
+    <>
+    {/* 404 Page Content */}
     <main className="flex min-h-[calc(100vh-200px)] items-center justify-center bg-white py-24 px-4 sm:px-6 lg:px-8">
       <div className="text-center">
         <h1 className="text-8xl font-bold text-[#F2E94E] drop-shadow-md">404</h1>
@@ -21,5 +23,6 @@ export default function NotFound() {
         </div>
       </div>
     </main>
+    </>
   )
 }

@@ -4,10 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import HeroSectionWorkshops from '@/components/workshops/HeroSectionWorkshops';
-import ShareButtons from '@/components/workshops/ShareButtons';
+import ShareButtons from '@/components/extraComponents/ShareButtons';
 
 function getWorkshopData(slug: string): Workshop | undefined {
-  return workshops.find((w) => w.slug === slug);
+  return workshops.find((workshop) => workshop.slug === slug);
 }
 
 export async function generateStaticParams() {

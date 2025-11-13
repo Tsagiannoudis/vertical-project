@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import FooterPage from "@/components/Footer";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import "./globals.css";
 
 
@@ -27,7 +28,8 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <Navbar />
         {children}
-        <FooterPage/>
+        <FooterPage />
+        <CookieConsentBanner />
       </body>
     </html>
   );
