@@ -17,8 +17,16 @@ export async function POST(request: NextRequest) {
 
   try {
     // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
-    const { name, surname, email, phone, message } = await request.json();
+    const body = await request.json();
+    const { name, surname, email, phone, message } = body;
 
+    // Validation: Βεβαιωνόμαστε ότι τα απαραίτητα πεδία υπάρχουν
+    if (!name || !surname || !email || !message) {
+      return NextResponse.json(
+        { message: 'Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.' },
+        { status: 400 }
+      );
+    }
     // Στέλνουμε το email χρησιμοποιώντας το Resend
     const { data, error } = await resend.emails.send({
       from: `Vertical Project <onboarding@resend.dev>`,
