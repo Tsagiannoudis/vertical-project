@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 // Δημιουργούμε ένα instance του Resend client
@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
 const emailTo = process.env.EMAIL_TO;
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
   if (!process.env.RESEND_API_KEY || !emailTo) {
     console.error("Resend API Key or Email To is not configured.");
