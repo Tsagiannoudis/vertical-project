@@ -39,13 +39,13 @@ export async function generateMetadata({
   };
 }
 
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
 
-export default async function CoursePage({ params }: Props) {
-  const { slug } = params; // slug is already destructured from params
+export default async function CoursePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
   const course = getCourseData(slug);
 
   if (!course) return notFound();
