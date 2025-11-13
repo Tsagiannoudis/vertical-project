@@ -10,19 +10,18 @@ function getWorkshopData(slug: string): Workshop | undefined {
   return workshops.find((workshop) => workshop.slug === slug);
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return workshops.map((workshop) => ({
     slug: workshop.slug,
   }));
 }
 
-export async function generateMetadata({
+export function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}): Promise<Metadata> {
-  const { slug } = params;
-  const workshop = getWorkshopData(slug);
+}): Metadata {
+  const workshop = getWorkshopData(params.slug);
 
   if (!workshop) {
     return { title: 'Workshop Not Found' };
@@ -34,30 +33,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function WorkshopPage({
+export default function WorkshopPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const { slug } = params;
-  const workshop = getWorkshopData(slug);
+  const workshop = getWorkshopData(params.slug);
 
   if (!workshop) return notFound();
-
-
-const handleShare = (platform: 'facebook' | 'copy') => {
-const shareUrl = window.location.href;
-
-    if (platform === 'facebook') {
-        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-        window.open(facebookShareUrl, '_blank', 'noopener,noreferrer');
-        } else if (platform === 'copy') {
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            alert('Ο σύνδεσμος αντιγράφηκε στο πρόχειρο!');
-        });
-        }
-    };
-
 
     return (
         <>
