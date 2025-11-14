@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-
 import HeroSectionCourses from "@/components/courses/HeroSectionCourses";
 import CourseTab from "@/components/courses/CourseTab";
 import ShareButtons from "@/components/extraComponents/ShareButtons";
@@ -11,6 +10,10 @@ import {
   trainings as courses,
   type Training as Course,
 } from "@/data/trainingCards";
+
+interface CoursePageProps {
+  params: { slug: string };
+}
 
 function getCourseData(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
@@ -22,11 +25,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
+export function generateMetadata({ params }: CoursePageProps): Metadata {
   const course = getCourseData(params.slug);
 
   if (!course) {
@@ -39,11 +38,7 @@ export function generateMetadata({
   };
 }
 
-export default function CoursePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function CoursePage({ params }: CoursePageProps) {
   const course = getCourseData(params.slug);
 
   if (!course) return notFound();

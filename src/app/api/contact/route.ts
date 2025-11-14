@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { z } from 'zod';
 
 // Δημιουργούμε ένα instance του Resend client
 // Ο constructor θα διαβάσει αυτόματα το RESEND_API_KEY από τις μεταβλητές περιβάλλοντος
@@ -7,6 +8,15 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
 const emailTo = process.env.EMAIL_TO;
+
+// Ορίζουμε το σχήμα των δεδομένων που περιμένουμε από τη φόρμα χρησιμοποιώντας το Zod
+const contactFormSchema = z.object({
+  name: z.string().min(1, { message: 'Το όνομα είναι υποχρεωτικό.' }),
+  surname: z.string().min(1, { message: 'Το επώνυμο είναι υποχρεωτικό.' }),
+  email: z.string().email({ message: 'Μη έγκυρη διεύθυνση email.' }),
+  phone: z.string().optional(), // Το τηλέφωνο είναι προαιρετικό
+  message: z.string().min(1, { message: 'Το μήνυμα είναι υποχρεωτικό.' }),
+});
 
 export async function POST(request: NextRequest) {
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
@@ -16,17 +26,11 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
     const body = await request.json();
-    const { name, surname, email, phone, message } = body;
+    // Επικυρώνουμε τα δεδομένα με το schema του Zod
+    const validatedData = contactFormSchema.parse(body);
+    const { name, surname, email, phone, message } = validatedData;
 
-    // Validation: Βεβαιωνόμαστε ότι τα απαραίτητα πεδία υπάρχουν
-    if (!name || !surname || !email || !message) {
-      return NextResponse.json(
-        { message: 'Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.' },
-        { status: 400 }
-      );
-    }
     // Στέλνουμε το email χρησιμοποιώντας το Resend
     const { error } = await resend.emails.send({
       from: `Vertical Project <onboarding@resend.dev>`,
@@ -55,7 +59,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
 
   } catch (e) {
+    // Αν το validation του Zod αποτύχει, θα πιάσουμε το σφάλμα εδώ
+    if (e instanceof z.ZodError) {
+      return NextResponse.json({ message: 'Μη έγκυρα δεδομένα.', errors: e.errors }, { status: 400 });
+    }
+
     console.error("API route error:", e);
-    return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
+    return NextResponse.json({ message: 'Παρουσιάστηκε ένα εσωτερικό σφάλμα.' }, { status: 500 });
   }
 }
