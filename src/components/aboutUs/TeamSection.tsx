@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { teamMembers, type TeamMember } from '@/data/teamMembers';
+import { teamMembers } from '@/data/teamMembers';
 
 const TeamSection = () => {
   return (
