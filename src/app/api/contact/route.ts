@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       );
     }
     // Στέλνουμε το email χρησιμοποιώντας το Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: `Vertical Project <onboarding@resend.dev>`,
       to: [emailTo],
       // Το reply_to επιτρέπει να πατήσεις "Απάντηση" και να απαντήσεις απευθείας στον χρήστη
