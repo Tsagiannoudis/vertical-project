@@ -38,7 +38,7 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CoursePage({ params }: Props) {
+export default async function CoursePage({ params }: Props) {
   const course = getCourseData(params.slug);
 
   if (!course) return notFound();

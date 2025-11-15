@@ -33,7 +33,7 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function WorkshopPage({ params }: Props) {
+export default async function WorkshopPage({ params }: Props) {
   const workshop = getWorkshopData(params.slug);
 
   if (!workshop) return notFound();
