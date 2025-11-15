@@ -6,6 +6,10 @@ import type { Metadata } from 'next';
 import HeroSectionWorkshops from '@/components/workshops/HeroSectionWorkshops';
 import ShareButtons from '@/components/extraComponents/ShareButtons';
 
+type Props = {
+  params: { slug: string };
+};
+
 function getWorkshopData(slug: string): Workshop | undefined {
   return workshops.find((workshop) => workshop.slug === slug);
 }
@@ -16,7 +20,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export function generateMetadata({ params }: Props): Metadata {
   const workshop = getWorkshopData(params.slug);
 
   if (!workshop) {
@@ -29,7 +33,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function WorkshopPage({ params }: { params: { slug: string } }) {
+export default function WorkshopPage({ params }: Props) {
   const workshop = getWorkshopData(params.slug);
 
   if (!workshop) return notFound();
