@@ -16,11 +16,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const workshop = getWorkshopData(params.slug);
 
   if (!workshop) {
@@ -33,11 +29,7 @@ export function generateMetadata({
   };
 }
 
-export default function WorkshopPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function WorkshopPage({ params }: { params: { slug: string } }) {
   const workshop = getWorkshopData(params.slug);
 
   if (!workshop) return notFound();
