@@ -11,9 +11,6 @@ import {
   type Training as Course,
 } from "@/data/trainingCards";
 
-type Props = {
-  params: { slug: string };
-};
 
 function getCourseData(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
@@ -25,7 +22,11 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
   const course = getCourseData(params.slug);
 
   if (!course) {
@@ -38,7 +39,11 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default async function CoursePage({ params }: Props) {
+export default async function CoursePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const course = getCourseData(params.slug);
 
   if (!course) return notFound();
