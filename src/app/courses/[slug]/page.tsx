@@ -12,22 +12,23 @@ import {
 } from "@/data/trainingCards";
 
 
-function getCourseData(slug: string): Course | undefined {
+async function getCourseData(slug: string): Promise<Course | undefined> {
   return courses.find((course) => course.slug === slug);
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return courses.map((course) => ({
     slug: course.slug,
   }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const course = getCourseData(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const course = await getCourseData(slug);
 
   if (!course) {
     return { title: "Course Not Found" };
@@ -39,16 +40,18 @@ export function generateMetadata({
   };
 }
 
-export default async function CoursePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const course = getCourseData(params.slug);
+
+type CoursePageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+const CoursePage = async ({ params }: CoursePageProps) => {
+  const { slug } = await params;
+  const course = await getCourseData(slug);
 
   if (!course) return notFound();
 
-  const currentIndex = courses.findIndex((c) => c.slug === params.slug);
+  const currentIndex = courses.findIndex((c) => c.slug === slug);
   const nextCourse =
     currentIndex !== -1 ? courses[(currentIndex + 1) % courses.length] : null
 
@@ -145,4 +148,6 @@ export default async function CoursePage({
       </main>
     </>
   );
-}
+};
+
+export default CoursePage;
