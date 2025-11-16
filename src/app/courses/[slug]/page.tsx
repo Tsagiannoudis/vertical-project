@@ -107,9 +107,9 @@ const CoursePage = async ({ params }: CoursePageProps) => {
             </div>
           </div>
 
-          {/* Accordion */}
+          {/* Tabs Location */}
           <div>
-            <CourseTab />
+            <CourseTab locations={course.locations} />
           </div>
 
           {/* Share Buttons */}
