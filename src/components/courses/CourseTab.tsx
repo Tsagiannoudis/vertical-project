@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
-
 import { Tabs, Tab } from "@heroui/tabs";
+import { trainings } from "../../data/trainingCards"; // Import the trainings data
 
 const CalendarIcon = () => (
   <svg
@@ -18,39 +19,28 @@ const CalendarIcon = () => (
   </svg>
 );
 
-interface Location {
-  city: string;
-  studio: string;
-  address: string;
-  dates: string[];
-  facebookEventUrl: string;
-  mapUrl: string;
-}
+export default function CourseTab({ trainingSlug }: { trainingSlug: string }) {
+  const training = trainings.find((t) => t.slug === trainingSlug);
 
-interface CourseTabProps {
-  locations: Location[];
-}
-
-export default function CourseTab({ locations }: CourseTabProps) {
-  if (!locations || locations.length === 0) {
-    return null; // Don't render anything if there are no locations
+  if (!training || !training.locations || training.locations.length === 0) {
+    return null; // Or render a message indicating no locations
   }
 
   return (
     <Tabs
-      aria-label="Course Locations" // Προσθέτουμε ένα κατάλληλο aria-label για προσβασιμότητα
-      variant="solid" // Αλλάζουμε την παραλλαγή σε "solid" για εμφάνιση τύπου "pill"
+      aria-label="Course Locations"
+      variant="solid"
       radius="full"
       classNames={{
-        tabList: "p-1 bg-gray-200", 
+        tabList: "p-1 bg-gray-200",
         cursor: "bg-[#F2E94E] shadow",
-        tab: "py-3 h-auto", 
+        tab: "py-3 h-auto",
         tabContent:
           "text-gray-500 group-data-[selected=true]:text-black font-semibold",
         panel: "p-6 bg-white rounded-2xl mt-6 shadow-md",
       }}
     >
-      {locations.map((location) => (
+      {training.locations.map((location, index) => (
         <Tab key={location.city} title={location.city}>
           <div className="flex flex-col gap-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-gray-700">
@@ -60,8 +50,8 @@ export default function CourseTab({ locations }: CourseTabProps) {
                   Πληροφορίες Διεξαγωγής
                 </h3>
                 <p>
-                  Το εκπαιδευτικό στη {location.city} πραγματοποιείται στο στούντιο{" "}
-                  {location.studio}, περιοχή Ανάληψη.
+                  Το εκπαιδευτικό στη {location.city} πραγματοποιείται στο
+                  στούντιο {location.studio}, {location.address}.
                 </p>
                 <ul className="list-disc list-inside space-y-2">
                   <li>
@@ -70,33 +60,37 @@ export default function CourseTab({ locations }: CourseTabProps) {
                   <li>
                     <strong>Ημέρες και ώρα:</strong>
                     <div className="mt-2 space-y-2 pl-2">
-                      {location.dates.map((date, index) => (
-                        <div key={index} className="flex items-center">
+                      {location.dates.map((date, dateIndex) => (
+                        <div key={dateIndex} className="flex items-center">
                           <CalendarIcon /> <span>{date}</span>
                         </div>
                       ))}
                     </div>
                   </li>
                 </ul>
-                <Link
-                  href={location.facebookEventUrl}
-                  className="inline-block bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#b9b788] transition-colors duration-300 w-fit mt-10"
-                >
-                  Πληροφορίες & Εγγραφές
-                </Link>
+                {location.facebookEventUrl && (
+                  <Link
+                    href={location.facebookEventUrl}
+                    className="inline-block bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#b9b788] transition-colors duration-300 w-fit mt-10"
+                  >
+                    Πληροφορίες & Εγγραφές
+                  </Link>
+                )}
               </div>
               {/* Στήλη 2: Χάρτης */}
               <div className="w-full h-96 rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src={location.mapUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`Χάρτης για τη διεύθυνση στη ${location.city}`}
-                ></iframe>
+                {location.mapUrl && (
+                  <iframe
+                    src={location.mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`Χάρτης για τη διεύθυνση στην ${location.city}`}
+                  ></iframe>
+                )}
               </div>
             </div>
           </div>

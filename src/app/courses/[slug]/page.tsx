@@ -109,7 +109,7 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
           {/* Tabs Location */}
           <div>
-            <CourseTab locations={course.locations} />
+            <CourseTab trainingSlug={slug} />
           </div>
 
           {/* Share Buttons */}
