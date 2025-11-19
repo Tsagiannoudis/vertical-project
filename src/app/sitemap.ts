@@ -1,38 +1,56 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { trainings } from '@/data/trainingCards';
+import { workshops } from '@/data/workshops';
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.verticalproject.gr';
 
-  return [
+  const courseUrls = trainings.map((training) => ({
+    url: `${baseUrl}/courses/${training.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const workshopUrls = workshops.map((workshop) => ({
+    url: `${baseUrl}/workshops/${workshop.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  const staticUrls = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'yearly' as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/courses`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/workshops`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/aboutUs`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
-  ]
+  ];
+
+  return [...staticUrls, ...courseUrls, ...workshopUrls];
 }
