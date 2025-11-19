@@ -61,13 +61,13 @@ const CoursePage = async ({ params }: CoursePageProps) => {
       <main className="bg-[#F3F3F3]">
         <section className="container mx-auto max-w-4xl px-4 py-16">
           {/* Hero Section title Section + photo */}
-          <div className="relative w-full h-[800px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[300px] md:h-[500px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
             <Image
               src={course.image}
               alt={course.title}
               fill
               priority
-              className="object-cover opacity-80"
+              className="object-cover"
             />
           </div>
 
