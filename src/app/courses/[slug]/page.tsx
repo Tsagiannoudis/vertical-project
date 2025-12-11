@@ -11,7 +11,6 @@ import {
   type Training as Course,
 } from "@/data/trainingCards";
 
-
 async function getCourseData(slug: string): Promise<Course | undefined> {
   return courses.find((course) => course.slug === slug);
 }
@@ -40,7 +39,6 @@ export async function generateMetadata({
   };
 }
 
-
 type CoursePageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -53,7 +51,7 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
   const currentIndex = courses.findIndex((c) => c.slug === slug);
   const nextCourse =
-    currentIndex !== -1 ? courses[(currentIndex + 1) % courses.length] : null
+    currentIndex !== -1 ? courses[(currentIndex + 1) % courses.length] : null;
 
   return (
     <>
@@ -91,20 +89,136 @@ const CoursePage = async ({ params }: CoursePageProps) => {
               </div>
             </div>
 
-            {/* What we learn*/}
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Τι θα μάθεις
-              </h2>
+            {/* For who specific */}
+            {course.focusOn && course.focusOn.length > 0 && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  Σε ποιους απευθύνεται
+                </h2>
+                <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
 
-              <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+                {course.focusOn.map((level, index) => (
+                  <div key={index} className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                      {level.level}
+                    </h2>
+                    <h3 className="text-xl font-semibold text-gray-700 mb-8">
+                      {level.targetAudienceTitle}
+                    </h3>
 
-              <ul className="space-y-3 list-disc list-inside text-gray-700">
-                {course.details.map((detail, index) => (
-                  <li key={index}>{detail}</li>
+                    <ul className="space-y-3 list-disc list-inside text-gray-700">
+                      {level.targetAudienceList.map((item, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                      ))}
+                    </ul>
+                    {level.description && (
+                      <ul className="space-y-5 mt-8">
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 mt-1 mr-3">
+                            <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
+                              <svg className="w-4 h-4 text-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: level.description }} />
+                        </li>
+                      </ul>
+                    )}
+                  </div>
                 ))}
-              </ul>
-            </div>
+              </div>
+            )}
+
+            {/* What we learn */}
+            {course.learningGoals && course.learningGoals.length > 0 && (
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                  Τι θα μάθεις
+                </h2>
+                <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+
+                {course.learningGoals.map((level, index) => (
+                  <div key={index} className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                      {level.level}
+                    </h2>
+                    <h3 className="text-xl font-semibold text-gray-700 mb-8">
+                      {level.targetAudienceTitle}
+                    </h3>
+
+                    <ul className="space-y-3 list-disc list-inside text-gray-700">
+                      {level.targetAudienceList.map((item, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                      ))}
+                    </ul>
+                    {level.description && (
+                      <ul className="space-y-5 mt-8">
+                        <li className="flex items-start">
+                          <div className="flex-shrink-0 mt-1 mr-3">
+                            <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
+                              <svg className="w-4 h-4 text-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                            </div>
+                          </div>
+                          <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: level.description }} />
+                        </li>
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Methology of training */}
+            {course.methologyTraining &&
+              course.methologyTraining.length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                    Μεθοδολογία Εκπαίδευσης
+                  </h2>
+
+                  <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+
+                  {course.methologyTraining.map((methology, index) => (
+                    <div key={index}>
+                      <h3 className="text-xl font-semibold text-gray-700 mb-8">
+                        {methology.methologyTitle}
+                      </h3>
+                      <ul className="space-y-3 list-disc list-inside text-gray-700">
+                        {methology.methologyList.map((item, i) => (
+                          <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                        ))}
+                      </ul>
+                      {methology.methologyParagraph && (
+                        <p className="text-gray-700 mt-4" dangerouslySetInnerHTML={{ __html: methology.methologyParagraph }} />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+            {/* Certification */}
+            {course.certification &&
+              course.certification.filter(c => c.trim() !== '').length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                    Πιστοποίηση
+                  </h2>
+
+                  <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+
+                  <div className="space-y-3 list-disc list-inside text-gray-700">
+                    {course.certification
+                      .filter(c => c.trim() !== '')
+                      .map((certification, index) => (
+                        <p key={index} dangerouslySetInnerHTML={{ __html: certification }} />
+                      )
+                    )}
+                  </div>
+                </div>
+              )}
           </div>
 
           {/* Tabs Location */}
