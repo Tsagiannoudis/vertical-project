@@ -5,7 +5,7 @@ export const trainings = [
         image: "/trainings-icons/aerial-yoga-tt.webp",
         alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα.", 
         title: "Aerial Yoga Teacher Training",
-        shortDescription: "Ανακαλύψτε την ελευθερία της κίνησης στην ''κούνια'' με τα εκπαιδευτικά προγράμματα της Aerial Yoga.",
+        shortDescription: 'Ανακαλύψτε την ελευθερία της κίνησης στην "αιώρα" με τα εκπαιδευτικά προγράμματα της Aerial Yoga.',
         details: [
             'Οφέλη και αντενδείξεις της Aerial',
             'Aerial principles & terminology',
