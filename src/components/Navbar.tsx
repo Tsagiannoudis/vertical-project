@@ -15,11 +15,12 @@ const Navbar = () => {
     { label: 'Εκπαιδευτικά', href: '/courses' },
     { label: 'Workshops', href: '/workshops' },
     { label: 'Σχετικά με εμάς', href: '/aboutUs' }, 
+    { label: 'Οι απόφοιτοι μας', href: '/certified-instructors' }, 
     { label: 'Επικοινωνία', href: '/contact' },
   ];
 
   return (
-    <header className="absolute top-6 left-0 right-0 z-50 w-11/12 lg:w-3/5 max-w-7xl mx-auto rounded-2xl bg-white text-black shadow-md">
+    <header className="absolute top-6 left-0 right-0 z-50 w-11/12 lg:w-4/5 max-w-7xl mx-auto rounded-2xl bg-white text-black shadow-md">
       <nav className="container mx-auto flex justify-between items-center p-4">
         <Link href="/" onClick={() => setIsMenuOpen(false)}>
              <Image

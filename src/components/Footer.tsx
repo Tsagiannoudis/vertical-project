@@ -10,7 +10,7 @@ const instagramIcon = <FontAwesomeIcon icon={faInstagram} />;
 
 export default function FooterPage() {
   return (
-    <footer className="bg-white text-black shadow-md w-11/12 lg:w-3/5 max-w-7xl align-center mx-auto rounded-2xl mt-6 p-4">
+    <footer className="bg-white text-black shadow-md w-11/12 lg:w-4/5 max-w-7xl align-center mx-auto rounded-2xl mt-6 p-4">
       <div className="container mx-auto py-12 px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Quick Links */}
