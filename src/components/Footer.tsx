@@ -35,6 +35,11 @@ export default function FooterPage() {
                 </Link>
               </li>
               <li>
+                <Link href="/certified-instructors" className="hover:underline">
+                  Οι απόφοιτοι μας 
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:underline">
                   Επικοινωνία
                 </Link>
