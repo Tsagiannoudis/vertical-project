@@ -100,7 +100,7 @@ const CertifiedInstructors: React.FC = () => {
                     {instructor.name}
                   </h3>
                   <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">{instructor.location}</p>
-                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-2 text-center">
                     {instructor.certifications.map(cert => (
                         <span key={cert} className="inline-block bg-gray-200 rounded-full px-2 py-1 text-[10px] sm:text-xs font-semibold text-gray-700">
                             {cert}
