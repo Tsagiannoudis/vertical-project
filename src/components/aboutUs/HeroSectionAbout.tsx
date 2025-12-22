@@ -1,6 +1,6 @@
 //import Image from "next/image";
 
-const HeroSectionBlog = () => {
+const HeroSectionAbout = () => {
     return (
     <section className="relative w-full h-[300px] bg-[#3c3c3c]">
         {/* <Image
@@ -17,4 +17,4 @@ const HeroSectionBlog = () => {
     );
 }
 
-export default HeroSectionBlog;
+export default HeroSectionAbout;

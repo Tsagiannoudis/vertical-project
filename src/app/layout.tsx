@@ -5,6 +5,9 @@ import FooterPage from "@/components/Footer";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import "./globals.css";
 import ScrollToTopButton from "@/components/extraComponents/ScrollToTopButton";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 
 const inter = Inter({
