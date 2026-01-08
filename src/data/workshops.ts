@@ -30,7 +30,7 @@ export const workshops = [
         time: '16:00 - 19:00',
         location: 'loopa.acrobatics&more, Πειραιάς Αττικής',
         shortDescription: 'Ένα σεμινάριο γεμάτο στηρίξεις και ανάστροφες θέσεις, βασισμένο στην αλληλουποστήριξη και τα ασφαλή progressions. Πραγματοποιήται στο Studio Loopa Acrobatics & more στον Πειραιά Αττικής.',
-        image: '/workshops-retreats/acroyoga-and-standing-acrobatics-foundations.webp',
+        image: '/workshops-retreats/acroyoga-and-standing-acrobatics-foundation.webp',
         instructor: 'Γιάννης Καρβέλης & Ελένη Φωτίου',
         details: [
             'Handstands and drills',
