@@ -56,7 +56,7 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
               alt={`Εικόνα για το workshop ${workshop.title}`}
               fill
               priority
-              className="object-fit:cover opacity-80"
+              className="object-fit:contain opacity-80"
             />
             {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
                         <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">{workshop.title}</h1>
