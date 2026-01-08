@@ -28,7 +28,7 @@ export const workshops = [
         title: 'Acroyoga & Standing Acrobatics Foundations guided by John Karvelis and Eleni Fotiou',
         date: '07 Φεβρουαρίου 2026',
         time: '16:00 - 19:00',
-        location: 'Studio Loopa, Aθήνα',
+        location: 'Loopa.acrobatics&more, Aθήνα',
         shortDescription: 'Ένα σεμινάριο γεμάτο στηρίξεις και ανάστροφες θέσεις, βασισμένο στην αλληλουποστήριξη και τα ασφαλή progressions. Πραγματοποιήται στο Studio Αιώρησις στην Θεσσαλονίκη.',
         image: '/workshops-retreats/assists-in-inversions.webp',
         instructor: 'Γιάννης Καρβέλης & Ελένη Φωτίου',
