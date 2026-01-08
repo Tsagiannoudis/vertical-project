@@ -42,7 +42,7 @@ export async function generateMetadata({
         {
           url: workshop.image,
           width: 1200,
-          height: 630,
+          height: 680,
           alt: workshop.title,
         },
       ],
