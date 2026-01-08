@@ -19,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+    params: Promise<{ slug: string }>;
 }) : Promise<Metadata> {
   const { slug } = await params;
   const workshop = getWorkshopData(slug);
@@ -28,7 +28,10 @@ export async function generateMetadata({
     return { title: "Workshop Not Found" };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   return {
+    metadataBase: new URL(siteUrl),
     title: `${workshop.title} | Vertical Project`,
     description: workshop.shortDescription,
     openGraph: {
@@ -37,7 +40,7 @@ export async function generateMetadata({
       url: `/workshops/${slug}`,
       images: [
         {
-          url: workshop.image, // Must be an absolute URL
+          url: workshop.image,
           width: 1200,
           height: 630,
           alt: workshop.title,
