@@ -31,6 +31,19 @@ export async function generateMetadata({
   return {
     title: `${workshop.title} | Vertical Project`,
     description: workshop.shortDescription,
+    openGraph: {
+      title: `${workshop.title} | Vertical Project`,
+      description: workshop.shortDescription,
+      url: `/workshops/${slug}`,
+      images: [
+        {
+          url: workshop.image, // Must be an absolute URL
+          width: 1200,
+          height: 630,
+          alt: workshop.title,
+        },
+      ],
+    },
   };
 }
 

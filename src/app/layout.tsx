@@ -16,10 +16,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"), // Replace with your actual domain in production
   title: "Vertical Project",
   description: "Trainings Teachers and Workshops",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Vertical Project",
+    description: "Trainings Teachers and Workshops",
+    type: "website",
+    url: "/",
+    images: [
+      {
+        url: "/welcome.png", // Must be an absolute URL
+        width: 1200,
+        height: 630,
+        alt: "Welcome to Vertical Project",
+      },
+    ],
   },
 };
 

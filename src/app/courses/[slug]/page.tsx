@@ -22,21 +22,63 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({
+
   params,
+
 }: {
+
   params: Promise<{ slug: string }>;
+
 }): Promise<Metadata> {
+
   const { slug } = await params;
+
   const course = await getCourseData(slug);
 
+
+
   if (!course) {
+
     return { title: "Course Not Found" };
+
   }
 
+
+
   return {
+
     title: `${course.title} | Vertical Project`,
+
     description: course.shortDescription,
+
+    openGraph: {
+
+      title: `${course.title} | Vertical Project`,
+
+      description: course.shortDescription,
+
+      url: `/courses/${slug}`,
+
+      images: [
+
+        {
+
+          url: course.image, // Must be an absolute URL
+
+          width: 1200,
+
+          height: 630,
+
+          alt: course.title,
+
+        },
+
+      ],
+
+    },
+
   };
+
 }
 
 type CoursePageProps = {
