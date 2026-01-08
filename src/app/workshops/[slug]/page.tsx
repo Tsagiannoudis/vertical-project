@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import HeroSectionWorkshops from "@/components/workshops/HeroSectionWorkshops";
 import ShareButtons from "@/components/extraComponents/ShareButtons";
+import { image } from "@heroui/theme";
 
 function getWorkshopData(slug: string): Workshop | undefined {
   return workshops.find((workshop) => workshop.slug === slug);
@@ -29,6 +30,7 @@ export async function generateMetadata({
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const imageUrl = `${siteUrl}${workshop.image}`;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -40,12 +42,18 @@ export async function generateMetadata({
       url: `/workshops/${slug}`,
       images: [
         {
-          url: workshop.image,
+          url: imageUrl,
           width: 1200,
-          height: 680,
+          height: 630,
           alt: workshop.title,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${workshop.title} | Vertical Project`,
+      description: workshop.shortDescription,
+      images: [imageUrl],
     },
   };
 }
