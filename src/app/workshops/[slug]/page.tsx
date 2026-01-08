@@ -50,7 +50,7 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
       <main className="bg-[#F3F3F3]">
         <section className="container mx-auto max-w-4xl px-4 py-16">
           {/* Hero Section title Section + photo*/}
-          <div className="relative w-full h-[500px] md:h-[600px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[500px] md:h-[800px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
             <Image
               src={workshop.image}
               alt={`Εικόνα για το workshop ${workshop.title}`}
