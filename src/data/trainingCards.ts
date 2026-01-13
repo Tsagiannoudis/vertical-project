@@ -73,6 +73,16 @@ export const trainings = [
         ],
         locations: [
             {
+                city: "Ναύπλιο",
+                studio: "Modern Yogi Nafplio",
+                address: "Φλέσσα 5, Ναύπλιο, 211 00",
+                dates: [
+                    "03/07/2026 - 08/07/2026 09:30-17:00"
+                ],
+                facebookEventUrl: "https://www.facebook.com/events/849673221217691?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22search%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3162.503154961821!2d22.801106!3d37.566768!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149ff1f354c05527%3A0x2c871de6cdeb84b!2sModern%20Yogi%20-%20Nafplio!5e0!3m2!1sel!2sus!4v1768293084036!5m2!1sel!2sus"
+            },
+            {
                 city: "Αθήνα",
                 studio: "Swan Athens",
                 address: "Υμηττού 219, 11632",
