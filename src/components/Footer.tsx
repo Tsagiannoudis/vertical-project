@@ -88,7 +88,9 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-12 h-12 inline-block">{facebookIcon}</span>
+                    <span className="inline-block text-2xl hover:text-[#F2E94E] transition-colors">{
+                      facebookIcon}
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -98,7 +100,7 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-12 h-12 inline-block">
+                    <span className="w-16 inline-block text-2xl hover:text-[#F2E94E] transition-colors">
                       {instagramIcon}
                     </span>
                   </a>
@@ -111,7 +113,7 @@ export default function FooterPage() {
         <div className="mt-12 border-t border-gray-300 pt-8 text-center text-sm">
           <p>
             © {new Date().getFullYear()} Vertical Project. All rights reserved.
-            Powered by tSagian Projects.
+            Powered by <Link href="https://www.tsagiannoudis.gr" className="hover:underline">tSagian Projects</Link>.
           </p>
         </div>
       </div>
