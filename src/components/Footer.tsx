@@ -88,7 +88,9 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-12 h-12 inline-block">{facebookIcon}</span>
+                    <span className="inline-block text-2xl hover:text-[#F2E94E] transition-colors">{
+                      facebookIcon}
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -98,7 +100,7 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-12 h-12 inline-block">
+                    <span className="w-16 inline-block text-2xl hover:text-[#F2E94E] transition-colors">
                       {instagramIcon}
                     </span>
                   </a>
