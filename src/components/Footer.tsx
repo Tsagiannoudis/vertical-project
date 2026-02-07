@@ -113,7 +113,7 @@ export default function FooterPage() {
         <div className="mt-12 border-t border-gray-300 pt-8 text-center text-sm">
           <p>
             © {new Date().getFullYear()} Vertical Project. All rights reserved.
-            Powered by tSagian Projects.
+            Powered by <Link href="https://www.tsagiannoudis.gr" className="hover:underline">tSagian Projects</Link>.
           </p>
         </div>
       </div>
