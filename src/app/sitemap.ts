@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const eventUrls = events.map((event) => ({
+  const eventsUrls = events.map((event) => ({
     url: `${baseUrl}/events/${event.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
