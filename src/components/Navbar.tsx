@@ -13,7 +13,7 @@ const Navbar = () => {
   const navLinks = [
     { label: 'Αρχική', href: '/' },
     { label: 'Εκπαιδευτικά', href: '/courses' },
-    { label: 'Workshops', href: '/workshops' },
+    { label: 'Events', href: '/events' },
     { label: 'Σχετικά με εμάς', href: '/aboutUs' }, 
     { label: 'Οι απόφοιτοι μας', href: '/certified-instructors' }, 
     { label: 'Επικοινωνία', href: '/contact' },

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { trainings } from '@/data/trainingCards';
-import { workshops } from '@/data/workshops';
+import { events } from '@/data/events';
  
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.verticalproject.gr';
@@ -12,8 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const workshopUrls = workshops.map((workshop) => ({
-    url: `${baseUrl}/workshops/${workshop.slug}`,
+  const eventUrls = events.map((event) => ({
+    url: `${baseUrl}/events/${event.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/workshops`,
+      url: `${baseUrl}/events`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -52,5 +52,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticUrls, ...courseUrls, ...workshopUrls];
+  return [...staticUrls, ...courseUrls, ...eventsUrls];
 }

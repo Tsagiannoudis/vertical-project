@@ -25,8 +25,8 @@ export default function FooterPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/workshops" className="hover:underline">
-                  Workshops
+                <Link href="/events" className="hover:underline">
+                  Events
                 </Link>
               </li>
               <li>
@@ -88,7 +88,7 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-8 h-8 inline-block">{facebookIcon}</span>
+                    <span className="w-12 h-12 inline-block">{facebookIcon}</span>
                   </a>
                 </li>
                 <li>
@@ -98,7 +98,7 @@ export default function FooterPage() {
                     rel="noopener noreferrer"
                     className="text-black hover:underline ml-2"
                   >
-                    <span className="w-8 h-8 inline-block">
+                    <span className="w-12 h-12 inline-block">
                       {instagramIcon}
                     </span>
                   </a>

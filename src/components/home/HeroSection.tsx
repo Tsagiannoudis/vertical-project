@@ -33,10 +33,10 @@ const HeroSection = () => {
               Εκπαιδευτικά
             </Link>
             <Link 
-              href="/workshops"
+              href="/events"
               className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-white hover:text-black transition-colors duration-300 transform hover:scale-105"
             >
-              Workshops
+              Events
             </Link>
           </div>
         </div>

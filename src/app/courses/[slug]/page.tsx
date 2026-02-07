@@ -22,63 +22,35 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({
-
   params,
-
 }: {
-
   params: Promise<{ slug: string }>;
-
 }): Promise<Metadata> {
-
   const { slug } = await params;
 
   const course = await getCourseData(slug);
 
-
-
   if (!course) {
-
     return { title: "Course Not Found" };
-
   }
 
-
-
   return {
-
     title: `${course.title} | Vertical Project`,
-
     description: course.shortDescription,
-
     openGraph: {
-
       title: `${course.title} | Vertical Project`,
-
       description: course.shortDescription,
-
       url: `/courses/${slug}`,
-
       images: [
-
-        {
-
+       {
           url: course.image, // Must be an absolute URL
-
           width: 1200,
-
           height: 630,
-
           alt: course.title,
-
         },
-
       ],
-
     },
-
   };
-
 }
 
 type CoursePageProps = {
@@ -150,7 +122,10 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
                     <ul className="space-y-3 list-disc list-inside text-gray-700">
                       {level.targetAudienceList.map((item, i) => (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                        <li
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: item }}
+                        />
                       ))}
                     </ul>
                     {level.description && (
@@ -158,12 +133,27 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                         <li className="flex items-start">
                           <div className="flex-shrink-0 mt-1 mr-3">
                             <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
-                              <svg className="w-4 h-4 text-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+                              <svg
+                                className="w-4 h-4 text-gray-800"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2.5"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
                               </svg>
                             </div>
                           </div>
-                          <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: level.description }} />
+                          <p
+                            className="text-gray-700"
+                            dangerouslySetInnerHTML={{
+                              __html: level.description,
+                            }}
+                          />
                         </li>
                       </ul>
                     )}
@@ -191,7 +181,10 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
                     <ul className="space-y-3 list-disc list-inside text-gray-700">
                       {level.targetAudienceList.map((item, i) => (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                        <li
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: item }}
+                        />
                       ))}
                     </ul>
                     {level.description && (
@@ -199,12 +192,27 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                         <li className="flex items-start">
                           <div className="flex-shrink-0 mt-1 mr-3">
                             <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
-                              <svg className="w-4 h-4 text-gray-800" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
+                              <svg
+                                className="w-4 h-4 text-gray-800"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2.5"
+                                  d="M5 13l4 4L19 7"
+                                ></path>
                               </svg>
                             </div>
                           </div>
-                          <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: level.description }} />
+                          <p
+                            className="text-gray-700"
+                            dangerouslySetInnerHTML={{
+                              __html: level.description,
+                            }}
+                          />
                         </li>
                       </ul>
                     )}
@@ -230,11 +238,19 @@ const CoursePage = async ({ params }: CoursePageProps) => {
                       </h3>
                       <ul className="space-y-3 list-disc list-inside text-gray-700">
                         {methology.methologyList.map((item, i) => (
-                          <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                          <li
+                            key={i}
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
                         ))}
                       </ul>
                       {methology.methologyParagraph && (
-                        <p className="text-gray-700 mt-4" dangerouslySetInnerHTML={{ __html: methology.methologyParagraph }} />
+                        <p
+                          className="text-gray-700 mt-4"
+                          dangerouslySetInnerHTML={{
+                            __html: methology.methologyParagraph,
+                          }}
+                        />
                       )}
                     </div>
                   ))}
@@ -243,7 +259,8 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
             {/* Certification */}
             {course.certification &&
-              course.certification.filter(c => c.trim() !== '').length > 0 && (
+              course.certification.filter((c) => c.trim() !== "").length >
+                0 && (
                 <div>
                   <h2 className="text-2xl font-bold text-gray-800 mb-4">
                     Πιστοποίηση
@@ -253,11 +270,13 @@ const CoursePage = async ({ params }: CoursePageProps) => {
 
                   <div className="space-y-3 list-disc list-inside text-gray-700">
                     {course.certification
-                      .filter(c => c.trim() !== '')
+                      .filter((c) => c.trim() !== "")
                       .map((certification, index) => (
-                        <p key={index} dangerouslySetInnerHTML={{ __html: certification }} />
-                      )
-                    )}
+                        <p
+                          key={index}
+                          dangerouslySetInnerHTML={{ __html: certification }}
+                        />
+                      ))}
                   </div>
                 </div>
               )}

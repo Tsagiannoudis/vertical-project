@@ -1,19 +1,19 @@
-import { workshops, Workshop } from "@/data/workshops";
+import { events, Event } from "@/data/events";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import HeroSectionWorkshops from "@/components/workshops/HeroSectionWorkshops";
+import HeroSectionEvents from "@/components/events/HeroSectionEvents";
 import ShareButtons from "@/components/extraComponents/ShareButtons";
-import { image } from "@heroui/theme";
+// import { image } from "@heroui/theme";
 
-function getWorkshopData(slug: string): Workshop | undefined {
-  return workshops.find((workshop) => workshop.slug === slug);
+function getEventData(slug: string): Event | undefined {
+  return events.find((event) => event.slug === slug);
 }
 
 export function generateStaticParams() {
-  return workshops.map((workshop) => ({
-    slug: workshop.slug,
+  return events.map((event) => ({
+    slug: event.slug,
   }));
 }
 
@@ -23,61 +23,61 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>;
 }) : Promise<Metadata> {
   const { slug } = await params;
-  const workshop = getWorkshopData(slug);
+  const event = getEventData(slug);
 
-  if (!workshop) {
+  if (!event) {
     return { title: "Workshop Not Found" };
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  const imageUrl = `${siteUrl}${workshop.image}`;
+  const imageUrl = `${siteUrl}${event.image}`;
 
   return {
     metadataBase: new URL(siteUrl),
-    title: `${workshop.title} | Vertical Project`,
-    description: workshop.shortDescription,
+    title: `${event.title} | Vertical Project`,
+    description: event.shortDescription,
     openGraph: {
-      title: `${workshop.title} | Vertical Project`,
-      description: workshop.shortDescription,
-      url: `/workshops/${slug}`,
+      title: `${event.title} | Vertical Project`,
+      description: event.shortDescription,
+      url: `/event/${slug}`,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: workshop.title,
+          alt: event.title,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${workshop.title} | Vertical Project`,
-      description: workshop.shortDescription,
+      title: `${event.title} | Vertical Project`,
+      description: event.shortDescription,
       images: [imageUrl],
     },
   };
 }
 
-type WorkshopPageProps = {
+type EventPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const WorkshopPage = async ({ params }: WorkshopPageProps) => {
+const EventPage = async ({ params }: EventPageProps) => {
     const { slug } = await params;
-  const workshop = getWorkshopData(slug);
+  const event = getEventData(slug);
 
-  if (!workshop) return notFound();
+  if (!event) return notFound();
 
   return (
     <>
-      <HeroSectionWorkshops />
+      <HeroSectionEvents />
       <main className="bg-[#F3F3F3]">
         <section className="container mx-auto max-w-4xl px-4 py-16">
           {/* Hero Section title Section + photo*/}
-          <div className="relative w-full h-[400px] md:h-[800px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[500px] md:h-[1000px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
             <Image
-              src={workshop.image}
-              alt={`Εικόνα για το workshop ${workshop.title}`}
+              src={event.image}
+              alt={`Εικόνα για το workshop ${event.title}`}
               fill
               priority
               className="object-fit opacity-80"
@@ -93,11 +93,11 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
             {/* Left: Details List */}
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                {workshop.title}
+                {event.title}
               </h2>
               <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
               <div className="space-y-4">
-                {workshop.moreDetails.map((item, index) => (
+                {event.moreDetails.map((item, index) => (
                   <p key={index} className="text-gray-700 text-justify">
                     {item}
                   </p>
@@ -112,7 +112,7 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
               </h2>
               <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
               <ul className="space-y-3 list-disc list-inside text-gray-700">
-                {workshop.details.map((detail, index) => (
+                {event.details.map((detail, index) => (
                   <li key={index}>{detail}</li>
                 ))}
               </ul>
@@ -143,7 +143,7 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  <p className="ml-3 text-lg text-gray-800">{workshop.date}</p>
+                  <p className="ml-3 text-lg text-gray-800">{event.date}</p>
                 </div>
                 {/* Time */}
                 <div className="flex items-center">
@@ -161,12 +161,12 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <p className="ml-3 text-lg text-gray-800">{workshop.time}</p>
+                  <p className="ml-3 text-lg text-gray-800">{event.time}</p>
                 </div>
                 {/* Location with link to Google Maps */}
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    workshop.location
+                    event.location
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -192,7 +192,7 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
                     />
                   </svg>
                   <p className="ml-3 text-lg text-gray-800 group-hover:text-black underline decoration-transparent group-hover:decoration-current transition-colors">
-                    {workshop.location}
+                    {event.location}
                   </p>
                 </a>
                 {/* Share Buttons */}
@@ -215,4 +215,4 @@ const WorkshopPage = async ({ params }: WorkshopPageProps) => {
   );
 };
 
-export default WorkshopPage;
+export default EventPage;

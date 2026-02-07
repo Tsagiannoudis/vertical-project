@@ -1,4 +1,4 @@
-export const workshops = [
+export const events = [
     {
         id: 1,
         slug: 'assists-in-inversions-and-handstands',
@@ -47,7 +47,56 @@ export const workshops = [
             'Ξεκινώντας με Solo drills και calibrations θα βρούμε τεχνικές κατακόρυφων και κατάλληλης θέσης του σώματος, θεμελιώδης για τις κορυφές (flyers) αλλά και τις βάσεις (bases) στα ακροβατικά ζευγάρια. Στη συνέχεια με Acroyoga (L-base acrobatics) θα χτίσουμε εμπιστοσύνη, ακροβατική επικοινωνία, ακροβατικές λαβές και ασφάλεια (Spotting), ώστε σταδιακά να μεταβούμε σε τεχνικές όρθιων και ομαδικών ακροβατικών (Standing and Group Acrobatics). Θα δουλέψουμε πάνω σε στατικές θέσεις, εύρος κίνησης αλλά και μεταβάσεις από θέση σε θέση. Η πιο σημαντική μας πρόθεση είναι να συνδεθούμε σαν ομάδα και να περάσουμε καλά!'
         ]
     },
+    {
+        id: 3,
+        slug: 'assists-in-inversions-thai-yoga-for-spinal-mobility',
+        title: 'Assists in Inversions / Thai Yoga for Spinal Mobility',
+        date: '21 Μαρτίου 2026',
+        time: '18:00 - 20:30',
+        location: 'Studio Αιώρησις, Θεσσαλονίκη',
+        shortDescription: 'Ένα σεμινάριο γεμάτο στηρίξεις και ανάστροφες θέσεις, βασισμένο στην αλληλουποστήριξη και τα ασφαλή progressions. Πραγματοποιήται στο Studio Loopa Acrobatics & more στον Πειραιά Αττικής.',
+        image: '/workshops-retreats/Handstand Meets Thai Massage Workshop Poster.webp',
+        instructor: 'Γιάννης Καρβέλης',
+        details: [
+            'Handstands and drills',
+            'Lifts and flows',
+            'Stillness and how to balance',
+            'Counterbalances',
+            '2High Acrobatics',
+            'Group Acrobatics',
+        ],
+        moreDetails: [
+            'Δύο workshops αφιερωμένα στη συνειδητή κίνηση και τη βιώσιμη εκπαίδευση του σώματος. Μαθαίνουμε όχι μόνο τι κάνουμε, αλλά και πώς και γιατί, μέσα από δομημένη μεθοδολογία, ασφαλή progressions και βιωματική προσέγγιση. Στόχος; Ένα σώμα σταθερό, λειτουργικό και ελεύθερο.',
+            'Δομημένη προετοιμασία και εκπαίδευση για στηρίξεις, με Solar Asana Sequence, ATB drills και assisted inversions.',
+            'Για ασκούμενους yoga, δασκάλους, χορευτές, performers και επαγγελματίες που δουλεύουν με το σώμα.',
+            'Thai Yoga & mobility σε ζευγάρια, με υποστηριζόμενες διατάσεις, πιέσεις, στροφές και spinal waves για αποσυμπίεση, κινητικότητα και ρύθμιση του νευρικού συστήματος. Ιδανικό για όσους θέλουν hands-on εργαλεία στη διδασκαλία ή προσωπική πρακτική.'
+        ]
+    },
+    {
+        id: 4,
+        slug: 'aerial-yoga-duo-flowsome-wellness-hub',
+        title: 'Aerial Yoga Duo / Flowsome Wellness Hub',
+        date: '07 Μαρτίου 2026',
+
+        time: '12:00 - 14:30',
+        location: 'Flowsome Wellness Hub, Μελίσσια Αττικής',
+        shortDescription: 'Ένα σεμινάριο σε συνεργασία με το Flowsome Wellness Hub παρουσιάζουν μια μοναδική εμπειρία εναέριων ακροβατικών σε ζευγάρια. Πραγματοποιείται στο Flowsome Wellness Hub στα Μελίσσια Αττικής.',
+        image: '/workshops-retreats/flowsome-duo.webp',
+        instructor: 'Έυη Πριόνα',
+        details: [
+            'Εναέριες ακροβατικές θέσεις σε ζευγάρια',
+            'Στηρίξεις και υποβοηθήσεις για ασφαλή εκτέλεση',
+            'Διατάσεις και χαλάρωση σε αιώρα',
+            'Ενδυνάμωση και ευλυγισία μέσα από τη συνεργασία',
+        ],
+        moreDetails: [
+            'Δύο φίλοι σε μία αιώρα θα μοιραστούν ζέσταμα, ακροβατικά, μασάζ και στο τέλος βαθιά χαλάρωση.',
+            'Έλα με το ταίρι ή τον φίλο σου ή ακόμα και μόνος/η σου· τα ζευγάρια μπορούν να δημιουργηθούν και επιτόπου, οπότε μην ανησυχείς!',
+            'Απευθύνεται σε ασκούμενους με τουλάχιστον 1 χρόνο εμπειρίας στην aerial yoga, καθώς και σε δασκάλους που θέλουν να γνωρίσουν την aerial yoga duo.',
+            'Αν θέλεις να παίξεις και να μοιραστείς αυτή την εμπειρία, τότε αυτό το εργαστήριο είναι για σένα!'
+        ]
+    },
     
 ];
 
-export type Workshop = typeof workshops[0];
+export type Event = typeof events[0];

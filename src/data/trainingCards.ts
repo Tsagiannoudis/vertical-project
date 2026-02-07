@@ -87,7 +87,7 @@ export const trainings = [
                 studio: "Swan Athens",
                 address: "Υμηττού 219, 11632",
                 dates: [
-                    "31/01-01/02/2026 09:30-17:00",
+                    "31/01/2026 - 01/02/2026 09:30-17:00",
                     "07-08/02/2026 09:30-17:00",
                     "14-15/02/2026 09:30-17:00"
                 ],
@@ -99,9 +99,9 @@ export const trainings = [
                 studio: "Αιώρησις",
                 address: "Αρτέμιδος 42, 54644",
                 dates: [
-                    "18-19/10/2025 09:30-17:00",
-                    "01-02/11/2025 09:30-17:00",
-                    "08-09/11/2025 09:30-17:00"
+                    "18/10/2025 - 19/10/2025 09:30-17:00",
+                    "01/11/2025 - 02/11/2025 09:30-17:00",
+                    "08/11/2025 - 09/11/2025 09:30-17:00"
                 ],
                 facebookEventUrl: "https://www.facebook.com/events/717545281280052/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22external_search_engine%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
                 mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr"
