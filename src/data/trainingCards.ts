@@ -149,8 +149,8 @@ export const trainings = [
             },
             {
                 city: "Αθήνα",
-                studio: "Swan Athens",
-                address: "Υμηττού 219, 11632",
+                studio: "",
+                address: "",
                 dates: [
                     "17/10/2026 - 18/10/2026 09:30-17:00",
                     "24/10/2026 - 25/10/2026 09:30-17:00",
