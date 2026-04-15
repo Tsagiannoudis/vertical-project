@@ -86,13 +86,12 @@ const CertifiedInstructors: React.FC = () => {
           {filteredInstructors.length > 0 ? (
             filteredInstructors.map((instructor) => (
               <div key={instructor.id} className="bg-white rounded-lg shadow-md overflow-hidden text-left w-full flex flex-col">
-                 <div className="relative w-full h-48 sm:h-76">
+                 <div className="relative w-full h-48 sm:h-72">
                     <Image
                         src={instructor.imageUrl}
                         alt={instructor.name}
-                        layout="fill"
-                        objectFit="contain"
-                        className="w-full h-full"
+                        fill
+                        className="object-contain"
                     />
                  </div>
                 <div className="p-3 sm:p-4 flex flex-col flex-grow">

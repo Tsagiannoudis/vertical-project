@@ -10,12 +10,12 @@ export default function TrainingsCards() {
                     const isImageLeft = index % 2 === 0;
 
                     const imageBlock = (
-                        <div className="relative md:w-1/2 w-full min-h-[320px] md:min-h-0 align-center">
+                        <div className="relative md:w-1/2 w-full min-h-[320px]">
                             <Image
                                 src={training.image}
-                                alt={training.alt}
+                                alt={training.title}
                                 fill
-                                className="object-center object-cover"
+                                className="object-cover"
                             />
                         </div>
                     );

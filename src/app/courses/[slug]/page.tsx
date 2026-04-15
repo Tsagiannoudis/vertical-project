@@ -9,7 +9,7 @@ import ShareButtons from "@/components/extraComponents/ShareButtons";
 import {
   trainings as courses,
   type Training as Course,
-} from "@/data/trainingCards";
+} from "@/data/trainingCards";      // Import the courses data as trainings and type it as Course
 
 async function getCourseData(slug: string): Promise<Course | undefined> {
   return courses.find((course) => course.slug === slug);
@@ -34,6 +34,11 @@ export async function generateMetadata({
     return { title: "Course Not Found" };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  // Χρησιμοποιούμε την ίδια λογική επιλογής εικόνας και στα metadata
+  const displayImage =course.image;
+  const imageUrl = `${siteUrl}${displayImage}`;
+
   return {
     title: `${course.title} | Vertical Project`,
     description: course.shortDescription,
@@ -43,7 +48,7 @@ export async function generateMetadata({
       url: `/courses/${slug}`,
       images: [
        {
-          url: course.image, // Must be an absolute URL
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: course.title,
@@ -55,13 +60,28 @@ export async function generateMetadata({
 
 type CoursePageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-const CoursePage = async ({ params }: CoursePageProps) => {
+const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
   const { slug } = await params;
+  const { city } = await searchParams;
   const course = await getCourseData(slug);
 
   if (!course) return notFound();
+
+  // Χρησιμοποιούμε όλες τις τοποθεσίες χωρίς φιλτράρισμα ημερομηνίας
+  const activeLocations = course.locations;
+
+  const selectedCityKey = typeof city === "string" ? city : undefined;
+  const selectedCityIndex = parseInt(selectedCityKey?.split("-")[1] || "0", 10);
+
+  // Επιλογή της τοποθεσίας βάσει του index. Αν δεν βρεθεί, παίρνουμε την πρώτη ενεργή ή την πρώτη γενικά.
+  const currentLocation = activeLocations[selectedCityIndex] || activeLocations[0] || course.locations[0];
+
+  // Καθορισμός της εικόνας και του alt text βάσει της τοποθεσίας
+  const displayImage = currentLocation?.photoTraining?.[0]?.url || course.image;
+  const displayAlt = currentLocation?.photoTraining?.[0]?.alt || course.title;
 
   const currentIndex = courses.findIndex((c) => c.slug === slug);
   const nextCourse =
@@ -73,10 +93,10 @@ const CoursePage = async ({ params }: CoursePageProps) => {
       <main className="bg-[#F3F3F3]">
         <section className="container mx-auto max-w-4xl px-4 py-16">
           {/* Hero Section title Section + photo */}
-          <div className="relative w-full h-[300px] md:h-[500px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[300px] md:h-[1200px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
             <Image
-              src={course.image}
-              alt={course.title}
+              src={displayImage}
+              alt={displayAlt}
               fill
               priority
               className="object-cover"

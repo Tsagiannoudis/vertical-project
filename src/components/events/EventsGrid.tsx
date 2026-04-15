@@ -69,21 +69,21 @@ const EventsGrid = () => {
       return []; // Skip trainings without locations
     }
 
-    // Create a separate card for each location
-    return training.locations.map(location => {
+    // Δημιουργούμε μια κάρτα για κάθε τοποθεσία
+    return training.locations.map((location, index) => {
       // Use the first date of this location for display and sorting
       const displayDate = location.dates.length > 0
         ? location.dates[0].split(' ')[0] // e.g., "03/07/2026" or "31/01-01/02/2026"
         : 'Δείτε τις ημερομηνίες';
         
       return {
-        id: `training-${training.id}-${location.city}`, // Unique ID per training and location
+        id: `training-${training.id}-${location.city}-${index}`, 
         title: training.title,
         image: training.image,
         date: displayDate,
         location: location.city, // The specific city for this card
         description: training.shortDescription,
-        link: `/courses/${training.slug}`,
+        link: `/courses/${training.slug}?city=${encodeURIComponent(location.city)}-${index}`,
         type: 'Training',
       };
     });

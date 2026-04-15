@@ -80,7 +80,17 @@ export const trainings = [
                     "03/07/2026 - 08/07/2026 09:30-17:00"
                 ],
                 facebookEventUrl: "https://www.facebook.com/events/849673221217691?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22search%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3162.503154961821!2d22.801106!3d37.566768!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149ff1f354c05527%3A0x2c871de6cdeb84b!2sModern%20Yogi%20-%20Nafplio!5e0!3m2!1sel!2sus!4v1768293084036!5m2!1sel!2sus"
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3162.503154961821!2d22.801106!3d37.566768!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x149ff1f354c05527%3A0x2c871de6cdeb84b!2sModern%20Yogi%20-%20Nafplio!5e0!3m2!1sel!2sus!4v1768293084036!5m2!1sel!2sus",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-nafplio-07-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-thessaloniki-09-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
             },
             {
                 city: "Αθήνα",
@@ -88,11 +98,18 @@ export const trainings = [
                 address: "Υμηττού 219, 11632",
                 dates: [
                     "31/01/2026 - 01/02/2026 09:30-17:00",
-                    "07-08/02/2026 09:30-17:00",
-                    "14-15/02/2026 09:30-17:00"
+                    "07/02/2026 - 08/02/2026 09:30-17:00",
+                    "14/02/2026 - 15/02/2026 09:30-17:00",
                 ],
                 facebookEventUrl: "https://www.facebook.com/events/1342596247278525?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22user_timeline%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.6149745786684!2d23.73953927812815!3d37.96277520130459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7ba7b560bb%3A0x1402609b5f2b49bc!2sSWAN%20Athens%20-%20Shine%20in%20Grace!5e0!3m2!1sel!2sgr!4v1763071683593!5m2!1sel!2sgr"
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.6149745786684!2d23.73953927812815!3d37.96277520130459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7ba7b560bb%3A0x1402609b5f2b49bc!2sSWAN%20Athens%20-%20Shine%20in%20Grace!5e0!3m2!1sel!2sgr!4v1763071683593!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-athens-10-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+            
+                ],
             },
                         {
                 city: "Θεσσαλονίκη",
@@ -104,8 +121,50 @@ export const trainings = [
                     "08/11/2025 - 09/11/2025 09:30-17:00"
                 ],
                 facebookEventUrl: "https://www.facebook.com/events/717545281280052/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22external_search_engine%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr"
-            }
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-thessaloniki-09-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
+            },
+                        {
+                city: "Θεσσαλονίκη",
+                studio: "Αιώρησις",
+                address: "Αρτέμιδος 42, 54644",
+                dates: [
+                    "26/09/2026 - 27/09/2026 09:30-17:00",
+                    "03/10/2026 - 04/10/2026 09:30-17:00",
+                    "10/10/2026 - 11/10/2026 09:30-17:00",
+                ],
+                facebookEventUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfq0mQ8kjXg5cDwvUTD1qj6kPrlvMj5zUidEvGDJ5BtY5K6DA/viewform?usp=publish-editor",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-thessaloniki-09-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
+            },
+            {
+                city: "Αθήνα",
+                studio: "Swan Athens",
+                address: "Υμηττού 219, 11632",
+                dates: [
+                    "17/10/2026 - 18/10/2026 09:30-17:00",
+                    "24/10/2026 - 25/10/2026 09:30-17:00",
+                    "07/11/2026 - 08/11/2026 09:30-17:00",
+                ],
+                facebookEventUrl: "https://www.facebook.com/events/1342596247278525?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22user_timeline%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.6149745786684!2d23.73953927812815!3d37.96277520130459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7ba7b560bb%3A0x1402609b5f2b49bc!2sSWAN%20Athens%20-%20Shine%20in%20Grace!5e0!3m2!1sel!2sgr!4v1763071683593!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-athens-10-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
+            },
         ]
     },
     {
@@ -166,7 +225,8 @@ export const trainings = [
         certification: [
             "Με την ολοκλήρωση του προγράμματος, οι συμμετέχοντες λαμβάνουν <strong>βεβαίωση παρακολούθησης Functional Anatomy Teacher Training</strong> από το <strong>Vertical Project Trainings</strong> , πιστοποιημένο από την Yoga Alliance Usa σαν πρόγραμμα συνεχιζόμενης εκπαίδευσης δασκάλων YACEP."
         ],
-        locations: []
+        locations: [],
+        photoTraining: []
     },
     {
         id: 3,
@@ -228,7 +288,8 @@ export const trainings = [
         certification: [
             "Με την ολοκλήρωση του προγράμματος, οι συμμετέχοντες λαμβάνουν <strong>βεβαίωση παρακολούθησης Functional Anatomy Teacher Training</strong> από το <strong>Vertical Project Trainings</strong> , πιστοποιημένο από την Yoga Alliance Usa σαν πρόγραμμα συνεχιζόμενης εκπαίδευσης δασκάλων YACEP."
         ],
-        locations: []
+        locations: [],
+        photoTraining: []
     },
     {
         id: 4,
@@ -286,7 +347,8 @@ export const trainings = [
         certification: [
             "Με την ολοκλήρωση του προγράμματος, οι συμμετέχοντες λαμβάνουν <strong>βεβαίωση παρακολούθησης Functional Anatomy Teacher Training</strong> από το <strong>Vertical Project Trainings</strong> , πιστοποιημένο από την Yoga Alliance Usa σαν πρόγραμμα συνεχιζόμενης εκπαίδευσης δασκάλων YACEP."
         ],
-        locations: []
+        locations: [],
+        photoTraining: []
     },
     {
         id: 5,
@@ -365,7 +427,8 @@ export const trainings = [
         certification: [
             "Με την ολοκλήρωση του προγράμματος, οι συμμετέχοντες λαμβάνουν <strong>βεβαίωση παρακολούθησης Functional Anatomy Teacher Training</strong> από το <strong>Vertical Project Trainings</strong> , πιστοποιημένο από την Yoga Alliance Usa σαν πρόγραμμα συνεχιζόμενης εκπαίδευσης δασκάλων YACEP."
         ],
-        locations: []
+        locations: [],
+        photoTraining: []
     },
 ];
 

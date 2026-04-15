@@ -1,4 +1,6 @@
 "use client";
+import { useMemo } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Tabs, Tab } from "@heroui/tabs";
 import { trainings } from "../../data/trainingCards"; // Import the trainings data
@@ -21,16 +23,59 @@ const CalendarIcon = () => (
 
 export default function CourseTab({ trainingSlug }: { trainingSlug: string }) {
   const training = trainings.find((t) => t.slug === trainingSlug);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const selectedCity = searchParams.get("city");
 
-  if (!training || !training.locations || training.locations.length === 0) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const activeLocations = useMemo(() => {
+    if (!training?.locations) return [];
+
+    // Φιλτράρουμε τις τοποθεσίες αλλά κρατάμε τον αρχικό τους δείκτη (originalIndex)
+    // για να μη χαθεί ο συγχρονισμός με τις φωτογραφίες στο Hero Section
+    return training.locations
+      .map((loc, index) => ({ ...loc, originalIndex: index }))
+      .filter((loc) => {
+        const isSelected = selectedCity === `${loc.city}-${loc.originalIndex}`;
+        const hasFutureDates = loc.dates.some((dateString) => {
+          const dateParts = dateString.split(" - ");
+          const lastDatePart = dateParts[dateParts.length - 1].trim().split(" ")[0];
+          const [day, month, year] = lastDatePart.split("/").map(Number);
+          return new Date(year, month - 1, day) >= today;
+        });
+
+        // Εμφανίζουμε το Tab αν έχει μελλοντικές ημερομηνίες Η αν είναι αυτό που επιλέχθηκε από το EventsGrid
+        return hasFutureDates || isSelected;
+      });
+  }, [training, selectedCity, today]);
+
+  // Συγχρονισμός του URL όταν αλλάζει το tab
+  const handleSelectionChange = (key: React.Key) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("city", key.toString());
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
+  if (activeLocations.length === 0) {
     return null; // Or render a message indicating no locations
   }
+
+  // Αν δεν υπάρχει πόλη στο URL, χρησιμοποιούμε την πρώτη διαθέσιμη
+  const currentKey =
+    selectedCity ||
+    (activeLocations.length > 0
+      ? `${activeLocations[0].city}-${activeLocations[0].originalIndex}`
+      : "");
 
   return (
     <Tabs
       aria-label="Course Locations"
       variant="solid"
       radius="full"
+      selectedKey={currentKey}
+      onSelectionChange={handleSelectionChange}
       classNames={{
         tabList: "p-1 bg-gray-200",
         cursor: "bg-[#F2E94E] shadow",
@@ -40,8 +85,11 @@ export default function CourseTab({ trainingSlug }: { trainingSlug: string }) {
         panel: "p-6 bg-white rounded-2xl mt-6 shadow-md",
       }}
     >
-      {training.locations.map((location, index) => (
-        <Tab key={location.city} title={location.city}>
+      {activeLocations.map((location, index) => (
+        <Tab 
+          key={`${location.city}-${location.originalIndex}`} 
+          title={location.city}
+        >
           <div className="flex flex-col gap-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-gray-700">
               {/* Στήλη 1: Πληροφορίες */}
@@ -60,11 +108,33 @@ export default function CourseTab({ trainingSlug }: { trainingSlug: string }) {
                   <li>
                     <strong>Ημέρες και ώρα:</strong>
                     <div className="mt-2 space-y-2 pl-2">
-                      {location.dates.map((date, dateIndex) => (
-                        <div key={dateIndex} className="flex items-center">
-                          <CalendarIcon /> <span>{date}</span>
-                        </div>
-                      ))}
+                      {location.dates
+                        .filter((dateString) => {
+                          const dateParts = dateString.split(" - ");
+                          const lastDatePart = dateParts[dateParts.length - 1]
+                            .trim()
+                            .split(" ")[0];
+                          const [day, month, year] = lastDatePart
+                            .split("/")
+                            .map(Number);
+                          const eventDate = new Date(year, month - 1, day);
+                          return eventDate >= today;
+                        })
+                        .map((date, dateIndex) => (
+                          <div key={dateIndex} className="flex items-center">
+                            <CalendarIcon /> <span>{date}</span>
+                          </div>
+                        ))}
+                      {location.dates.every((d) => {
+                        const dp = d.split(" - ");
+                        const ldp = dp[dp.length - 1].trim().split(" ")[0];
+                        const [day, month, year] = ldp.split("/").map(Number);
+                        return new Date(year, month - 1, day) < today;
+                      }) && (
+                        <p className="text-sm text-gray-500 italic">
+                          Οι ημερομηνίες για αυτό το τμήμα έχουν ολοκληρωθεί.
+                        </p>
+                      )}
                     </div>
                   </li>
                 </ul>
