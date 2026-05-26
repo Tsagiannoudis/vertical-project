@@ -78,11 +78,11 @@ const EventsGrid = () => {
         
       return {
         id: `training-${training.id}-${location.city}-${index}`, 
-        title: training.title,
-        image: training.image,
+        title: (location as any).title || training.title, 
+        image: location.photoTraining?.[0]?.url || training.image,
         date: displayDate,
         location: location.city, // The specific city for this card
-        description: training.shortDescription,
+        description: (location as any).shortDescription || training.shortDescription,
         link: `/courses/${training.slug}?city=${encodeURIComponent(location.city)}-${index}`,
         type: 'Training',
       };

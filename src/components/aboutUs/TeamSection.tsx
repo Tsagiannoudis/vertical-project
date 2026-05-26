@@ -7,9 +7,10 @@ const TeamSection = () => {
     <section className="w-full mx-auto py-16 sm:py-24 bg-white">
       <div className="container mx-auto text-black px-4 max-w-6xl">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Η Ομάδα Μας
-          </h2>
+          
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Η Ομάδα Μας
+            </h2>
           <hr className="border-[#f2e94e] border-2 mt-4 w-56 mx-auto mb-6"/>
           <p className="text-lg text-gray-700 leading-relaxed">
             Γνωρίστε τους ανθρώπους που με το πάθος και την τεχνογνωσία τους κάνουν το όραμά μας πραγματικότητα.
@@ -29,7 +30,7 @@ const TeamSection = () => {
                 {/* Image */}
                 <div className="md:w-1/3 flex-shrink-0">
                   <div className="relative w-64 h-64 lg:w-80 lg:h-80 mx-auto group">
-                    <div className="relative w-full h-full rounded-2xl border-4 border-[#f2e94e] overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:border-8 group-hover:shadow-xl group-hover:shadow-[#f2e94e]/50">
+                    <div className="relative w-full h-full rounded-2xl border-12 border-[#f2e94e] overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:border-8 group-hover:shadow-xl group-hover:shadow-[#f2e94e]/50">
                       <Image
                           src={member.photo}
                           alt={`Photo of ${member.name}`}

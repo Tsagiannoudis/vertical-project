@@ -73,6 +73,45 @@ export const trainings = [
         ],
         locations: [
             {
+                city: "Θεσσαλονίκη",
+                studio: "Αιώρησις",
+                address: "Αρτέμιδος 42, 54644",
+                dates: [
+                    "18/10/2025 - 19/10/2025 09:30-17:00",
+                    "01/11/2025 - 02/11/2025 09:30-17:00",
+                    "08/11/2025 - 09/11/2025 09:30-17:00"
+                ],
+                facebookEventUrl: "https://www.facebook.com/events/717545281280052/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22external_search_engine%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
+                title: "Aerial Yoga TT (Θεσσαλονίκη 2025)",
+                shortDescription: "Ξεκινάμε το νέο κύκλο εκπαιδευτικών για το 2025 στη Θεσσαλονίκη, στο στούντιο Αιώρησις.",
+            },
+            {
+                city: "Αθήνα",
+                studio: "Swan Athens",
+                address: "Υμηττού 219, 11632",
+                dates: [
+                    "31/01/2026 - 01/02/2026 09:30-17:00",
+                    "07/02/2026 - 08/02/2026 09:30-17:00",
+                    "14/02/2026 - 15/02/2026 09:30-17:00",
+                ],
+                facebookEventUrl: "https://www.facebook.com/events/1342596247278525?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22user_timeline%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.6149745786684!2d23.73953927812815!3d37.96277520130459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7ba7b560bb%3A0x1402609b5f2b49bc!2sSWAN%20Athens%20-%20Shine%20in%20Grace!5e0!3m2!1sel!2sgr!4v1763071683593!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                    
+                ],
+            },
+            {
                 city: "Ναύπλιο",
                 studio: "Modern Yogi Nafplio",
                 address: "Φλέσσα 5, Ναύπλιο, 211 00",
@@ -93,43 +132,6 @@ export const trainings = [
                 ],
             },
             {
-                city: "Αθήνα",
-                studio: "Swan Athens",
-                address: "Υμηττού 219, 11632",
-                dates: [
-                    "31/01/2026 - 01/02/2026 09:30-17:00",
-                    "07/02/2026 - 08/02/2026 09:30-17:00",
-                    "14/02/2026 - 15/02/2026 09:30-17:00",
-                ],
-                facebookEventUrl: "https://www.facebook.com/events/1342596247278525?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22user_timeline%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.6149745786684!2d23.73953927812815!3d37.96277520130459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7ba7b560bb%3A0x1402609b5f2b49bc!2sSWAN%20Athens%20-%20Shine%20in%20Grace!5e0!3m2!1sel!2sgr!4v1763071683593!5m2!1sel!2sgr",
-                photoTraining: [
-                    {
-                        url: "/trainings-icons/aerial-yoga-tt-athens-10-2026.webp",
-                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
-                    },
-            
-                ],
-            },
-                        {
-                city: "Θεσσαλονίκη",
-                studio: "Αιώρησις",
-                address: "Αρτέμιδος 42, 54644",
-                dates: [
-                    "18/10/2025 - 19/10/2025 09:30-17:00",
-                    "01/11/2025 - 02/11/2025 09:30-17:00",
-                    "08/11/2025 - 09/11/2025 09:30-17:00"
-                ],
-                facebookEventUrl: "https://www.facebook.com/events/717545281280052/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22external_search_engine%22%7D%2C%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D&locale=el_GR",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
-                photoTraining: [
-                    {
-                        url: "/trainings-icons/aerial-yoga-tt-thessaloniki-09-2026.webp",
-                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
-                    },
-                ],
-            },
-                        {
                 city: "Θεσσαλονίκη",
                 studio: "Αιώρησις",
                 address: "Αρτέμιδος 42, 54644",
