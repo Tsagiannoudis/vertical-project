@@ -3,8 +3,8 @@ export const trainings = [
         id: 1,
         slug: "aerial-yoga-teacher-training",
         image: "/trainings-icons/aerial-yoga-tt.webp",
-        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα.", 
-        title: "Aerial Yoga Teacher Training",
+        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα.",
+        title: "Aerial Yoga Teacher Training Basic",
         shortDescription: 'Ανακαλύψτε την ελευθερία της κίνησης στην "αιώρα" με τα εκπαιδευτικά προγράμματα της Aerial Yoga.',
         details: [
             'Οφέλη και αντενδείξεις της Aerial',
@@ -26,7 +26,7 @@ export const trainings = [
             'Είτε επιθυμείς να μοιραστείς την aerial πρακτική σου ως δάσκαλος, είτε να εμβαθύνεις στη δική σου πρακτική, το πρόγραμμα έχει σχεδιαστεί για να δώσει όλα τα απαραίτητα εφόδια και εργαλεία, σε όλα τα επίπεδα – τεχνικά, σωματικά, επικοινωνιακά και ψυχολογικά.',
             'Με έμφαση στη βιωματική μάθηση και την ουσιαστική καθοδήγηση, η Vertical Project Trainings έχει δημιουργήσει ένα ασφαλές, ενθαρρυντικό περιβάλλον όπου μπορείς να εξελιχθείς, να συνδεθείς και να ανακαλύψεις νέες δυνατότητες του σώματος και της φωνής σου ως δάσκαλος.',
             `Με πολυετή διεθνή εμπειρία, ενεργή δημιουργία εκπαιδευτικών προγραμμάτων και συνεργασίες με εκατοντάδες μαθητές και δασκάλους παγκοσμίως, οι εμπνευστές του προγράμματος, <a href="/aboutUs#john-karvelis" class="underline hover:text-[#000] hover:bg-[#F2E94E]">John Karvelis</a> & <a href="/aboutUs#evi-priona" class="underline hover:text-[#000] hover:bg-[#F2E94E]">Evi Priona</a>, μοιράζονται με χαρά αυτή τη γνώση και πρακτική με κινητήρια πρόθεση τη σύνδεση και τη δημιουργικότητα.`,
-            'Αυτή η εκπαίδευση δεν απευθύνεται αποκλειστικά σε ήδη πιστοποιημένους δασκάλους — είναι ανοιχτή σε κάθε ασκούμενο με εμπειρία στην aerial yoga και διάθεση για ουσιαστική μάθηση. Αν είσαι ήδη δάσκαλος αναγνωρισμένος από τη Yoga Alliance, αυτές οι 60 ώρες μπορούν να προσμετρηθούν ως επιπλέον εκπαίδευση, <em>Continuing Education Program</em>.'            
+            'Αυτή η εκπαίδευση δεν απευθύνεται αποκλειστικά σε ήδη πιστοποιημένους δασκάλους — είναι ανοιχτή σε κάθε ασκούμενο με εμπειρία στην aerial yoga και διάθεση για ουσιαστική μάθηση. Αν είσαι ήδη δάσκαλος αναγνωρισμένος από τη Yoga Alliance, αυτές οι 60 ώρες μπορούν να προσμετρηθούν ως επιπλέον εκπαίδευση, <em>Continuing Education Program</em>.'
         ],
         focusOn: [
             {
@@ -108,7 +108,7 @@ export const trainings = [
                         url: "/trainings-icons/aerial-yoga-tt.webp",
                         alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
                     },
-                    
+
                 ],
             },
             {
@@ -171,13 +171,109 @@ export const trainings = [
     },
     {
         id: 2,
+        slug: "aerial-yoga-teacher-training-level-up",
+        image: "/trainings-icons/aerial-yoga-lvl-up.webp",
+        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα.",
+        title: "Aerial Yoga Teacher Training Level Up",
+        shortDescription: 'Ανακαλύψτε την ελευθερία της κίνησης στην "αιώρα" με τα εκπαιδευτικά προγράμματα της Aerial Yoga.',
+        details: [
+            'Οφέλη και αντενδείξεις της Aerial',
+            'Aerial principles & terminology',
+            'Grips & knots',
+            '"Foundation & Action" communication',
+            'Strength & flexibility drills',
+            'Fundamentals of anatomy and physiology',
+            'Asanas, poses, sequences & flows',
+            'Acrobatic transitions',
+            'Creative sun salutations',
+            'Class sequences creation',
+            'Spotting techniques for safe students',
+            'Equipment installation and maintenance',
+        ],
+        moreDetails: [
+            `Η ομάδα <strong>Vertical Project Trainings</strong> έχει δημιουργήσει ένα τριήμερο intensive training σχεδιασμένο για πιστοποιημένους Aerial Yoga Teachers που θέλουν να εξελίξουν την πρακτική και τη διδασκαλία τους, να αποκτήσουν μεγαλύτερη αυτοπεποίθηση σε intermediate και advanced τεχνικές και να διευρύνουν τα εργαλεία διδασκαλίας που χρησιμοποιούν μέσα μαθήματά τους.`,
+            'Για τρεις ημέρες θα εμβαθύνουμε όχι μόνο στο τι διδάσκουμε, αλλά κυρίως στο γιατί και το πώς.',
+            'Συνδυάζοντας στοιχεία από Aerial Yoga, movement, fitness και aerial acrobatics, αυτή η εκπαίδευση επικεντρώνεται στην κατανόηση της τεχνικής, στη μεθοδική εξέλιξη των ασκήσεων (progressions) και στην ασφαλή και αποτελεσματική καθοδήγηση των μαθητών.',
+            'Στόχος μας είναι να εφοδιαστείς με πρακτικά εργαλεία που μπορείς να χρησιμοποιήσεις άμεσα στα μαθήματα σου αλλά και με μεγαλύτερη κατανόηση του σώματος, της κίνησης και του ρόλου σου ως δάσκαλος στην αίθουσα.',
+            `Με πολυετή διεθνή εμπειρία, ενεργή δημιουργία εκπαιδευτικών προγραμμάτων και συνεργασίες με εκατοντάδες μαθητές και δασκάλους παγκοσμίως, οι εμπνευστές του προγράμματος, <a href="/aboutUs#john-karvelis" class="underline hover:text-[#000] hover:bg-[#F2E94E]">John Karvelis</a> & <a href="/aboutUs#evi-priona" class="underline hover:text-[#000] hover:bg-[#F2E94E]">Evi Priona</a>, μοιράζονται με χαρά αυτή τη γνώση και πρακτική με κινητήρια πρόθεση τη σύνδεση και τη δημιουργικότητα.`,
+            'Αυτή η εκπαίδευση δεν απευθύνεται αποκλειστικά σε ήδη πιστοποιημένους δασκάλους — είναι ανοιχτή σε κάθε ασκούμενο με εμπειρία στην aerial yoga και διάθεση για ουσιαστική μάθηση. Αν είσαι ήδη δάσκαλος αναγνωρισμένος από τη Yoga Alliance, αυτές οι 60 ώρες μπορούν να προσμετρηθούν ως επιπλέον εκπαίδευση, <em>Continuing Education Program</em>.'
+        ],
+        focusOn: [
+            {
+                level: "",
+                targetAudienceTitle: "Απευθύνεται σε:",
+                targetAudienceList: [
+                    "Η εκπαίδευση απευθύνεται σε πιστοποιημένους Aerial Yoga teachers που θέλουν να προχωρήσουν πέρα από το βασικό επίπεδο και να εξελίξουν τόσο τις τεχνικές όσο και τις διδακτικές τους δεξιότητες.",
+                    "Δεν πρόκειται απλώς για ένα σεμινάριο νέων poses.",
+                    "Είναι ένα training πάνω στο πώς γίνεσαι καλύτερος δάσκαλος-α: πώς παρατηρείς, πώς αναλύεις, πώς προσαρμόζεις, πώς υποστηρίζεις και πώς δημιουργείς ένα μάθημα που είναι ταυτόχρονα δημιουργικό, απαιτητικό και ασφαλές.",
+                ],
+                description: "",
+            },
+        ],
+        learningGoals: [
+            {
+                level: "",
+                targetAudienceTitle: "Στόχοι Εκπαίδευσης:",
+                targetAudienceList: [
+                    "Teaching methodology & advanced teaching skills",
+                    "Η τέχνη του sequencing και της δημιουργίας ολοκληρωμένων μαθημάτων",
+                    "Creative Aerial Yoga flows & transitions",
+                    'Ανάλυση intermediate και advanced poses',
+                    "Progressions και regressions για διαφορετικά επίπεδα μαθητών",
+                    "Aerial acrobatic sequences",
+                    "Flips, spins & dynamic transitions",
+                    "Τεχνικές spotting και ασφαλούς υποστήριξης",
+                    "Πώς “σπάμε” μία απαιτητική κίνηση σε κατανοητά και ασφαλή βήματα",
+                    "Demonstration & verbal cueing",
+                    "Coaching skills και αποτελεσματικό feedback",
+                    "Δημιουργία αυτοπεποίθησης και σωστής μαθησιακής εμπειρίας μέσα στην τάξη",
+                    "Εργαλεία για περισσότερη δημιουργικότητα και προσωπικότητα στη διδασκαλία",
+                ],
+                description: 'Η εκπαίδευση είναι βιωματική και πρακτική, με σημαντικό χρόνο αφιερωμένο στην προσωπική πρακτική, στην ανάλυση των κινήσεων, στο spotting και στην εφαρμογή των τεχνικών μέσα σε πραγματικές συνθήκες διδασκαλίας.',
+            },
+        ],
+        methologyTraining: [
+            // {
+            //     methologyTitle: "Η εκπαίδευση περιλαμβάνει:",
+            //     methologyList: [],
+            //     methologyParagraph:  "",
+            // },
+        ],
+        certification: [
+            "Με την ολοκλήρωση του προγράμματος, οι συμμετέχοντες λαμβάνουν <strong>βεβαίωση παρακολούθησης Functional Anatomy Teacher Training</strong> από το <strong>Vertical Project Trainings</strong> , πιστοποιημένο από την Yoga Alliance Usa σαν πρόγραμμα συνεχιζόμενης εκπαίδευσης δασκάλων YACEP."
+        ],
+        locations: [
+            {
+                city: "Θεσσαλονίκη",
+                studio: "Αιώρησις",
+                address: "Αρτέμιδος 42, 54644",
+                dates: [
+                    "20/11/2026  09:30-17:00",
+                    "21/11/2026 09:30-17:00",
+                    "22/11/2026 09:30-17:00"
+                ],
+                facebookEventUrl: "http://docs.google.com/forms/d/e/1FAIpQLSeb7HWTPkscVr8VLCYNVN3_HXdkAMkgElmoN90HMBgJrzsFbQ/viewform?usp=header",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
+                photoTraining: [
+                    {
+                        url: "/trainings-icons/aerial-yoga-tt-level-up-thess-10-2026.webp",
+                        alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο."
+                    },
+                ],
+                title: "Aerial Yoga TT (Θεσσαλονίκη 2025)",
+                shortDescription: "Ξεκινάμε το νέο κύκλο εκπαιδευτικών για το 2025 στη Θεσσαλονίκη, στο στούντιο Αιώρησις.",
+            },
+        ]
+    },
+    {
+        id: 3,
         slug: "handstands-and-inversions-teacher-training",
         image: "/trainings-icons/handstands-inversions-tt.webp",
         alt: "Άνδρας κάνει κατακόρυφο σε εξωτερικό χώρο με φόντο τη φύση.",
         title: "Handstands and Inversions Teacher Training",
         shortDescription: "Μια δομημένη και ασφαλής προσέγγιση στη διδασκαλία κατακόρυφων. Αρχές, τεχνική και μεθοδολογία για δασκάλους και προχωρημένους ασκούμενους.",
         moreDetails: [
-             `Το <strong>Handstands Teacher Training</strong> αποτελεί μια εκπαίδευση που συνδυάζει τεχνική ακρίβεια και διδακτική προσέγγιση. Στόχος του προγράμματος είναι να υποστηρίξει δασκάλους και προχωρημένους ασκούμενους στη δημιουργία σταθερής, ασφαλούς και μεταδόσιμης πρακτικής κατακόρυφων.`,
+            `Το <strong>Handstands Teacher Training</strong> αποτελεί μια εκπαίδευση που συνδυάζει τεχνική ακρίβεια και διδακτική προσέγγιση. Στόχος του προγράμματος είναι να υποστηρίξει δασκάλους και προχωρημένους ασκούμενους στη δημιουργία σταθερής, ασφαλούς και μεταδόσιμης πρακτικής κατακόρυφων.`,
 
         ],
         focusOn: [
@@ -231,7 +327,7 @@ export const trainings = [
         photoTraining: []
     },
     {
-        id: 3,
+        id: 4,
         slug: "thai-yoga-massage",
         image: "/trainings-icons/thai-massage.webp",
         alt: "Άτομο δέχεται Thai Yoga Massage σε ένα ήρεμο περιβάλλον.",
@@ -294,7 +390,7 @@ export const trainings = [
         photoTraining: []
     },
     {
-        id: 4,
+        id: 5,
         slug: "functional-anatomy",
         image: "/trainings-icons/functional-anatomy.webp",
         alt: "Σχηματική απεικόνιση του ανθρώπινου μυοσκελετικού συστήματος.",
@@ -307,7 +403,7 @@ export const trainings = [
         focusOn: [
             {
                 level: "",
-                targetAudienceTitle: "Το πρόγραμμα απευθύνεται σε:", 
+                targetAudienceTitle: "Το πρόγραμμα απευθύνεται σε:",
                 targetAudienceList: [
                     "Δασκάλους yoga και κίνησης που θέλουν να κατανοήσουν βαθύτερα την ανατομία στην πράξη",
                     "Εκπαιδευτές fitness, pilates ή σωματικών πρακτικών",
@@ -353,7 +449,7 @@ export const trainings = [
         photoTraining: []
     },
     {
-        id: 5,
+        id: 6,
         slug: "yoga-teacher-training",
         image: "/trainings-icons/yoga-v.webp",
         alt: "Ομάδα ανθρώπων σε στάση γιόγκα κατά τη διάρκεια ενός μαθήματος.",
