@@ -2,7 +2,7 @@ export const trainings = [
     {
         id: 1,
         slug: "aerial-yoga-teacher-training",
-        image: "/trainings-icons/aerial-yoga-tt.webp",
+        image: "/trainings-icons/aerial-yoga-basic2.webp",
         alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε ροζ αιώρα.",
         title: "Aerial Yoga Teacher Training Basic",
         shortDescription: 'Ανακαλύψτε την ελευθερία της κίνησης στην "αιώρα" με τα εκπαιδευτικά προγράμματα της Aerial Yoga.',
@@ -268,7 +268,7 @@ export const trainings = [
     {
         id: 3,
         slug: "handstands-and-inversions-teacher-training",
-        image: "/trainings-icons/handstands-inversions-tt.webp",
+        image: "/trainings-icons/handstands-inversions-tt3.webp",
         alt: "Άνδρας κάνει κατακόρυφο σε εξωτερικό χώρο με φόντο τη φύση.",
         title: "Handstands and Inversions Teacher Training",
         shortDescription: "Μια δομημένη και ασφαλής προσέγγιση στη διδασκαλία κατακόρυφων. Αρχές, τεχνική και μεθοδολογία για δασκάλους και προχωρημένους ασκούμενους.",
