@@ -20,8 +20,8 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-    params: Promise<{ slug: string }>;
-}) : Promise<Metadata> {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const event = getEventData(slug);
 
@@ -63,7 +63,7 @@ type EventPageProps = {
 };
 
 const EventPage = async ({ params }: EventPageProps) => {
-    const { slug } = await params;
+  const { slug } = await params;
   const event = getEventData(slug);
 
   if (!event) return notFound();
@@ -195,6 +195,18 @@ const EventPage = async ({ params }: EventPageProps) => {
                     {event.location}
                   </p>
                 </a>
+                {/* Google Form */}
+                {event.googleForm && (
+                  <a
+                    href={event.googleForm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#b9b788] transition-colors duration-300">
+                      Φόρμα εγγραφής
+                    </button>
+                  </a>
+                )}
                 {/* Share Buttons */}
                 <ShareButtons />
               </div>

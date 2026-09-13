@@ -49,6 +49,30 @@ export const events = [
     },
     {
         id: 3,
+        slug: 'aerial-yoga-duo-flowsome-wellness-hub',
+        title: 'Aerial Yoga Duo / Flowsome Wellness Hub',
+        date: '07 Μαρτίου 2026',
+
+        time: '12:00 - 14:30',
+        location: 'Flowsome Wellness Hub, Μελίσσια Αττικής',
+        shortDescription: 'Ένα σεμινάριο σε συνεργασία με το Flowsome Wellness Hub παρουσιάζουν μια μοναδική εμπειρία εναέριων ακροβατικών σε ζευγάρια. Πραγματοποιείται στο Flowsome Wellness Hub στα Μελίσσια Αττικής.',
+        image: '/workshops-retreats/flowsome-duo.webp',
+        instructor: 'Έυη Πριόνα',
+        details: [
+            'Εναέριες ακροβατικές θέσεις σε ζευγάρια',
+            'Στηρίξεις και υποβοηθήσεις για ασφαλή εκτέλεση',
+            'Διατάσεις και χαλάρωση σε αιώρα',
+            'Ενδυνάμωση και ευλυγισία μέσα από τη συνεργασία',
+        ],
+        moreDetails: [
+            'Δύο φίλοι σε μία αιώρα θα μοιραστούν ζέσταμα, ακροβατικά, μασάζ και στο τέλος βαθιά χαλάρωση.',
+            'Έλα με το ταίρι ή τον φίλο σου ή ακόμα και μόνος/η σου· τα ζευγάρια μπορούν να δημιουργηθούν και επιτόπου, οπότε μην ανησυχείς!',
+            'Απευθύνεται σε ασκούμενους με τουλάχιστον 1 χρόνο εμπειρίας στην aerial yoga, καθώς και σε δασκάλους που θέλουν να γνωρίσουν την aerial yoga duo.',
+            'Αν θέλεις να παίξεις και να μοιραστείς αυτή την εμπειρία, τότε αυτό το εργαστήριο είναι για σένα!'
+        ]
+    },
+    {
+        id: 4,
         slug: 'assists-in-inversions-thai-yoga-for-spinal-mobility',
         title: 'Assists in Inversions / Thai Yoga for Spinal Mobility',
         date: '21 Μαρτίου 2026',
@@ -73,30 +97,35 @@ export const events = [
         ]
     },
     {
-        id: 4,
-        slug: 'aerial-yoga-duo-flowsome-wellness-hub',
-        title: 'Aerial Yoga Duo / Flowsome Wellness Hub',
-        date: '07 Μαρτίου 2026',
+        id: 5,
+        slug: 'inversions-and-handstands-drills-assists-and-progressions',
+        title: 'Inversions & Handstands: Drills, Assists & Progressions',
+        date: '11 Οκτωβρίου 2026',
 
-        time: '12:00 - 14:30',
-        location: 'Flowsome Wellness Hub, Μελίσσια Αττικής',
-        shortDescription: 'Ένα σεμινάριο σε συνεργασία με το Flowsome Wellness Hub παρουσιάζουν μια μοναδική εμπειρία εναέριων ακροβατικών σε ζευγάρια. Πραγματοποιείται στο Flowsome Wellness Hub στα Μελίσσια Αττικής.',
-        image: '/workshops-retreats/flowsome-duo.webp',
-        instructor: 'Έυη Πριόνα',
+        time: '18:00 - 20:30',
+        location: 'Studio Aωρίσις, Θεσσαλονίκη',
+        shortDescription: 'Ένα σεμινάριο σε συνεργασία με το Studio Aωρίσις παρουσιάζουν μια μοναδική εμπειρία εναέριων ακροβατικών σε ζευγάρια. Πραγματοποιείται στο Studio Aωρίσις στην Θεσσαλονίκη.',
+        image: '/workshops-retreats/vertical-training-aerial-level-up-11-26.webp',
+        instructor: 'Γιάννης Καρβέλης',
         details: [
-            'Εναέριες ακροβατικές θέσεις σε ζευγάρια',
-            'Στηρίξεις και υποβοηθήσεις για ασφαλή εκτέλεση',
-            'Διατάσεις και χαλάρωση σε αιώρα',
-            'Ενδυνάμωση και ευλυγισία μέσα από τη συνεργασία',
+            'Vinyasa preparation for inversions',
+            'Handstand alignment & balance drills',
+            'Assisted inversions & partner work',
+            'Progressions για διαφορετικά επίπεδα πρακτικής',
+            'Shoulder & range of motion exercises',
+            'Τεχνικές Thai Massage για αποφόρτιση ώμων και μέσης',
         ],
         moreDetails: [
-            'Δύο φίλοι σε μία αιώρα θα μοιραστούν ζέσταμα, ακροβατικά, μασάζ και στο τέλος βαθιά χαλάρωση.',
-            'Έλα με το ταίρι ή τον φίλο σου ή ακόμα και μόνος/η σου· τα ζευγάρια μπορούν να δημιουργηθούν και επιτόπου, οπότε μην ανησυχείς!',
-            'Απευθύνεται σε ασκούμενους με τουλάχιστον 1 χρόνο εμπειρίας στην aerial yoga, καθώς και σε δασκάλους που θέλουν να γνωρίσουν την aerial yoga duo.',
-            'Αν θέλεις να παίξεις και να μοιραστείς αυτή την εμπειρία, τότε αυτό το εργαστήριο είναι για σένα!'
-        ]
+            'Την Κυριακή 11 Οκτωβρίου, 18:00–20:30, ο @johnkarvelis επιστρέφει στο Aiorisis για ένα workshop αφιερωμένο στις αναστροφές και τις στηρίξεις στα χέρια.',
+            'Το workshop διοργανώνεται από το @verticalproject_trainings σε συνεργασία με το Aiorisis.',
+            'Ένα σταθερό κατακόρυφο δεν χτίζεται απλώς κάνοντας ξανά και ξανά προσπάθειες. Χρειάζεται να καταλάβουμε τι συμβαίνει στο σώμα, τι λείπει και ποιο είναι κάθε φορά το επόμενο βήμα.',
+            'Σε αυτό το workshop θα δουλέψουμε ακριβώς πάνω σε αυτή τη διαδικασία: drills, assists και progressions που μας βοηθούν να εξελίξουμε σταδιακά την τεχνική μας στις αναστροφές θέσεις.',
+            'Θα ξεκινήσουμε με μια δυναμική πρακτική που θα προετοιμάσει το σώμα για τη δουλειά που ακολουθεί και στη συνέχεια θα εστιάσουμε σε στοιχεία όπως η ευθυγράμμιση, η ενεργοποίηση, η ισορροπία και η θέση του σώματος στον χώρο.',
+            'Με τη βοήθεια συγκεκριμένων drills θα απομονώσουμε διαφορετικά κομμάτια του κατακόρυφου, ενώ μέσα από partner assists θα έχουμε την ευκαιρία να δουλέψουμε θέσεις και κινήσεις με περισσότερη ακρίβεια και ασφάλεια. Στόχος δεν είναι απλώς να «ανέβουμε» σε ένα ένα κατακόρυφο, αλλά να καταλάβουμε καλύτερα πώς το χτίζουμε.'
+        ],
+        googleForm: "https://docs.google.com/forms/d/e/1FAIpQLSc4t-xDpD3v1kp8RmYJiSX6odEvPCAAyYzaDH0fdpTQj7QtcA/viewform?usp=header",
     },
-    
+
 ];
 
 export type Event = typeof events[0];
