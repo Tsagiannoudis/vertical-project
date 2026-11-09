@@ -7,9 +7,8 @@ import "./globals.css";
 import ScrollToTopButton from "@/components/extraComponents/ScrollToTopButton";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 config.autoAddCss = false;
-
 
 const inter = Inter({
   subsets: ["latin"],

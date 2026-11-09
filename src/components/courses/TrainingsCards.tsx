@@ -3,49 +3,101 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function TrainingsCards() {
-    return (
-        <section className="w-full bg-[#F3F3F3]">
-            <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24 space-y-16">
-                {trainings.map((training, index) => {
-                    const isImageLeft = index % 2 === 0;
+  return (
+    <section className="w-full pb-20 sm:pb-28 bg-[#fafafa]">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+        {trainings.map((training, index) => {
+          const isEven = index % 2 === 0;
 
-                    const imageBlock = (
-                        <div className="relative w-full md:w-1/2 aspect-[960/502]">
-                            <Image
-                                src={training.image}
-                                alt={training.title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    );
+          return (
+            <article
+              key={training.slug}
+              className="group bg-white rounded-3xl overflow-hidden border border-neutral-200/80 shadow-xs hover:shadow-xl hover:border-neutral-300 transition-all duration-300"
+            >
+              <div
+                className={`flex flex-col ${
+                  isEven ? "md:flex-row" : "md:flex-row-reverse"
+                } items-stretch`}
+              >
+                {/* Image Block */}
+                <div className="relative w-full md:w-1/2 aspect-[16/10] md:aspect-auto overflow-hidden bg-neutral-100">
+                  <Image
+                    src={training.image}
+                    alt={training.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  {/* Subtle Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
 
+                {/* Text Content Block */}
+                <div className="w-full md:w-1/2 p-7 sm:p-10 lg:p-12 flex flex-col justify-between">
+                  <div>
+                    {/* Category Tag */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500 bg-neutral-100 px-2.5 py-1 rounded-md">
+                        Teacher Training
+                      </span>
+                      {training.locations && training.locations.length > 0 && (
+                        <span className="text-[11px] font-medium text-neutral-400">
+                          • {training.locations.length}{" "}
+                          {training.locations.length === 1
+                            ? "Τοποθεσία"
+                            : "Τοποθεσίες"}
+                        </span>
+                      )}
+                    </div>
 
-                    const textBlock = (
-                        <div className="md:w-1/2 w-full flex flex-col justify-center p-10 md:p-12 lg:p-16">
+                    {/* Title */}
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight group-hover:text-black transition-colors mb-3">
+                      <Link href={`/courses/${training.slug}`}>
+                        {training.title}
+                      </Link>
+                    </h3>
 
-                            <h3 className="text-2xl md:text-4xl font-bold mb-4 text-gray-800">{training.title}</h3>
-                            <hr className="border-[#f2e94e] border-2 mt-4 w-36 mb-6 mx-auto md:mx-0" />
-                            <p className="text-gray-700 mb-6 flex-grow pt-8">{training.shortDescription}</p>
+                    {/* Short Description */}
+                    <p className="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6">
+                      {training.shortDescription}
+                    </p>
+                  </div>
 
-                            <div className="mt-auto">
-                                <Link href={`/courses/${training.slug}`} className="inline-block bg-[#F2E94E] text-black font-semibold py-2 px-6 rounded-ss-2xl rounded-br-2xl hover:bg-[#b9b788] transition-colors duration-300">
-                                    Περισσότερα
-                                </Link>
-                            </div>
-                        </div>
-                    );
+                  {/* Actions / CTA */}
+                  <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
+                    <Link
+                      href={`/courses/${training.slug}`}
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-black group-hover:text-neutral-900 transition-colors"
+                    >
+                      <span>Αναλυτικο Προγραμμα</span>
+                      <svg
+                        className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </Link>
 
-                    return (
-                        <section key={training.slug} className="w-full bg-white overflow-hidden rounded-2xl shadow-lg">
-                            <div className="flex flex-col md:flex-row md:items-stretch">
-                                {isImageLeft ? imageBlock : textBlock}
-                                {isImageLeft ? textBlock : imageBlock}
-                            </div>
-                        </section>
-                    );
-                })}
-            </div>
-        </section>
-    );
+                    <Link
+                      href={`/courses/${training.slug}`}
+                      className="px-4 py-2 rounded-full font-bold text-xs tracking-wider text-black bg-[#F2E94E] hover:bg-[#3c3c3c] hover:text-white transition-all duration-300 shadow-xs"
+                    >
+                      Πληροφορίες
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 }

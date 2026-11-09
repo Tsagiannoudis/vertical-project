@@ -1,119 +1,130 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";   
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-
-const facebookIcon = <FontAwesomeIcon icon={faFacebook} />;
-const instagramIcon = <FontAwesomeIcon icon={faInstagram} />;
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export default function FooterPage() {
+  const currentYear = new Date().getFullYear();
+
+  const quickLinks = [
+    { label: "Εκπαιδευτικά", href: "/courses" },
+    { label: "Events & Workshops", href: "/events" },
+    { label: "Σχετικά με Εμάς", href: "/aboutUs" },
+    { label: "Οι απόφοιτοι μας", href: "/certified-instructors" },
+    { label: "Επικοινωνία", href: "/contact" },
+  ];
+
   return (
-    <footer className="bg-white text-black shadow-md w-11/12 lg:w-4/5 max-w-7xl align-center mx-auto rounded-2xl mt-6 p-4">
-      <div className="container mx-auto py-12 px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Column 1: Quick Links */}
-          <div className="text-center md:text-left">
-            <h4 className="font-semibold text-black mb-4">
-              Γρήγοροι σύνδεσμοι
+    <footer className="w-11/12 lg:w-4/5 max-w-7xl mx-auto mt-16 mb-8 bg-white rounded-3xl border border-neutral-200/80 shadow-lg text-neutral-800">
+      <div className="px-6 py-12 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
+          {/* Column 1: Brand & Bio (Col 1-5) */}
+          <div className="md:col-span-5 flex flex-col items-start">
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/logo-black-vertical.svg"
+                alt="Vertical Project Logo"
+                width={85}
+                height={85}
+                className="w-auto h-16 object-contain"
+              />
+            </Link>
+            <p className="text-sm text-neutral-500 leading-relaxed max-w-sm mb-6">
+              Εκπαιδευτικά προγράμματα, εξειδικευμένα σεμινάρια και
+              πιστοποιήσεις Aerial Yoga & Movement. Εξερευνήστε τη δυναμική της
+              κίνησης με ασφάλεια και έμπνευση.
+            </p>
+
+            {/* Social Media Pills */}
+            <div className="flex items-center gap-2.5">
+              <a
+                href="https://www.facebook.com/share/19vGdeV63y/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-[#3c3c3c] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="text-sm" />
+              </a>
+              <a
+                href="https://www.instagram.com/verticalproject_trainings"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-[#3c3c3c] text-neutral-600 hover:text-white flex items-center justify-center transition-all duration-200"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="text-sm" />
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Navigation Links (Col 6-8) */}
+          <div className="md:col-span-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-4">
+              Πλοήγηση
             </h4>
-            <ul className="space-y-2 text-sm inline-block text-left">
-              <li>
-                <Link href="/courses" className="hover:underline">
-                  Εκπαιδευτικά
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" className="hover:underline">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/aboutUs" className="hover:underline">
-                  Σχετικά Με Εμάς
-                </Link>
-              </li>
-              <li>
-                <Link href="/certified-instructors" className="hover:underline">
-                  Οι απόφοιτοι μας 
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:underline">
-                  Επικοινωνία
-                </Link>
-              </li>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-block text-sm text-neutral-600 hover:text-black hover:translate-x-1 transition-all duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 2: subscribe newsletter*/}
-          <div className="md:col-span-2 text-center">
-            <form action="" method="get" className="flex flex-col items-center">
-              <Image
-                src="/logo-black-vertical.svg"
-                alt="logo"
-                width={100}
-                height={100}
-              />
-              <h2 className="font-semibold text-black mb-4">
-                Εγγραφή στο Newsletter
-              </h2>
-              <div className="flex w-full max-w-sm">
+          {/* Column 3: Newsletter (Col 9-12) */}
+          <div className="md:col-span-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
+              Newsletter
+            </h4>
+            <p className="text-sm text-neutral-500 mb-4 leading-relaxed">
+              Εγγραφείτε για να μαθαίνετε πρώτοι για νέα workshops, σεμινάρια
+              και ημερομηνίες εκπαιδεύσεων.
+            </p>
+
+            {/* Modern Integrated Pill Form */}
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="relative flex items-center"
+            >
+              <div className="w-full flex items-center bg-neutral-100 rounded-full p-1.5 border border-neutral-200/60 focus-within:border-neutral-900 focus-within:bg-white transition-all">
                 <input
                   type="email"
-                  placeholder="email.."
-                  className="w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#F2E94E]"
+                  placeholder="Το email σας..."
                   required
+                  className="w-full bg-transparent px-3 text-xs sm:text-sm text-neutral-800 placeholder-neutral-400 outline-none"
                 />
                 <button
                   type="submit"
-                  className="bg-[#F2E94E] text-black p-2 rounded-r-md hover: bg-opacity-90 transition-colors"
+                  className="shrink-0 bg-[#F2E94E] hover:bg-[#3c3c3c] hover:text-white text-black text-xs font-bold px-4 py-2 rounded-full transition-all duration-200 cursor-pointer"
                 >
-                  Αποστολή
+                  Εγγραφή
                 </button>
               </div>
             </form>
           </div>
-
-          {/* Column 3: Social */}
-          <div className="text-center md:text-right">
-            <h4 className="font-semibold text-black mb-4">Ακολουθήστε μας</h4>
-            <div className="flex justify-center space-x-4 text-sm md:justify-end">
-              <ul className="text-left inline-flex">
-                <li>
-                  <a
-                    href="https://www.facebook.com/share/19vGdeV63y/?mibextid=wwXIfr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black hover:underline ml-2"
-                  >
-                    <span className="inline-block text-2xl hover:text-[#F2E94E] transition-colors">{
-                      facebookIcon}
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/verticalproject_trainings?igsh=MTR5anV0em5mbjh0cA%3D%3D&utm_source=qrfacebook.com/share/19vGdeV63y/?mibextid=wwXIfr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black hover:underline ml-2"
-                  >
-                    <span className="w-16 inline-block text-2xl hover:text-[#F2E94E] transition-colors">
-                      {instagramIcon}
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-300 pt-8 text-center text-sm">
+        {/* Bottom Bar: Copyright & Credits */}
+        <div className="mt-12 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
+          <p>© {currentYear} Vertical Project. All rights reserved.</p>
           <p>
-            © {new Date().getFullYear()} Vertical Project. All rights reserved.
-            Powered by <Link href="https://www.tsagiannoudis.gr" className="hover:underline">tSagian Projects</Link>.
+            Designed & Developed by{" "}
+            <Link
+              href="https://www.tsagiannoudis.gr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-600 hover:text-black font-medium transition-colors"
+            >
+              tSagian Projects
+            </Link>
           </p>
         </div>
       </div>

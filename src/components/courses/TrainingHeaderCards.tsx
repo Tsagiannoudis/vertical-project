@@ -1,19 +1,15 @@
 export default function TrainingsHeaderCards() {
   return (
-    <section className="w-full bg-white py-16 sm:py-24">
-      <div className="container mx-auto px-4 text-center max-w-4xl">
-        <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
-          Εκπαιδευτικά Προγράμματα για Δασκάλους
+    <section className="w-full pt-16 sm:pt-20 pb-8 sm:pb-12 bg-[#fafafa]">
+      <div className="container max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 mb-4">
+          Εκπαιδευτικά Προγράμματα Δασκάλων
         </h2>
-        <div className="flex justify-center mb-8">
-          <hr className="border-[#F2E94E] border-2 w-56" />
-        </div>
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-          Δημιουργούμε εμπειρίες μάθησης που μεταμορφώνουν — το σώμα, τη σκέψη,
-          την πρακτική σου. Κάθε εκπαιδευτικό είναι αποτέλεσμα εμβάθυνσης,
-          εμπειρίας και συνεχούς αναζήτησης. Είτε ξεκινάς τώρα, είτε θες να
-          εμβαθύνεις ή να διδάξεις, εδώ θα βρεις γερές βάσεις, σύγχρονες
-          προσεγγίσεις και έναν εκπαιδευτικό δρόμο με διάρκεια.
+        <p className="text-sm sm:text-base md:text-lg text-neutral-600 leading-relaxed max-w-3xl mx-auto">
+          Δημιουργούμε εμπειρίες μάθησης που μεταμορφώνουν το σώμα, τη σκέψη και
+          την πρακτική σας. Είτε κάνετε τα πρώτα σας βήματα στη διδασκαλία είτε
+          επιθυμείτε να εμβαθύνετε, εδώ θα βρείτε γερές βάσεις και σύγχρονες
+          προσεγγίσεις.
         </p>
       </div>
     </section>

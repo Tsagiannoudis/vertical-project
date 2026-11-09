@@ -5,6 +5,7 @@ import WelcomeSection from "@/components/home/WelcomeSection";
 import WhyToBecomeATeacher from "@/components/home/WhyToBecomeATeacher";
 import WhatWeOfferToYou from "@/components/home/WhatWeOfferToYou";
 import Instructors from "@/components/home/Instructors";
+import GraduatesSection from "@/components/home/GraduatesSection";
 import type { Metadata } from "next";
 
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Instructors />
       <WhyToBecomeATeacher />
       <WhatWeOfferToYou />
+      <GraduatesSection />
       <CallToActionContactPage />
     </main>
   );

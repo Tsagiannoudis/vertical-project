@@ -6,11 +6,11 @@ import TeamSection from "@/components/aboutUs/TeamSection";
 import CertifiedInstructorsSection from "@/components/aboutUs/CertifiedInstructorsSection";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
-  title: 'Σχετικά με εμάς | Vertical Project',
-  description: 'Γνωρίστε την ομάδα και την αποστολή του Vertical Project. Προσφέρουμε εκπαιδευτικά προγράμματα υψηλού επιπέδου σε Aerial Yoga, Handstands και πολλά άλλα.',
-}
+  title: "Σχετικά με εμάς | Vertical Project",
+  description:
+    "Γνωρίστε την ομάδα και την αποστολή του Vertical Project. Προσφέρουμε εκπαιδευτικά προγράμματα υψηλού επιπέδου σε Aerial Yoga, Handstands και πολλά άλλα.",
+};
 
 export default function AboutUsPage() {
   return (
@@ -21,11 +21,10 @@ export default function AboutUsPage() {
       {/* 3. Η ομάδα μας */}
       <TeamSection />
       {/* CTA για Πιστοποιημένους Δασκάλους */}
-      <CertifiedInstructorsSection />
       {/* 4. Η ιστορία μας */}
       {/* <HistorySection /> */}
       {/* 5. Πρόσκληση σε δράση */}
       <CallToActionCourses />
     </main>
-    );
+  );
 }

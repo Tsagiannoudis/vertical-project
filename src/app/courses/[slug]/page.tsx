@@ -9,7 +9,7 @@ import ShareButtons from "@/components/extraComponents/ShareButtons";
 import {
   trainings as courses,
   type Training as Course,
-} from "@/data/trainingCards";      // Import the courses data as trainings and type it as Course
+} from "@/data/trainingCards";
 
 async function getCourseData(slug: string): Promise<Course | undefined> {
   return courses.find((course) => course.slug === slug);
@@ -27,7 +27,6 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-
   const course = await getCourseData(slug);
 
   if (!course) {
@@ -35,8 +34,7 @@ export async function generateMetadata({
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  // Χρησιμοποιούμε την ίδια λογική επιλογής εικόνας και στα metadata
-  const displayImage =course.image;
+  const displayImage = course.image;
   const imageUrl = `${siteUrl}${displayImage}`;
 
   return {
@@ -47,7 +45,7 @@ export async function generateMetadata({
       description: course.shortDescription,
       url: `/courses/${slug}`,
       images: [
-       {
+        {
           url: imageUrl,
           width: 1200,
           height: 630,
@@ -70,203 +68,220 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
 
   if (!course) return notFound();
 
-  // Χρησιμοποιούμε όλες τις τοποθεσίες χωρίς φιλτράρισμα ημερομηνίας
   const activeLocations = course.locations;
-
   const selectedCityKey = typeof city === "string" ? city : undefined;
   const selectedCityIndex = parseInt(selectedCityKey?.split("-")[1] || "0", 10);
+  const currentLocation =
+    activeLocations[selectedCityIndex] ||
+    activeLocations[0] ||
+    course.locations[0];
 
-  // Επιλογή της τοποθεσίας βάσει του index. Αν δεν βρεθεί, παίρνουμε την πρώτη ενεργή ή την πρώτη γενικά.
-  const currentLocation = activeLocations[selectedCityIndex] || activeLocations[0] || course.locations[0];
-
-  // Καθορισμός της εικόνας και του alt text βάσει της τοποθεσίας
   const displayImage = currentLocation?.photoTraining?.[0]?.url || course.image;
   const displayAlt = currentLocation?.photoTraining?.[0]?.alt || course.title;
 
   const currentIndex = courses.findIndex((c) => c.slug === slug);
   const nextCourse =
     currentIndex !== -1 ? courses[(currentIndex + 1) % courses.length] : null;
+  const prevCourse =
+    currentIndex !== -1
+      ? courses[(currentIndex - 1 + courses.length) % courses.length]
+      : null;
 
   return (
     <>
       <HeroSectionCourses />
-      <main className="bg-[#F3F3F3]">
-        <section className="container mx-auto max-w-4xl px-4 py-16">
-          {/* Hero Section title Section + photo */}
-          <div className="relative w-full h-[300px] md:h-[1200px] bg-gray-800 mb-16 rounded-lg overflow-hidden">
+
+      <main className="bg-[#fafafa] min-h-screen py-10 sm:py-16">
+        <div className="container max-w-5xl mx-auto px-4 sm:px-6">
+          {/* Top Breadcrumb */}
+          <div className="mb-8">
+            <Link
+              href="/courses"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors group"
+            >
+              <svg
+                className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              <span>Όλα τα Εκπαιδευτικά Προγράμματα</span>
+            </Link>
+          </div>
+
+          {/* Course Header & Title */}
+          <div className="mb-10">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 mb-4">
+              {course.title}
+            </h1>
+            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl">
+              {course.shortDescription}
+            </p>
+          </div>
+
+          {/* Cinematic Hero Image */}
+          <div className="relative aspect-[16/9] max-h-[500px] w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-md border border-neutral-200/80 mb-12">
             <Image
               src={displayImage}
               alt={displayAlt}
               fill
               priority
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover object-center"
             />
           </div>
 
-          <div className="grid md:grid-cols-1 gap-16 py-16">
-            {/* Details List */}
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                {course.title}
-              </h1>
-
-              <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
-
-              <div className="space-y-4">
+          {/* Content Structure */}
+          <div className="space-y-10">
+            {/* 1. Course Details & Story */}
+            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2.5 h-6 rounded-full bg-[#F2E94E]" />
+                <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                  Σχετικά με το Πρόγραμμα
+                </h2>
+              </div>
+              <div className="prose prose-neutral max-w-none text-neutral-600 leading-relaxed text-sm sm:text-base space-y-4">
                 {course.moreDetails.map((item, index) => (
                   <p
                     key={index}
-                    className="text-gray-700 text-justify"
+                    className="leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: item }}
                   />
                 ))}
               </div>
             </div>
 
-            {/* For who specific */}
+            {/* 2. For Who Specific */}
             {course.focusOn && course.focusOn.length > 0 && (
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                  Σε ποιους απευθύνεται
-                </h2>
-                <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-2.5 h-6 rounded-full bg-[#3c3c3c]" />
+                  <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                    Σε ποιους απευθύνεται
+                  </h2>
+                </div>
 
                 {course.focusOn.map((level, index) => (
-                  <div key={index} className="mb-12">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                      {level.level}
-                    </h2>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-8">
-                      {level.targetAudienceTitle}
-                    </h3>
+                  <div key={index} className="space-y-4">
+                    {level.targetAudienceTitle && (
+                      <h3 className="text-sm font-semibold tracking-wider text-neutral-400">
+                        {level.targetAudienceTitle}
+                      </h3>
+                    )}
 
-                    <ul className="space-y-3 list-disc list-inside text-gray-700">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {level.targetAudienceList.map((item, i) => (
-                        <li
+                        <div
                           key={i}
-                          dangerouslySetInnerHTML={{ __html: item }}
-                        />
-                      ))}
-                    </ul>
-                    {level.description && (
-                      <ul className="space-y-5 mt-8">
-                        <li className="flex items-start">
-                          <div className="flex-shrink-0 mt-1 mr-3">
-                            <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
-                              <svg
-                                className="w-4 h-4 text-gray-800"
-                                stroke="currentColor"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2.5"
-                                  d="M5 13l4 4L19 7"
-                                ></path>
-                              </svg>
-                            </div>
+                          className="flex items-start gap-3 p-3.5 rounded-2xl bg-neutral-50/80 border border-neutral-200/60"
+                        >
+                          <div className="w-6 h-6 rounded-full bg-[#F2E94E] flex items-center justify-center shrink-0 text-black mt-0.5">
+                            <svg
+                              className="w-3.5 h-3.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
                           </div>
                           <p
-                            className="text-gray-700"
-                            dangerouslySetInnerHTML={{
-                              __html: level.description,
-                            }}
+                            className="text-xs sm:text-sm font-medium text-neutral-700"
+                            dangerouslySetInnerHTML={{ __html: item }}
                           />
-                        </li>
-                      </ul>
+                        </div>
+                      ))}
+                    </div>
+
+                    {level.description && (
+                      <div className="mt-4 p-4 rounded-2xl bg-neutral-50 border-l-4 border-[#F2E94E] text-xs sm:text-sm text-neutral-600">
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: level.description,
+                          }}
+                        />
+                      </div>
                     )}
                   </div>
                 ))}
               </div>
             )}
 
-            {/* What we learn */}
+            {/* 3. Learning Goals */}
             {course.learningGoals && course.learningGoals.length > 0 && (
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                  Τι θα μάθεις
-                </h2>
-                <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-2.5 h-6 rounded-full bg-[#F2E94E]" />
+                  <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                    Τι θα μάθετε
+                  </h2>
+                </div>
 
                 {course.learningGoals.map((level, index) => (
-                  <div key={index} className="mb-12">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                      {level.level}
-                    </h2>
-                    <h3 className="text-xl font-semibold text-gray-700 mb-8">
-                      {level.targetAudienceTitle}
-                    </h3>
-
-                    <ul className="space-y-3 list-disc list-inside text-gray-700">
+                  <div key={index}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {level.targetAudienceList.map((item, i) => (
-                        <li
+                        <div
                           key={i}
-                          dangerouslySetInnerHTML={{ __html: item }}
-                        />
-                      ))}
-                    </ul>
-                    {level.description && (
-                      <ul className="space-y-5 mt-8">
-                        <li className="flex items-start">
-                          <div className="flex-shrink-0 mt-1 mr-3">
-                            <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#f2e94e]">
-                              <svg
-                                className="w-4 h-4 text-gray-800"
-                                stroke="currentColor"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2.5"
-                                  d="M5 13l4 4L19 7"
-                                ></path>
-                              </svg>
-                            </div>
+                          className="flex items-start gap-3 p-3.5 rounded-2xl bg-neutral-50/80 border border-neutral-200/60"
+                        >
+                          <div className="w-6 h-6 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 text-white mt-0.5">
+                            <span className="text-[11px] font-bold">✓</span>
                           </div>
                           <p
-                            className="text-gray-700"
-                            dangerouslySetInnerHTML={{
-                              __html: level.description,
-                            }}
+                            className="text-xs sm:text-sm font-medium text-neutral-700"
+                            dangerouslySetInnerHTML={{ __html: item }}
                           />
-                        </li>
-                      </ul>
-                    )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
             )}
 
-            {/* Methology of training */}
+            {/* 4. Methodology */}
             {course.methologyTraining &&
               course.methologyTraining.length > 0 && (
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                    Μεθοδολογία Εκπαίδευσης
-                  </h2>
-
-                  <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
+                <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-2.5 h-6 rounded-full bg-[#3c3c3c]" />
+                    <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                      Μεθοδολογία Εκπαίδευσης
+                    </h2>
+                  </div>
 
                   {course.methologyTraining.map((methology, index) => (
-                    <div key={index}>
-                      <h3 className="text-xl font-semibold text-gray-700 mb-8">
-                        {methology.methologyTitle}
-                      </h3>
-                      <ul className="space-y-3 list-disc list-inside text-gray-700">
+                    <div key={index} className="space-y-4">
+                      <ul className="space-y-2.5">
                         {methology.methologyList.map((item, i) => (
                           <li
                             key={i}
-                            dangerouslySetInnerHTML={{ __html: item }}
-                          />
+                            className="flex items-start gap-3 text-xs sm:text-sm text-neutral-700"
+                          >
+                            <span className="text-neutral-400 font-bold shrink-0">
+                              •
+                            </span>
+                            <span dangerouslySetInnerHTML={{ __html: item }} />
+                          </li>
                         ))}
                       </ul>
                       {methology.methologyParagraph && (
                         <p
-                          className="text-gray-700 mt-4"
+                          className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-2"
                           dangerouslySetInnerHTML={{
                             __html: methology.methologyParagraph,
                           }}
@@ -277,69 +292,97 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
                 </div>
               )}
 
-            {/* Certification */}
+            {/* 5. Certification */}
             {course.certification &&
               course.certification.filter((c) => c.trim() !== "").length >
                 0 && (
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                    Πιστοποίηση
-                  </h2>
+                <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-2.5 h-6 rounded-full bg-[#F2E94E]" />
+                    <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                      Πιστοποίηση
+                    </h2>
+                  </div>
 
-                  <hr className="border-[#f2e94e] border-2 w-78 mb-6" />
-
-                  <div className="space-y-3 list-disc list-inside text-gray-700">
+                  <div className="space-y-3 text-xs sm:text-sm text-neutral-700 leading-relaxed">
                     {course.certification
                       .filter((c) => c.trim() !== "")
-                      .map((certification, index) => (
-                        <p
+                      .map((cert, index) => (
+                        <div
                           key={index}
-                          dangerouslySetInnerHTML={{ __html: certification }}
+                          className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200/60"
+                          dangerouslySetInnerHTML={{ __html: cert }}
                         />
                       ))}
                   </div>
                 </div>
               )}
+
+            {/* 6. Location & Dates Tabs */}
+            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-neutral-200/80 shadow-xs">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-2.5 h-6 rounded-full bg-[#3c3c3c]" />
+                <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight">
+                  Τοποθεσίες & Ημερομηνίες
+                </h2>
+              </div>
+              <CourseTab trainingSlug={slug} />
+            </div>
           </div>
 
-          {/* Tabs Location */}
-          <div>
-            <CourseTab trainingSlug={slug} />
-          </div>
-
-          {/* Share Buttons */}
-          <div className="mt-8">
+          {/* Share & Social */}
+          <div className="mt-10 flex justify-center">
             <ShareButtons />
           </div>
 
-          {/* Navigation Links */}
-          <div className="mt-16 flex flex-col sm:flex-row justify-between items-center gap-8 border-t border-gray-300 pt-8">
+          {/* Prev / Next Navigation */}
+          <div className="mt-12 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-neutral-600">
+            {prevCourse ? (
+              <Link
+                href={`/courses/${prevCourse.slug}`}
+                className="hover:text-black transition-colors flex items-center gap-2"
+              >
+                <span>&larr;</span>
+                <span className="truncate max-w-[200px]">
+                  {prevCourse.title}
+                </span>
+              </Link>
+            ) : (
+              <div />
+            )}
+
             <Link
               href="/courses"
-              className="font-semibold text-gray-700 hover:text-black transition-colors duration-300"
+              className="text-neutral-400 hover:text-black uppercase tracking-wider text-[11px]"
             >
-              &larr; Όλα τα Εκπαιδευτικά
+              Όλα τα Εκπαιδευτικά
             </Link>
 
-            {nextCourse && (
+            {nextCourse ? (
               <Link
                 href={`/courses/${nextCourse.slug}`}
-                className="font-semibold text-gray-700 hover:text-black transition-colors duration-300"
+                className="hover:text-black transition-colors flex items-center gap-2"
               >
-                Επόμενο: {nextCourse.title} &rarr;
+                <span className="truncate max-w-[200px]">
+                  {nextCourse.title}
+                </span>
+                <span>&rarr;</span>
               </Link>
+            ) : (
+              <div />
             )}
           </div>
 
-          <div className="text-center mt-16">
+          {/* Final Call to Action */}
+          <div className="text-center mt-12">
             <Link
               href="/contact"
-              className="inline-block bg-[#F2E94E] text-black font-semibold py-3 px-8 rounded-ss-2xl rounded-br-2xl hover:bg-[#b9b788] transition-colors duration-300"
+              className="inline-block bg-[#F2E94E] text-black font-bold text-xs tracking-wider py-3.5 px-8 rounded-full hover:bg-[#3c3c3c] hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
             >
               Εκδήλωση Ενδιαφέροντος
             </Link>
           </div>
-        </section>
+        </div>
       </main>
     </>
   );
