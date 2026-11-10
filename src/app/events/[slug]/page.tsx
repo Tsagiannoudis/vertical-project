@@ -218,7 +218,7 @@ const EventPage = async ({ params }: EventPageProps) => {
           </div>
 
           {/* Cinematic Hero Image */}
-          <div className="relative aspect-[16/9] max-h-[500px] w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-md border border-neutral-200/80 mb-12">
+          <div className="relative aspect-[16/9] h-[1000px] w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-md border border-neutral-200/80 mb-12">
             <Image
               src={event.image}
               alt={`Εικόνα για το workshop ${event.title}`}

@@ -269,13 +269,13 @@ export const trainings = [
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.0584604262363!2d22.962340199999996!3d40.606533799999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8399b4833d3db%3A0x8d159095d7982cea!2sAiorisis!5e0!3m2!1sel!2sgr!4v1763071615771!5m2!1sel!2sgr",
         photoTraining: [
           {
-            url: "/trainings-icons/aerial-yoga-tt-level-up-thess-10-2026.webp",
+            url: "/trainings-icons/aerial-yoga-tt-level-up-thess-01-2027.webp",
             alt: "Γυναίκα σε προχωρημένη στάση aerial yoga, τυλιγμένη σε αιώρα, με φόντο το εσωτερικό ενός στούντιο.",
           },
         ],
-        title: "Aerial Yoga TT (Θεσσαλονίκη 2025)",
+        title: "Aerial Yoga TT lvl up (Θεσσαλονίκη 2027)",
         shortDescription:
-          "Ξεκινάμε το νέο κύκλο εκπαιδευτικών για το 2025 στη Θεσσαλονίκη, στο στούντιο Αιώρησις.",
+          "Ξεκινάμε το νέο κύκλο εκπαιδευτικών για το 2027 στη Θεσσαλονίκη, στο στούντιο Αιώρησις.",
       },
     ],
   },

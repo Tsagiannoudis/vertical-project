@@ -127,14 +127,14 @@ const CoursePage = async ({ params, searchParams }: CoursePageProps) => {
           </div>
 
           {/* Cinematic Hero Image */}
-          <div className="relative aspect-[16/9] max-h-[500px] w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-md border border-neutral-200/80 mb-12">
+          <div className="relative aspect-[16/9] h-[1000px] w-full bg-neutral-900 rounded-3xl overflow-hidden shadow-md border border-neutral-200/80 mb-12">
             <Image
               src={displayImage}
               alt={displayAlt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
-              className="object-cover object-center"
+              className="object-cover object-top"
             />
           </div>
 
